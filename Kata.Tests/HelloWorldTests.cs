@@ -10,12 +10,19 @@ namespace Kata.Tests
             Assert.Equal(1, Lights.TurnOn());
             Assert.Equal(0, Lights.TurnOff());
             Assert.Equal(1, new Lights().Toggle());
-            Assert.Equal(0, new Lights().Toggle(1));
+            Assert.Equal(0, new Lights(1).Toggle(1));
         }
     }
 
     public class Lights
     {
+        private readonly int _state;
+
+        public Lights(int state = 0)
+        {
+            _state = state;
+        }
+
         public static int TurnOn()
         {
             return 1;
