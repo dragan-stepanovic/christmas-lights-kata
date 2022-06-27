@@ -21,7 +21,7 @@ namespace Kata.Tests
 
         public static int TurnOff()
         {
-            return 1;
+            return 0;
         }
     }
 }
