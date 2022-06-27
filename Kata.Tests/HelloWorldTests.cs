@@ -27,7 +27,7 @@ namespace Kata.Tests
 
         public static int Toggle()
         {
-            return 0;
+            return 1;
         }
     }
 }
