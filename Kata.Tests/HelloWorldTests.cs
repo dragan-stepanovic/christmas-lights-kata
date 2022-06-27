@@ -34,13 +34,13 @@ namespace Kata.Tests
         public int TurnOn()
         {
             _state = 1;
-            return 1;
+            return _state;
         }
 
         public int TurnOff()
         {
             _state = 0;
-            return 0;
+            return _state;
         }
 
         public int Toggle()
@@ -48,11 +48,11 @@ namespace Kata.Tests
             if (_state == 1)
             {
                 _state = 0;
-                return 0;
+                return _state;
             }
 
             _state = 1;
-            return 1;
+            return _state;
         }
 
         public static Lights TurnedOff()
