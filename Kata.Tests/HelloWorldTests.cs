@@ -23,7 +23,7 @@ namespace Kata.Tests
     {
         private int _state;
 
-        public Lights(int state)
+        private Lights(int state)
         {
             _state = state;
         }
