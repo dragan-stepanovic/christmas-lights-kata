@@ -9,12 +9,12 @@ namespace Kata.Tests
         {
             Assert.Equal(1, Lights.TurnOn());
             Assert.Equal(0, Lights.TurnOff());
-            Assert.Equal(1, Lights.Toggle());
-            Assert.Equal(0, Lights.Toggle(1));
+            Assert.Equal(1, new Lights().Toggle());
+            Assert.Equal(0, new Lights().Toggle(1));
         }
     }
 
-    public static class Lights
+    public class Lights
     {
         public static int TurnOn()
         {
@@ -26,7 +26,7 @@ namespace Kata.Tests
             return 0;
         }
 
-        public static int Toggle(int was = 0)
+        public int Toggle(int was = 0)
         {
             if (was == 1)
                 return 0;
