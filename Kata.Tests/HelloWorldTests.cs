@@ -10,7 +10,7 @@ namespace Kata.Tests
             Assert.Equal(1, Lights.TurnOn());
             Assert.Equal(0, Lights.TurnOff());
             Assert.Equal(1, new Lights().Toggle());
-            Assert.Equal(0, new Lights(1).Toggle(1));
+            Assert.Equal(0, new Lights(1).Toggle());
         }
     }
 
@@ -33,7 +33,7 @@ namespace Kata.Tests
             return 0;
         }
 
-        public int Toggle(int was = 0)
+        public int Toggle()
         {
             if (_state == 1)
                 return 0;
