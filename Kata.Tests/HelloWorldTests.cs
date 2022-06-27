@@ -21,7 +21,7 @@ namespace Kata.Tests
 
     public class Lights
     {
-        private readonly int _state;
+        private int _state;
 
         public Lights(int state)
         {
@@ -42,6 +42,7 @@ namespace Kata.Tests
         {
             if (_state == 1)
             {
+                _state = 0;
                 return 0;
             }
 
