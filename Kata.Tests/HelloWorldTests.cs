@@ -9,7 +9,7 @@ namespace Kata.Tests
         {
             var lights = new Lights(0);
             Assert.Equal(1, lights.TurnOn());
-            Assert.Equal(1, new Lights(1).TurnOn());
+            Assert.Equal(1, lights.TurnOn());
 
             Assert.Equal(0, new Lights(1).TurnOff());
             Assert.Equal(0, new Lights(0).TurnOff());
