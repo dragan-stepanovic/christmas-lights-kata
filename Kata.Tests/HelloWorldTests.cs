@@ -7,7 +7,7 @@ namespace Kata.Tests
         [Fact]
         public void TurnsOnLights()
         {
-            Assert.Equal(1, Lights.TurnOn());
+            Assert.Equal(1, new Lights(0).TurnOn());
             Assert.Equal(0, new Lights(1).TurnOff());
             Assert.Equal(1, new Lights(0).Toggle());
             Assert.Equal(0, new Lights(1).Toggle());
@@ -23,7 +23,7 @@ namespace Kata.Tests
             _state = state;
         }
 
-        public static int TurnOn()
+        public int TurnOn()
         {
             return 1;
         }
