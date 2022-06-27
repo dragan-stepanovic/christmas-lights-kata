@@ -5,7 +5,7 @@ namespace Kata.Tests
     public class HelloWorldTests
     {
         [Fact]
-        public void TurnsOnLights()
+        public void ManipulatesOneLight()
         {
             var lights = Lights.TurnedOff();
             Assert.Equal(1, lights.On());
