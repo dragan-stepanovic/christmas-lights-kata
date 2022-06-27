@@ -46,6 +46,7 @@ namespace Kata.Tests
                 return 0;
             }
 
+            _state = 1;
             return 1;
         }
     }
