@@ -8,12 +8,18 @@ namespace Kata.Tests
         public void TurnsOnLights()
         {
             Assert.Equal(1, Lights.TurnOn());
+            Assert.Equal(0, Lights.TurnOff());
         }
     }
 
     public static class Lights
     {
         public static int TurnOn()
+        {
+            return 1;
+        }
+
+        public static int TurnOff()
         {
             return 1;
         }
