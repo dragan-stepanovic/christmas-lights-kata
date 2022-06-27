@@ -8,16 +8,16 @@ namespace Kata.Tests
         public void TurnsOnLights()
         {
             var lights = Lights.TurnedOff();
-            Assert.Equal(1, lights.TurnOn());
-            Assert.Equal(1, lights.TurnOn());
+            Assert.Equal(1, lights.On());
+            Assert.Equal(1, lights.On());
 
-            Assert.Equal(0, lights.TurnOff());
-            Assert.Equal(0, lights.TurnOff());
+            Assert.Equal(0, lights.Off());
+            Assert.Equal(0, lights.Off());
 
             Assert.Equal(1, lights.Toggle());
             Assert.Equal(0, lights.Toggle());
 
-            Assert.Equal(1, lights.TurnOn());
+            Assert.Equal(1, lights.On());
             Assert.Equal(0, lights.Toggle());
         }
     }
@@ -31,13 +31,13 @@ namespace Kata.Tests
             _state = state;
         }
 
-        public int TurnOn()
+        public int On()
         {
             _state = 1;
             return _state;
         }
 
-        public int TurnOff()
+        public int Off()
         {
             _state = 0;
             return _state;
