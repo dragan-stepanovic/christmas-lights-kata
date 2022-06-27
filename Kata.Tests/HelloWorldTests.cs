@@ -15,7 +15,7 @@ namespace Kata.Tests
             Assert.Equal(0, lights.TurnOff());
 
             Assert.Equal(1, lights.Toggle());
-            Assert.Equal(0, new Lights(1).Toggle());
+            Assert.Equal(0, lights.Toggle());
         }
     }
 
