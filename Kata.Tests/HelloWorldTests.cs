@@ -33,11 +33,13 @@ namespace Kata.Tests
 
         public int TurnOn()
         {
+            _state = 1;
             return 1;
         }
 
         public int TurnOff()
         {
+            _state = 0;
             return 0;
         }
 
