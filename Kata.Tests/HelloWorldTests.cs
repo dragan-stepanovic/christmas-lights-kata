@@ -48,10 +48,12 @@ namespace Kata.Tests
             if (_state == 1)
             {
                 _state = 0;
-                return _state;
+            }
+            else
+            {
+                _state = 1;
             }
 
-            _state = 1;
             return _state;
         }
 
