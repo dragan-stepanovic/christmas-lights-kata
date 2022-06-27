@@ -41,7 +41,9 @@ namespace Kata.Tests
         public int Toggle()
         {
             if (_state == 1)
+            {
                 return 0;
+            }
 
             return 1;
         }
