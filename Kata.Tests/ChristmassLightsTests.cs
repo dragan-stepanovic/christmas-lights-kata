@@ -87,9 +87,9 @@ namespace Kata.Tests
             return new[] {0, 0};
         }
 
-        public static IEnumerable<int> ToggleTwo(IEnumerable<int> ints)
+        public static IEnumerable<int> ToggleTwo(IEnumerable<int> lights)
         {
-            if (ints.SequenceEqual(new[] {0, 0}))
+            if (lights.SequenceEqual(new[] {0, 0}))
                 return new[] {1, 1};
 
             return new[] {0, 0};
