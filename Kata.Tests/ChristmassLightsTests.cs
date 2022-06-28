@@ -72,11 +72,10 @@ namespace Kata.Tests
 
         public int Toggle()
         {
-            if (_lights[0] == 1)
-                _lights[0] = 0;
-
-            else
+            if (_lights[0] == 0)
                 _lights[0] = 1;
+            else
+                _lights[0] = 0;
 
             return _lights[0];
         }
