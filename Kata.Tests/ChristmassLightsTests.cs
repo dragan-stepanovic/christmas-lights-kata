@@ -11,8 +11,8 @@ namespace Kata.Tests
         public void ManipulatesOneLight()
         {
             var lights = new Lights(new[] {0});
-            lights.On().First().Should().Be(1);
-            lights.On().First().Should().Be(1);
+            lights.On().Should().BeEquivalentTo(new[] {1});
+            lights.On().Should().BeEquivalentTo(new[] {1});
 
             lights.Off().First().Should().Be(0);
             lights.Off().First().Should().Be(0);
@@ -56,7 +56,12 @@ namespace Kata.Tests
 
         public int[] On()
         {
-            _lights = new[] {1, 1};
+            if (_lights.Length == 1)
+                _lights = new[] {1};
+
+            else
+                _lights = new[] {1, 1};
+
             return _lights;
         }
 
