@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
@@ -8,18 +7,18 @@ namespace Kata.Tests
 {
     public class HelloWorldTests
     {
-        public static TheoryData<Lights, Func<Lights, Lights>, Lights> BeforeData =>
+        public static TheoryData<Lights, Lights> BeforeData =>
             new()
             {
-                {Lights(0, 0, 0), before => before.On(), Lights(1, 1, 1)},
-                {Lights(0, 0, 0), before => before.On(), Lights(1, 1, 1)},
-                {Lights(1, 1, 1), before => before.Off(), Lights(0, 0, 0)},
-                {Lights(0, 0, 0), before => before.Toggle(), Lights(1, 1, 1)},
-                {Lights(1, 1, 1), before => before.Toggle(), Lights(0, 0, 0)},
-                {Lights(0, 0, 0), before => before.On(), Lights(1, 1, 1)},
-                {Lights(0, 0, 0), before => before.On(), Lights(1, 1, 1)},
-                {Lights(1, 1, 1), before => before.Off(), Lights(0, 0, 0)},
-                {Lights(0, 0, 0, 0, 0), before => before.On(), Lights(1, 1, 1, 1, 1)}
+                {Lights(0, 0, 0).On(), Lights(1, 1, 1)},
+                {Lights(0, 0, 0).On(), Lights(1, 1, 1)},
+                {Lights(1, 1, 1).Off(), Lights(0, 0, 0)},
+                {Lights(0, 0, 0).Toggle(), Lights(1, 1, 1)},
+                {Lights(1, 1, 1).Toggle(), Lights(0, 0, 0)},
+                {Lights(0, 0, 0).On(), Lights(1, 1, 1)},
+                {Lights(0, 0, 0).On(), Lights(1, 1, 1)},
+                {Lights(1, 1, 1).Off(), Lights(0, 0, 0)},
+                {Lights(0, 0, 0, 0, 0).On(), Lights(1, 1, 1, 1, 1)}
             };
 
         [Fact]
@@ -61,9 +60,9 @@ namespace Kata.Tests
 
         [Theory]
         [MemberData(nameof(BeforeData))]
-        public void ManipulatesNLightsInTheSameRow(Lights before, Func<Lights, Lights> operationAppliedTo, Lights after)
+        public void ManipulatesNLightsInTheSameRow(Lights actual, Lights expected)
         {
-            operationAppliedTo(before).Should().Be(after);
+            actual.Should().Be(expected);
         }
 
         private static Lights Lights(params int[] initial)
