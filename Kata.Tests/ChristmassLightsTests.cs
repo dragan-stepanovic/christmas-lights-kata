@@ -47,17 +47,17 @@ namespace Kata.Tests
         [Fact]
         public void ManipulatesNLightsInTheSameRow()
         {
-            var lights = new Lights(new[] {0, 0, 0});
-            After(lights.On(), WeShouldHave(1, 1, 1));
-            After(lights.Off(), WeShouldHave(0, 0, 0));
-            After(lights.Toggle(), WeShouldHave(1, 1, 1));
-            After(lights.Toggle(), WeShouldHave(0, 0, 0));
-            After(lights.On(), WeShouldHave(1, 1, 1));
-            After(lights.On(), WeShouldHave(1, 1, 1));
-            After(lights.Off(), WeShouldHave(0, 0, 0));
+            var lights3 = new Lights(new[] {0, 0, 0});
+            After(lights3.On(), WeShouldHave(1, 1, 1));
+            After(lights3.Off(), WeShouldHave(0, 0, 0));
+            After(lights3.Toggle(), WeShouldHave(1, 1, 1));
+            After(lights3.Toggle(), WeShouldHave(0, 0, 0));
+            After(lights3.On(), WeShouldHave(1, 1, 1));
+            After(lights3.On(), WeShouldHave(1, 1, 1));
+            After(lights3.Off(), WeShouldHave(0, 0, 0));
 
-            lights = new Lights(new[] {0, 0, 0, 0, 0});
-            After(lights.On(), WeShouldHave(1, 1, 1, 1, 1));
+            var lights5 = new Lights(new[] {0, 0, 0, 0, 0});
+            After(lights5.On(), WeShouldHave(1, 1, 1, 1, 1));
         }
 
         private static void After(Lights actual, Lights expected)
