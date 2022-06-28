@@ -86,7 +86,12 @@ namespace Kata.Tests
 
         public IEnumerable<int> Toggle()
         {
-            return _lights.First() == 0 ? On() : Off();
+            return LightsTurnedOff() ? On() : Off();
+        }
+
+        private bool LightsTurnedOff()
+        {
+            return _lights.First() == 0;
         }
     }
 }
