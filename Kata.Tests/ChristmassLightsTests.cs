@@ -27,11 +27,6 @@ namespace Kata.Tests
             lights.Toggle().Should().BeEquivalentTo(new[] {1});
         }
 
-        private static void AssertThat(IEnumerable<int> actual, IEnumerable<int> expected)
-        {
-            actual.Should().BeEquivalentTo(expected);
-        }
-
         [Fact]
         public void ManipulatesTwoLights()
         {
@@ -48,7 +43,12 @@ namespace Kata.Tests
             AssertThat(lights.Toggle(), Is(0, 0));
         }
 
-        private int[] Is(params int[] expected)
+        private static void AssertThat(IEnumerable<int> actual, IEnumerable<int> expected)
+        {
+            actual.Should().BeEquivalentTo(expected);
+        }
+
+        private static IEnumerable<int> Is(params int[] expected)
         {
             return expected;
         }
