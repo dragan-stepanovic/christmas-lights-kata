@@ -44,12 +44,12 @@ namespace Kata.Tests
             After(lights.On(), WeShouldHave(1, 1));
         }
 
-        // [Fact]
-        // public void ManipulatesNLightsInTheSameRow()
-        // {
-        //     var lights = new Lights(new[] {0, 0, 0});
-        //     AssertThatAfter(lights.On(), WeHave(1, 1, 1));
-        // }
+        [Fact]
+        public void ManipulatesNLightsInTheSameRow()
+        {
+            var lights = new Lights(new[] {0, 0, 0});
+            After(lights.On(), WeShouldHave(1, 1, 1));
+        }
 
 
         private static void After(Lights actual, Lights expected)
