@@ -16,14 +16,14 @@ namespace Kata.Tests
             Assert.Equal(0, lights.Off()[0]);
             Assert.Equal(0, lights.Off()[0]);
 
-            Assert.Equal(1, lights.Toggle());
-            Assert.Equal(0, lights.Toggle());
+            Assert.Equal(1, lights.ToggleTwo().First());
+            Assert.Equal(0, lights.ToggleTwo().First());
 
             Assert.Equal(1, lights.On()[0]);
-            Assert.Equal(0, lights.Toggle());
+            Assert.Equal(0, lights.ToggleTwo().First());
             Assert.Equal(1, lights.On()[0]);
             Assert.Equal(0, lights.Off()[0]);
-            Assert.Equal(1, lights.Toggle());
+            Assert.Equal(1, lights.ToggleTwo().First());
         }
 
         [Fact]
@@ -68,11 +68,6 @@ namespace Kata.Tests
         {
             _lights = new[] {0, 0};
             return _lights;
-        }
-
-        public int Toggle()
-        {
-            return ToggleTwo().First();
         }
 
         public IEnumerable<int> ToggleTwo()
