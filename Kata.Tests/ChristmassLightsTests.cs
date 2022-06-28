@@ -114,7 +114,7 @@ namespace Kata.Tests
 
         public override string ToString()
         {
-            return $"{nameof(_lights)}: {_lights}";
+            return string.Join(',', _lights);
         }
     }
 }
