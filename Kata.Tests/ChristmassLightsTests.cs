@@ -31,14 +31,15 @@ namespace Kata.Tests
         {
             Assert.Equal(new[] {1, 1}, Lights.TurnOnTwo());
             Assert.Equal(new[] {0, 0}, Lights.TurnOffTwo());
-            Assert.Equal(new[] {1, 1}, Lights.ToggleTwo(Lights.New(new[] {0, 0})));
+            var lights = new Lights(new[] {0, 0});
+            Assert.Equal(new[] {1, 1}, Lights.ToggleTwo(lights._lights));
             Assert.Equal(new[] {0, 0}, Lights.ToggleTwo(new[] {1, 1}));
         }
     }
 
     public class Lights
     {
-        private readonly int[] _lights;
+        public readonly int[] _lights;
         private int _state;
 
         private Lights(int state)
@@ -46,7 +47,7 @@ namespace Kata.Tests
             _state = state;
         }
 
-        private Lights(int[] lights)
+        public Lights(int[] lights)
         {
             _lights = lights;
         }
@@ -98,8 +99,7 @@ namespace Kata.Tests
 
         public static IEnumerable<int> New(int[] lights)
         {
-            new Lights(lights);
-            return lights;
+            return new Lights(lights)._lights;
         }
     }
 }
