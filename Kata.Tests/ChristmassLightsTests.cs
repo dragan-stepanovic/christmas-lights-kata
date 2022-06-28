@@ -38,9 +38,9 @@ namespace Kata.Tests
             var lights = new Lights(new[] {0, 0});
             AssertThat(lights.On(), Is(1, 1));
             AssertThat(lights.Off(), Is(0, 0));
-            Assert.Equal(new[] {1, 1}, lights.Toggle());
-            Assert.Equal(new[] {0, 0}, lights.Toggle());
-            Assert.Equal(new[] {1, 1}, lights.Toggle());
+            AssertThat(lights.Toggle(), Is(1, 1));
+            AssertThat(lights.Toggle(), Is(0, 0));
+            AssertThat(lights.Toggle(), Is(1, 1));
             Assert.Equal(new[] {0, 0}, lights.Off());
             Assert.Equal(new[] {1, 1}, lights.Toggle());
             Assert.Equal(new[] {0, 0}, lights.Toggle());
