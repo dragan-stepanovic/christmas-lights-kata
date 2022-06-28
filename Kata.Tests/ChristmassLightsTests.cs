@@ -41,11 +41,11 @@ namespace Kata.Tests
             AssertThat(lights.Toggle(), Is(1, 1));
             AssertThat(lights.Toggle(), Is(0, 0));
             AssertThat(lights.Toggle(), Is(1, 1));
-            Assert.Equal(new[] {0, 0}, lights.Off());
-            Assert.Equal(new[] {1, 1}, lights.Toggle());
-            Assert.Equal(new[] {0, 0}, lights.Toggle());
-            Assert.Equal(new[] {1, 1}, lights.On());
-            Assert.Equal(new[] {0, 0}, lights.Toggle());
+            AssertThat(lights.Off(), Is(0, 0));
+            AssertThat(lights.Toggle(), Is(1, 1));
+            AssertThat(lights.Toggle(), Is(0, 0));
+            AssertThat(lights.On(), Is(1, 1));
+            AssertThat(lights.Toggle(), Is(0, 0));
         }
 
         private int[] Is(params int[] expected)
