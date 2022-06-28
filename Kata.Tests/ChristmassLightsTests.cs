@@ -74,12 +74,7 @@ namespace Kata.Tests
 
         public IEnumerable<int> On()
         {
-            if (_lights.Length == 1)
-                _lights = new[] {1};
-
-            else
-                _lights = new[] {1, 1};
-
+            _lights = _lights.ToList().Select(_ => 1).ToArray();
             return _lights;
         }
 
@@ -91,7 +86,7 @@ namespace Kata.Tests
 
         public IEnumerable<int> Toggle()
         {
-            if (_lights.All(l => l == 0))
+            if (_lights.First() == 0)
             {
                 if (_lights.Length == 1)
                     _lights = new[] {1};
