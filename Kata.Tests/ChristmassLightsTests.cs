@@ -49,6 +49,12 @@ namespace Kata.Tests
         {
             var lights = new Lights(new[] {0, 0, 0});
             After(lights.On(), WeShouldHave(1, 1, 1));
+            After(lights.Off(), WeShouldHave(0, 0, 0));
+            After(lights.Toggle(), WeShouldHave(1, 1, 1));
+            After(lights.Toggle(), WeShouldHave(0, 0, 0));
+            After(lights.On(), WeShouldHave(1, 1, 1));
+            After(lights.On(), WeShouldHave(1, 1, 1));
+            After(lights.Off(), WeShouldHave(0, 0, 0));
         }
 
 
