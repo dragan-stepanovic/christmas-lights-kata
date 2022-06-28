@@ -30,7 +30,7 @@ namespace Kata.Tests
         public void ManipulatesTwoLights()
         {
             Assert.Equal(new[] {1, 1}, Lights.TurnOnTwo());
-            Assert.Equal(new[] {0, 0}, TurnOff());
+            Assert.Equal(new[] {0, 0}, Lights.TurnOffTwo());
             Assert.Equal(new[] {1, 1}, Toggle(new[] {0, 0}));
             Assert.Equal(new[] {0, 0}, Toggle(new[] {1, 1}));
         }
@@ -40,11 +40,6 @@ namespace Kata.Tests
             if (ints.SequenceEqual(new[] {0, 0}))
                 return new[] {1, 1};
 
-            return new[] {0, 0};
-        }
-
-        private static int[] TurnOff()
-        {
             return new[] {0, 0};
         }
     }
@@ -88,6 +83,11 @@ namespace Kata.Tests
         public static int[] TurnOnTwo()
         {
             return new[] {1, 1};
+        }
+
+        public static int[] TurnOffTwo()
+        {
+            return new[] {0, 0};
         }
     }
 }
