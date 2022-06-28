@@ -34,13 +34,13 @@ namespace Kata.Tests
 
             var lights = new Lights(new[] {0, 0});
             Assert.Equal(new[] {1, 1}, lights.ToggleTwo());
-            Assert.Equal(new[] {0, 0}, new Lights(new[] {1, 1}).ToggleTwo());
+            Assert.Equal(new[] {0, 0}, lights.ToggleTwo());
         }
     }
 
     public class Lights
     {
-        private readonly int[] _lights;
+        private int[] _lights;
 
         private Lights(int state)
         {
@@ -93,7 +93,10 @@ namespace Kata.Tests
         public IEnumerable<int> ToggleTwo()
         {
             if (_lights.SequenceEqual(new[] {0, 0}))
-                return new[] {1, 1};
+            {
+                _lights = new[] {1, 1};
+                return _lights;
+            }
 
             return new[] {0, 0};
         }
