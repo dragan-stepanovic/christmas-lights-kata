@@ -57,7 +57,6 @@ namespace Kata.Tests
             After(lights.Off(), WeShouldHave(0, 0, 0));
         }
 
-
         private static void After(Lights actual, Lights expected)
         {
             actual.Should().Be(expected);
