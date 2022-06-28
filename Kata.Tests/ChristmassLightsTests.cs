@@ -31,16 +31,8 @@ namespace Kata.Tests
         {
             Assert.Equal(new[] {1, 1}, Lights.TurnOnTwo());
             Assert.Equal(new[] {0, 0}, Lights.TurnOffTwo());
-            Assert.Equal(new[] {1, 1}, ToggleTwo(new[] {0, 0}));
-            Assert.Equal(new[] {0, 0}, ToggleTwo(new[] {1, 1}));
-        }
-
-        private static IEnumerable<int> ToggleTwo(IEnumerable<int> ints)
-        {
-            if (ints.SequenceEqual(new[] {0, 0}))
-                return new[] {1, 1};
-
-            return new[] {0, 0};
+            Assert.Equal(new[] {1, 1}, Lights.ToggleTwo(new[] {0, 0}));
+            Assert.Equal(new[] {0, 0}, Lights.ToggleTwo(new[] {1, 1}));
         }
     }
 
@@ -87,6 +79,14 @@ namespace Kata.Tests
 
         public static int[] TurnOffTwo()
         {
+            return new[] {0, 0};
+        }
+
+        public static IEnumerable<int> ToggleTwo(IEnumerable<int> ints)
+        {
+            if (ints.SequenceEqual(new[] {0, 0}))
+                return new[] {1, 1};
+
             return new[] {0, 0};
         }
     }
