@@ -20,11 +20,11 @@ namespace Kata.Tests
             lights.Toggle().Should().BeEquivalentTo(new[] {1});
             lights.Toggle().Should().BeEquivalentTo(new[] {0});
 
-            lights.On().First().Should().Be(1);
-            lights.Toggle().First().Should().Be(0);
-            lights.On().First().Should().Be(1);
-            lights.Off().First().Should().Be(0);
-            lights.Toggle().First().Should().Be(1);
+            lights.On().Should().BeEquivalentTo(new[] {1});
+            lights.Toggle().Should().BeEquivalentTo(new[] {0});
+            lights.On().Should().BeEquivalentTo(new[] {1});
+            lights.Off().Should().BeEquivalentTo(new[] {0});
+            lights.Toggle().Should().BeEquivalentTo(new[] {1});
         }
 
         [Fact]
