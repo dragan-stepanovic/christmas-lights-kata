@@ -9,7 +9,7 @@ namespace Kata.Tests
         [Fact]
         public void ManipulatesOneLight()
         {
-            var lights = Lights.TurnedOff();
+            var lights = new Lights(new[] {0, 0});
             Assert.Equal(1, lights.On()[0]);
             Assert.Equal(1, lights.On()[0]);
 
@@ -51,11 +51,6 @@ namespace Kata.Tests
         public Lights(int[] lights)
         {
             _lights = lights;
-        }
-
-        public static Lights TurnedOff()
-        {
-            return new Lights(new[] {0, 0});
         }
 
         public int[] On()
