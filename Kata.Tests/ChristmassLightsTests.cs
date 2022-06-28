@@ -65,9 +65,9 @@ namespace Kata.Tests
 
     public class Lights
     {
-        private int[] _lights;
+        private IEnumerable<int> _lights;
 
-        public Lights(int[] lights)
+        public Lights(IEnumerable<int> lights)
         {
             _lights = lights;
         }
