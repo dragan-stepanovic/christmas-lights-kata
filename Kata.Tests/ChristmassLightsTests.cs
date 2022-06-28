@@ -39,7 +39,7 @@ namespace Kata.Tests
 
     public class Lights
     {
-        public readonly int[] _lights;
+        private readonly int[] _lights;
         private int _state;
 
         private Lights(int state)
