@@ -54,12 +54,6 @@ namespace Kata.Tests
             _lights = lights;
         }
 
-        public int On()
-        {
-            _lights[0] = 1;
-            return _lights[0];
-        }
-
         public int Off()
         {
             _lights[0] = 0;
@@ -80,6 +74,12 @@ namespace Kata.Tests
         public static Lights TurnedOff()
         {
             return new Lights(0);
+        }
+
+        public int On()
+        {
+            _lights[0] = 1;
+            return _lights[0];
         }
 
         public int[] TurnOnTwo()
