@@ -27,7 +27,7 @@ namespace Kata.Tests
             lights.Toggle().Should().BeEquivalentTo(new[] {1});
         }
 
-        private static void AssertThat(IEnumerable<int> actual, int[] expected)
+        private static void AssertThat(IEnumerable<int> actual, IEnumerable<int> expected)
         {
             actual.Should().BeEquivalentTo(expected);
         }
