@@ -52,9 +52,9 @@ namespace Kata.Tests
         // }
 
 
-        private static void AssertThatAfter(IEnumerable<int> actual, IEnumerable<int> expected)
+        private static void AssertThatAfter(Lights actual, IEnumerable<int> expected)
         {
-            new Lights(actual).Should().Be(new Lights(expected));
+            actual.Should().Be(new Lights(expected));
         }
 
         private static IEnumerable<int> WeHave(params int[] expected)
@@ -72,19 +72,19 @@ namespace Kata.Tests
             _lights = lights;
         }
 
-        public IEnumerable<int> On()
+        public Lights On()
         {
             _lights = _lights.Select(_ => 1);
-            return _lights;
+            return new Lights(_lights);
         }
 
-        public IEnumerable<int> Off()
+        public Lights Off()
         {
             _lights = _lights.Select(_ => 0);
-            return _lights;
+            return new Lights(_lights);
         }
 
-        public IEnumerable<int> Toggle()
+        public Lights Toggle()
         {
             return LightsTurnedOff() ? On() : Off();
         }
