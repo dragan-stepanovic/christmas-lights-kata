@@ -40,11 +40,9 @@ namespace Kata.Tests
     public class Lights
     {
         private readonly int[] _lights;
-        private int _state;
 
         private Lights(int state)
         {
-            _state = state;
             _lights = new[] {state, 0};
         }
 
@@ -56,28 +54,24 @@ namespace Kata.Tests
         public int On()
         {
             _lights[0] = 1;
-            _state = 1;
             return _lights[0];
         }
 
         public int Off()
         {
             _lights[0] = 0;
-            _state = 0;
             return _lights[0];
         }
 
         public int Toggle()
         {
-            if (_state == 1)
+            if (_lights[0] == 1)
             {
                 _lights[0] = 0;
-                _state = 0;
             }
             else
             {
                 _lights[0] = 1;
-                _state = 1;
             }
 
             return _lights[0];
