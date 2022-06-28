@@ -45,6 +45,11 @@ namespace Kata.Tests
             _state = state;
         }
 
+        private Lights(int[] lights)
+        {
+            return;
+        }
+
         public int On()
         {
             _state = 1;
@@ -92,6 +97,7 @@ namespace Kata.Tests
 
         public static IEnumerable<int> New(int[] ints)
         {
+            new Lights(ints);
             return ints;
         }
     }
