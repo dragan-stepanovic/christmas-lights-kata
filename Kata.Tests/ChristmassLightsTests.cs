@@ -96,10 +96,5 @@ namespace Kata.Tests
 
             return new[] {0, 0};
         }
-
-        public static IEnumerable<int> New(int[] lights)
-        {
-            return new Lights(lights)._lights;
-        }
     }
 }
