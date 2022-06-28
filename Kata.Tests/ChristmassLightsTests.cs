@@ -18,15 +18,9 @@ namespace Kata.Tests
                 {Lights(1, 1, 1), before => before.Toggle(), Lights(0, 0, 0)},
                 {Lights(0, 0, 0), before => before.On(), Lights(1, 1, 1)},
                 {Lights(0, 0, 0), before => before.On(), Lights(1, 1, 1)},
-                {Lights(0, 0, 0), before => before.On(), Lights(1, 1, 1)},
+                {Lights(1, 1, 1), before => before.Off(), Lights(0, 0, 0)},
+                {Lights(0, 0, 0, 0, 0), before => before.On(), Lights(1, 1, 1, 1, 1)}
             };
-
-        // After(lights3.On(), WeShouldHave(1, 1, 1));
-        // After(lights3.Off(), WeShouldHave(0, 0, 0));
-        //
-        // var lights5 = new Lights(new[] {0, 0, 0, 0, 0});
-        // After(lights5.On(), WeShouldHave(1, 1, 1, 1, 1));
-
 
         [Fact]
         public void ManipulatesOneLight()
@@ -69,19 +63,7 @@ namespace Kata.Tests
         [MemberData(nameof(BeforeData))]
         public void ManipulatesNLightsInTheSameRow(Lights before, Func<Lights, Lights> operation, Lights after)
         {
-            var lights3 = new Lights(new[] {0, 0, 0});
             After(operation(before), after);
-
-            After(lights3.On(), WeShouldHave(1, 1, 1));
-            After(lights3.Off(), WeShouldHave(0, 0, 0));
-            After(lights3.Toggle(), WeShouldHave(1, 1, 1));
-            After(lights3.Toggle(), WeShouldHave(0, 0, 0));
-            After(lights3.On(), WeShouldHave(1, 1, 1));
-            After(lights3.On(), WeShouldHave(1, 1, 1));
-            After(lights3.Off(), WeShouldHave(0, 0, 0));
-
-            var lights5 = new Lights(new[] {0, 0, 0, 0, 0});
-            After(lights5.On(), WeShouldHave(1, 1, 1, 1, 1));
         }
 
         private static Lights Lights(params int[] initial)
