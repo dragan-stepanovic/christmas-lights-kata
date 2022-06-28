@@ -13,11 +13,6 @@ namespace Kata.Tests
                 {Lights(0, 0, 0).On(), Lights(1, 1, 1)},
                 {Lights(0, 0, 0).On(), Lights(1, 1, 1)},
                 {Lights(1, 1, 1).Off(), Lights(0, 0, 0)},
-                {Lights(0, 0, 0).Toggle(), Lights(1, 1, 1)},
-                {Lights(1, 1, 1).Toggle(), Lights(0, 0, 0)},
-                {Lights(0, 0, 0).On(), Lights(1, 1, 1)},
-                {Lights(0, 0, 0).On(), Lights(1, 1, 1)},
-                {Lights(1, 1, 1).Off(), Lights(0, 0, 0)},
                 {Lights(0, 0, 0, 0, 0).On(), Lights(1, 1, 1, 1, 1)}
             };
 
@@ -62,6 +57,13 @@ namespace Kata.Tests
         [MemberData(nameof(BeforeData))]
         public void ManipulatesNLightsInTheSameRow(Lights actual, Lights expected)
         {
+            Lights(0, 0, 0).On().Should().Be(Lights(1, 1, 1));
+            Lights(0, 0, 0).On().Should().Be(Lights(1, 1, 1));
+            Lights(1, 1, 1).Off().Should().Be(Lights(0, 0, 0));
+            Lights(0, 0, 0).Toggle().Should().Be(Lights(1, 1, 1));
+            Lights(1, 1, 1).Toggle().Should().Be(Lights(0, 0, 0));
+
+
             actual.Should().Be(expected);
         }
 
