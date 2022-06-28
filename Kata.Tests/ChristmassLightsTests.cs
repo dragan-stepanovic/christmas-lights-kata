@@ -17,9 +17,10 @@ namespace Kata.Tests
                 {Lights(0, 0, 0), before => before.Toggle(), Lights(1, 1, 1)},
                 {Lights(1, 1, 1), before => before.Toggle(), Lights(0, 0, 0)},
                 {Lights(0, 0, 0), before => before.On(), Lights(1, 1, 1)},
+                {Lights(0, 0, 0), before => before.On(), Lights(1, 1, 1)},
+                {Lights(0, 0, 0), before => before.On(), Lights(1, 1, 1)},
             };
 
-        // After(lights3.On(), WeShouldHave(1, 1, 1));
         // After(lights3.On(), WeShouldHave(1, 1, 1));
         // After(lights3.Off(), WeShouldHave(0, 0, 0));
         //
