@@ -54,10 +54,7 @@ namespace Kata.Tests
 
         private static void AssertThatAfter(IEnumerable<int> actual, IEnumerable<int> expected)
         {
-            var newActual = new Lights(actual);
-            newActual.Should().Be(new Lights(expected));
-
-            actual.Should().BeEquivalentTo(expected);
+            new Lights(actual).Should().Be(new Lights(expected));
         }
 
         private static IEnumerable<int> WeHave(params int[] expected)
