@@ -53,6 +53,11 @@ namespace Kata.Tests
             _lights = lights;
         }
 
+        public static Lights TurnedOff()
+        {
+            return new Lights(new[] {0, 0});
+        }
+
         public int Toggle()
         {
             if (_lights[0] == 1)
@@ -62,11 +67,6 @@ namespace Kata.Tests
                 _lights[0] = 1;
 
             return _lights[0];
-        }
-
-        public static Lights TurnedOff()
-        {
-            return new Lights(new[] {0, 0});
         }
 
         public int[] On()
