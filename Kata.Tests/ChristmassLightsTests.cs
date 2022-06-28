@@ -43,11 +43,6 @@ namespace Kata.Tests
             return new[] {0, 0};
         }
 
-        private static int[] Toggle()
-        {
-            return new[] {1, 1};
-        }
-
         private static int[] TurnOff()
         {
             return new[] {0, 0};
