@@ -55,6 +55,9 @@ namespace Kata.Tests
             After(lights.On(), WeShouldHave(1, 1, 1));
             After(lights.On(), WeShouldHave(1, 1, 1));
             After(lights.Off(), WeShouldHave(0, 0, 0));
+
+            lights = new Lights(new[] {0, 0, 0, 0, 0});
+            After(lights.On(), WeShouldHave(1, 1, 1, 1, 1));
         }
 
         private static void After(Lights actual, Lights expected)
