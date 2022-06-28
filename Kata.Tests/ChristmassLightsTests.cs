@@ -77,7 +77,7 @@ namespace Kata.Tests
 
         public int On()
         {
-            _lights[0] = 1;
+            _lights = new[] {1, 1};
             return _lights[0];
         }
 
