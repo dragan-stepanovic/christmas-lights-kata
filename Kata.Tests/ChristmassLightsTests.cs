@@ -29,13 +29,14 @@ namespace Kata.Tests
         [Fact]
         public void ManipulatesTwoLights()
         {
-            Assert.Equal(new[] {1, 1}, Lights.TurnOnTwo());
-            Assert.Equal(new[] {0, 0}, Lights.TurnOffTwo());
-
             var lights = new Lights(new[] {0, 0});
+            Assert.Equal(new[] {1, 1}, lights.TurnOnTwo());
+            Assert.Equal(new[] {0, 0}, lights.TurnOffTwo());
+
             Assert.Equal(new[] {1, 1}, lights.ToggleTwo());
             Assert.Equal(new[] {0, 0}, lights.ToggleTwo());
             Assert.Equal(new[] {1, 1}, lights.ToggleTwo());
+            Assert.Equal(new[] {0, 0}, lights.TurnOffTwo());
         }
     }
 
@@ -81,12 +82,12 @@ namespace Kata.Tests
             return new Lights(0);
         }
 
-        public static int[] TurnOnTwo()
+        public int[] TurnOnTwo()
         {
             return new[] {1, 1};
         }
 
-        public static int[] TurnOffTwo()
+        public int[] TurnOffTwo()
         {
             return new[] {0, 0};
         }
