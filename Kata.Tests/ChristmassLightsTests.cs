@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using FluentAssertions;
 using Xunit;
 
 namespace Kata.Tests
@@ -10,8 +11,8 @@ namespace Kata.Tests
         public void ManipulatesOneLight()
         {
             var lights = new Lights(new[] {0});
-            Assert.Equal(1, lights.On()[0]);
-            Assert.Equal(1, lights.On()[0]);
+            lights.On().First().Should().Be(1);
+            lights.On().First().Should().Be(1);
 
             Assert.Equal(0, lights.Off()[0]);
             Assert.Equal(0, lights.Off()[0]);
