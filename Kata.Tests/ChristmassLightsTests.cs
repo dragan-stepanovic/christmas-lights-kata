@@ -48,6 +48,7 @@ namespace Kata.Tests
         public void ManipulatesNLightsInTheSameRow()
         {
             var lights3 = new Lights(new[] {0, 0, 0});
+            After(Lights(0, 0, 0).On(), WeShouldHave(1, 1, 1));
             After(lights3.On(), WeShouldHave(1, 1, 1));
             After(lights3.Off(), WeShouldHave(0, 0, 0));
             After(lights3.Toggle(), WeShouldHave(1, 1, 1));
@@ -58,6 +59,11 @@ namespace Kata.Tests
 
             var lights5 = new Lights(new[] {0, 0, 0, 0, 0});
             After(lights5.On(), WeShouldHave(1, 1, 1, 1, 1));
+        }
+
+        private static Lights Lights(params int[] initial)
+        {
+            return new Lights(initial);
         }
 
         private static void After(Lights actual, Lights expected)
