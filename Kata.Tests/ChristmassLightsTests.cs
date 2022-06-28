@@ -63,7 +63,7 @@ namespace Kata.Tests
         [MemberData(nameof(BeforeData))]
         public void ManipulatesNLightsInTheSameRow(Lights before, Func<Lights, Lights> operationAppliedTo, Lights after)
         {
-            After(operationAppliedTo(before), after);
+            operationAppliedTo(before).Should().Be(after);
         }
 
         private static Lights Lights(params int[] initial)
