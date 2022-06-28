@@ -10,8 +10,8 @@ namespace Kata.Tests
         public void ManipulatesOneLight()
         {
             var lights = Lights.TurnedOff();
-            Assert.Equal(1, lights.On());
-            Assert.Equal(1, lights.On());
+            Assert.Equal(1, lights.TurnOn()[0]);
+            Assert.Equal(1, lights.TurnOn()[0]);
 
             Assert.Equal(0, lights.Off());
             Assert.Equal(0, lights.Off());
@@ -19,9 +19,9 @@ namespace Kata.Tests
             Assert.Equal(1, lights.Toggle());
             Assert.Equal(0, lights.Toggle());
 
-            Assert.Equal(1, lights.On());
+            Assert.Equal(1, lights.TurnOn()[0]);
             Assert.Equal(0, lights.Toggle());
-            Assert.Equal(1, lights.On());
+            Assert.Equal(1, lights.TurnOn()[0]);
             Assert.Equal(0, lights.Off());
             Assert.Equal(1, lights.Toggle());
         }
@@ -30,7 +30,7 @@ namespace Kata.Tests
         public void ManipulatesTwoLights()
         {
             var lights = new Lights(new[] {0, 0});
-            Assert.Equal(new[] {1, 1}, lights.TurnOnTwo());
+            Assert.Equal(new[] {1, 1}, lights.TurnOn());
             Assert.Equal(new[] {0, 0}, lights.TurnOffTwo());
 
             Assert.Equal(new[] {1, 1}, lights.ToggleTwo());
@@ -39,7 +39,7 @@ namespace Kata.Tests
             Assert.Equal(new[] {0, 0}, lights.TurnOffTwo());
             Assert.Equal(new[] {1, 1}, lights.ToggleTwo());
             Assert.Equal(new[] {0, 0}, lights.ToggleTwo());
-            Assert.Equal(new[] {1, 1}, lights.TurnOnTwo());
+            Assert.Equal(new[] {1, 1}, lights.TurnOn());
             Assert.Equal(new[] {0, 0}, lights.ToggleTwo());
         }
     }
@@ -75,12 +75,7 @@ namespace Kata.Tests
             return new Lights(new[] {0, 0});
         }
 
-        public int On()
-        {
-            return TurnOnTwo()[0];
-        }
-
-        public int[] TurnOnTwo()
+        public int[] TurnOn()
         {
             _lights = new[] {1, 1};
             return _lights;
