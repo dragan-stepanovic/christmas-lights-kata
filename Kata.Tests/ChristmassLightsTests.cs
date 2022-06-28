@@ -89,13 +89,13 @@ namespace Kata.Tests
         public int[] TurnOnTwo()
         {
             _lights = new[] {1, 1};
-            return new[] {1, 1};
+            return _lights;
         }
 
         public int[] TurnOffTwo()
         {
             _lights = new[] {0, 0};
-            return new[] {0, 0};
+            return _lights;
         }
 
         public IEnumerable<int> ToggleTwo()
