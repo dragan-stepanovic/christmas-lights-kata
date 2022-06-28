@@ -97,7 +97,7 @@ namespace Kata.Tests
             return _lights.First() == 0;
         }
 
-        protected bool Equals(Lights other)
+        private bool Equals(Lights other)
         {
             return _lights.SequenceEqual(other._lights);
         }
@@ -106,13 +106,13 @@ namespace Kata.Tests
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != this.GetType()) return false;
+            if (obj.GetType() != GetType()) return false;
             return Equals((Lights) obj);
         }
 
         public override int GetHashCode()
         {
-            return (_lights != null ? _lights.GetHashCode() : 0);
+            return _lights != null ? _lights.GetHashCode() : 0;
         }
     }
 }
