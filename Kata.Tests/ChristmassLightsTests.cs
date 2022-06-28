@@ -54,6 +54,9 @@ namespace Kata.Tests
 
         private static void AssertThatAfter(IEnumerable<int> actual, IEnumerable<int> expected)
         {
+            var newActual = new Lights(actual);
+            newActual.Should().Be(new Lights(expected));
+
             actual.Should().BeEquivalentTo(expected);
         }
 
@@ -92,6 +95,24 @@ namespace Kata.Tests
         private bool LightsTurnedOff()
         {
             return _lights.First() == 0;
+        }
+
+        protected bool Equals(Lights other)
+        {
+            return _lights.SequenceEqual(other._lights);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Lights) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return (_lights != null ? _lights.GetHashCode() : 0);
         }
     }
 }
