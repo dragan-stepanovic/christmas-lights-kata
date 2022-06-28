@@ -85,15 +85,7 @@ namespace Kata.Tests
 
         public IEnumerable<int> Off()
         {
-            if (_lights.Length == 1)
-            {
-                _lights = new[] {0};
-            }
-            else
-            {
-                _lights = new[] {0, 0};
-            }
-
+            _lights = _lights.ToList().Select(_ => 0).ToArray();
             return _lights;
         }
 
