@@ -16,14 +16,14 @@ namespace Kata.Tests
             Assert.Equal(0, lights.Off()[0]);
             Assert.Equal(0, lights.Off()[0]);
 
-            Assert.Equal(1, lights.ToggleTwo().First());
-            Assert.Equal(0, lights.ToggleTwo().First());
+            Assert.Equal(1, lights.Toggle().First());
+            Assert.Equal(0, lights.Toggle().First());
 
             Assert.Equal(1, lights.On()[0]);
-            Assert.Equal(0, lights.ToggleTwo().First());
+            Assert.Equal(0, lights.Toggle().First());
             Assert.Equal(1, lights.On()[0]);
             Assert.Equal(0, lights.Off()[0]);
-            Assert.Equal(1, lights.ToggleTwo().First());
+            Assert.Equal(1, lights.Toggle().First());
         }
 
         [Fact]
@@ -33,14 +33,14 @@ namespace Kata.Tests
             Assert.Equal(new[] {1, 1}, lights.On());
             Assert.Equal(new[] {0, 0}, lights.Off());
 
-            Assert.Equal(new[] {1, 1}, lights.ToggleTwo());
-            Assert.Equal(new[] {0, 0}, lights.ToggleTwo());
-            Assert.Equal(new[] {1, 1}, lights.ToggleTwo());
+            Assert.Equal(new[] {1, 1}, lights.Toggle());
+            Assert.Equal(new[] {0, 0}, lights.Toggle());
+            Assert.Equal(new[] {1, 1}, lights.Toggle());
             Assert.Equal(new[] {0, 0}, lights.Off());
-            Assert.Equal(new[] {1, 1}, lights.ToggleTwo());
-            Assert.Equal(new[] {0, 0}, lights.ToggleTwo());
+            Assert.Equal(new[] {1, 1}, lights.Toggle());
+            Assert.Equal(new[] {0, 0}, lights.Toggle());
             Assert.Equal(new[] {1, 1}, lights.On());
-            Assert.Equal(new[] {0, 0}, lights.ToggleTwo());
+            Assert.Equal(new[] {0, 0}, lights.Toggle());
         }
     }
 
@@ -70,7 +70,7 @@ namespace Kata.Tests
             return _lights;
         }
 
-        public IEnumerable<int> ToggleTwo()
+        public IEnumerable<int> Toggle()
         {
             if (_lights.SequenceEqual(new[] {0, 0}))
                 _lights = new[] {1, 1};
