@@ -18,7 +18,7 @@ namespace Kata.Tests
             lights.Off().Should().BeEquivalentTo(new[] {0});
 
             lights.Toggle().Should().BeEquivalentTo(new[] {1});
-            lights.Toggle().First().Should().Be(0);
+            lights.Toggle().Should().BeEquivalentTo(new[] {0});
 
             lights.On().First().Should().Be(1);
             lights.Toggle().First().Should().Be(0);
@@ -89,8 +89,12 @@ namespace Kata.Tests
                     _lights = new[] {1, 1};
             }
             else
-
-                _lights = new[] {0, 0};
+            {
+                if (_lights.Length == 1)
+                    _lights = new[] {0};
+                else
+                    _lights = new[] {0, 0};
+            }
 
             return _lights;
         }
