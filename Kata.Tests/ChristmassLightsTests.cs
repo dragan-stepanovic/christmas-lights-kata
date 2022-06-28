@@ -48,11 +48,6 @@ namespace Kata.Tests
     {
         private int[] _lights;
 
-        private Lights(int state)
-        {
-            _lights = new[] {state, 0};
-        }
-
         public Lights(int[] lights)
         {
             _lights = lights;
@@ -77,7 +72,7 @@ namespace Kata.Tests
 
         public static Lights TurnedOff()
         {
-            return new Lights(0);
+            return new Lights(new[] {0, 0});
         }
 
         public int On()
