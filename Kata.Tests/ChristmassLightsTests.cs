@@ -11,7 +11,7 @@ namespace Kata.Tests
         public void ManipulatesOneLight()
         {
             var lights = new Lights(new[] {0});
-            lights.On().Should().BeEquivalentTo(new[] {1});
+            Equals(lights.On(), new[] {1});
             lights.On().Should().BeEquivalentTo(new[] {1});
 
             lights.Off().Should().BeEquivalentTo(new[] {0});
@@ -25,6 +25,11 @@ namespace Kata.Tests
             lights.On().Should().BeEquivalentTo(new[] {1});
             lights.Off().Should().BeEquivalentTo(new[] {0});
             lights.Toggle().Should().BeEquivalentTo(new[] {1});
+        }
+
+        private static void Equals(int[] actual, int[] expected)
+        {
+            actual.Should().BeEquivalentTo(expected);
         }
 
         [Fact]
