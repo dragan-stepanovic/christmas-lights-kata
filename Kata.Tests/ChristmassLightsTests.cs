@@ -31,11 +31,11 @@ namespace Kata.Tests
         {
             Assert.Equal(new[] {1, 1}, Lights.TurnOnTwo());
             Assert.Equal(new[] {0, 0}, Lights.TurnOffTwo());
-            Assert.Equal(new[] {1, 1}, Toggle(new[] {0, 0}));
-            Assert.Equal(new[] {0, 0}, Toggle(new[] {1, 1}));
+            Assert.Equal(new[] {1, 1}, ToggleTwo(new[] {0, 0}));
+            Assert.Equal(new[] {0, 0}, ToggleTwo(new[] {1, 1}));
         }
 
-        private static IEnumerable<int> Toggle(IEnumerable<int> ints)
+        private static IEnumerable<int> ToggleTwo(IEnumerable<int> ints)
         {
             if (ints.SequenceEqual(new[] {0, 0}))
                 return new[] {1, 1};
