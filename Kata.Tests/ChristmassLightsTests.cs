@@ -61,9 +61,9 @@ namespace Kata.Tests
 
         [Theory]
         [MemberData(nameof(BeforeData))]
-        public void ManipulatesNLightsInTheSameRow(Lights before, Func<Lights, Lights> operation, Lights after)
+        public void ManipulatesNLightsInTheSameRow(Lights before, Func<Lights, Lights> operationAppliedTo, Lights after)
         {
-            After(operation(before), after);
+            After(operationAppliedTo(before), after);
         }
 
         private static Lights Lights(params int[] initial)
