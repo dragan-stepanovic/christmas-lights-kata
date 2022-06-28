@@ -11,7 +11,7 @@ namespace Kata.Tests
         public void ManipulatesOneLight()
         {
             var lights = new Lights(new[] {0});
-            Equals(lights.On(), new[] {1});
+            Equals(lights.On(), 1);
             lights.On().Should().BeEquivalentTo(new[] {1});
 
             lights.Off().Should().BeEquivalentTo(new[] {0});
@@ -27,7 +27,7 @@ namespace Kata.Tests
             lights.Toggle().Should().BeEquivalentTo(new[] {1});
         }
 
-        private static void Equals(int[] actual, int[] expected)
+        private static void AssertThat(IEnumerable<int> actual, int[] expected)
         {
             actual.Should().BeEquivalentTo(expected);
         }
@@ -36,8 +36,8 @@ namespace Kata.Tests
         public void ManipulatesTwoLights()
         {
             var lights = new Lights(new[] {0, 0});
-            Assert.Equal(new[] {1, 1}, lights.On());
-            Assert.Equal(new[] {0, 0}, lights.Off());
+            AssertThat(lights.On(), Is(1, 1));
+            AssertThat(lights.Off(), Is(0, 0));
             Assert.Equal(new[] {1, 1}, lights.Toggle());
             Assert.Equal(new[] {0, 0}, lights.Toggle());
             Assert.Equal(new[] {1, 1}, lights.Toggle());
@@ -46,6 +46,11 @@ namespace Kata.Tests
             Assert.Equal(new[] {0, 0}, lights.Toggle());
             Assert.Equal(new[] {1, 1}, lights.On());
             Assert.Equal(new[] {0, 0}, lights.Toggle());
+        }
+
+        private int[] Is(params int[] expected)
+        {
+            return expected;
         }
     }
 
