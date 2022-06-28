@@ -18,7 +18,7 @@ namespace Kata.Tests
             lights.Off().First().Should().Be(0);
 
             lights.Toggle().First().Should().Be(1);
-            Assert.Equal(0, lights.Toggle().First());
+            lights.Toggle().First().Should().Be(0);
 
             Assert.Equal(1, lights.On()[0]);
             Assert.Equal(0, lights.Toggle().First());
