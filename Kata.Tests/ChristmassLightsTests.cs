@@ -29,6 +29,13 @@ namespace Kata.Tests
         {
             Assert.Equal(new[] {1, 1}, TurnOn());
             Assert.Equal(new[] {0, 0}, TurnOff());
+            Assert.Equal(new[] {1, 1}, Toggle());
+            Assert.Equal(new[] {0, 0}, Toggle());
+        }
+
+        private static int[] Toggle()
+        {
+            return new[] {1, 1};
         }
 
         private static int[] TurnOff()
