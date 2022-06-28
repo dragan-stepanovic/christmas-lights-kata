@@ -33,14 +33,15 @@ namespace Kata.Tests
             var lights = new Lights(new[] {0, 0});
             AssertThatAfter(lights.On(), WeHave(1, 1));
             AssertThatAfter(lights.Off(), WeHave(0, 0));
+
             AssertThatAfter(lights.Toggle(), WeHave(1, 1));
             AssertThatAfter(lights.Toggle(), WeHave(0, 0));
             AssertThatAfter(lights.Toggle(), WeHave(1, 1));
+
             AssertThatAfter(lights.Off(), WeHave(0, 0));
             AssertThatAfter(lights.Toggle(), WeHave(1, 1));
             AssertThatAfter(lights.Toggle(), WeHave(0, 0));
             AssertThatAfter(lights.On(), WeHave(1, 1));
-            AssertThatAfter(lights.Toggle(), WeHave(0, 0));
         }
 
         private static void AssertThatAfter(IEnumerable<int> actual, IEnumerable<int> expected)
