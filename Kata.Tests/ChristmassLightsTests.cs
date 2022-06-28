@@ -23,6 +23,11 @@ namespace Kata.Tests
             Assert.Equal(0, lights.Off());
             Assert.Equal(1, lights.Toggle());
         }
+
+        [Fact]
+        public void ManipulatesTwoLights()
+        {
+        }
     }
 
     public class Lights
