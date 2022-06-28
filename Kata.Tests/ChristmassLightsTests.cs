@@ -111,5 +111,10 @@ namespace Kata.Tests
         {
             return _lights != null ? _lights.GetHashCode() : 0;
         }
+
+        public override string ToString()
+        {
+            return $"{nameof(_lights)}: {_lights}";
+        }
     }
 }
