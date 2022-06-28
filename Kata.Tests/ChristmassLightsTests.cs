@@ -27,7 +27,13 @@ namespace Kata.Tests
         [Fact]
         public void ManipulatesTwoLights()
         {
-            Assert.Equal(new[] {1, 1}, new[] {1, 1});
+            Assert.Equal(new[] {1, 1}, TurnOn());
+            Assert.Equal(new[] {0, 0}, new[] {0, 0});
+        }
+
+        private static int[] TurnOn()
+        {
+            return new[] {1, 1};
         }
     }
 
