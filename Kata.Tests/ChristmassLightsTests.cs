@@ -10,19 +10,19 @@ namespace Kata.Tests
         public void ManipulatesOneLight()
         {
             var lights = Lights.TurnedOff();
-            Assert.Equal(1, lights.TurnOn()[0]);
-            Assert.Equal(1, lights.TurnOn()[0]);
+            Assert.Equal(1, lights.On()[0]);
+            Assert.Equal(1, lights.On()[0]);
 
-            Assert.Equal(0, lights.Off());
-            Assert.Equal(0, lights.Off());
+            Assert.Equal(0, lights.Off()[0]);
+            Assert.Equal(0, lights.Off()[0]);
 
             Assert.Equal(1, lights.Toggle());
             Assert.Equal(0, lights.Toggle());
 
-            Assert.Equal(1, lights.TurnOn()[0]);
+            Assert.Equal(1, lights.On()[0]);
             Assert.Equal(0, lights.Toggle());
-            Assert.Equal(1, lights.TurnOn()[0]);
-            Assert.Equal(0, lights.Off());
+            Assert.Equal(1, lights.On()[0]);
+            Assert.Equal(0, lights.Off()[0]);
             Assert.Equal(1, lights.Toggle());
         }
 
@@ -30,16 +30,16 @@ namespace Kata.Tests
         public void ManipulatesTwoLights()
         {
             var lights = new Lights(new[] {0, 0});
-            Assert.Equal(new[] {1, 1}, lights.TurnOn());
-            Assert.Equal(new[] {0, 0}, lights.TurnOffTwo());
+            Assert.Equal(new[] {1, 1}, lights.On());
+            Assert.Equal(new[] {0, 0}, lights.Off());
 
             Assert.Equal(new[] {1, 1}, lights.ToggleTwo());
             Assert.Equal(new[] {0, 0}, lights.ToggleTwo());
             Assert.Equal(new[] {1, 1}, lights.ToggleTwo());
-            Assert.Equal(new[] {0, 0}, lights.TurnOffTwo());
+            Assert.Equal(new[] {0, 0}, lights.Off());
             Assert.Equal(new[] {1, 1}, lights.ToggleTwo());
             Assert.Equal(new[] {0, 0}, lights.ToggleTwo());
-            Assert.Equal(new[] {1, 1}, lights.TurnOn());
+            Assert.Equal(new[] {1, 1}, lights.On());
             Assert.Equal(new[] {0, 0}, lights.ToggleTwo());
         }
     }
@@ -64,24 +64,18 @@ namespace Kata.Tests
             return _lights[0];
         }
 
-        public int Off()
-        {
-            _lights[0] = 0;
-            return _lights[0];
-        }
-
         public static Lights TurnedOff()
         {
             return new Lights(new[] {0, 0});
         }
 
-        public int[] TurnOn()
+        public int[] On()
         {
             _lights = new[] {1, 1};
             return _lights;
         }
 
-        public int[] TurnOffTwo()
+        public int[] Off()
         {
             _lights = new[] {0, 0};
             return _lights;
