@@ -86,22 +86,7 @@ namespace Kata.Tests
 
         public IEnumerable<int> Toggle()
         {
-            if (_lights.First() == 0)
-            {
-                if (_lights.Length == 1)
-                    _lights = new[] {1};
-                else
-                    _lights = new[] {1, 1};
-            }
-            else
-            {
-                if (_lights.Length == 1)
-                    _lights = new[] {0};
-                else
-                    _lights = new[] {0, 0};
-            }
-
-            return _lights;
+            return _lights.First() == 0 ? On() : Off();
         }
     }
 }
