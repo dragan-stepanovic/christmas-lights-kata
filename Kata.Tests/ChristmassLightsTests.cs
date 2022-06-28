@@ -44,6 +44,14 @@ namespace Kata.Tests
             AssertThatAfter(lights.On(), WeHave(1, 1));
         }
 
+        // [Fact]
+        // public void ManipulatesNLightsInTheSameRow()
+        // {
+        //     var lights = new Lights(new[] {0, 0, 0});
+        //     AssertThatAfter(lights.On(), WeHave(1, 1, 1));
+        // }
+
+
         private static void AssertThatAfter(IEnumerable<int> actual, IEnumerable<int> expected)
         {
             actual.Should().BeEquivalentTo(expected);
