@@ -58,17 +58,6 @@ namespace Kata.Tests
             return new Lights(new[] {0, 0});
         }
 
-        public int Toggle()
-        {
-            if (_lights[0] == 1)
-                _lights[0] = 0;
-
-            else
-                _lights[0] = 1;
-
-            return _lights[0];
-        }
-
         public int[] On()
         {
             _lights = new[] {1, 1};
@@ -79,6 +68,17 @@ namespace Kata.Tests
         {
             _lights = new[] {0, 0};
             return _lights;
+        }
+
+        public int Toggle()
+        {
+            if (_lights[0] == 1)
+                _lights[0] = 0;
+
+            else
+                _lights[0] = 1;
+
+            return _lights[0];
         }
 
         public IEnumerable<int> ToggleTwo()
