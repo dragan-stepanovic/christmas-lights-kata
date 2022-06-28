@@ -38,6 +38,7 @@ namespace Kata.Tests
 
     public class Lights
     {
+        private readonly int[] _lights;
         private int _state;
 
         private Lights(int state)
@@ -47,7 +48,7 @@ namespace Kata.Tests
 
         private Lights(int[] lights)
         {
-            return;
+            _lights = lights;
         }
 
         public int On()
