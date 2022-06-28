@@ -11,37 +11,37 @@ namespace Kata.Tests
         public void ManipulatesOneLight()
         {
             var lights = new Lights(new[] {0});
-            AssertThatAfter(lights.On(), WeHave(1));
-            AssertThatAfter(lights.On(), WeHave(1));
+            After(lights.On(), WeShouldHave(1));
+            After(lights.On(), WeShouldHave(1));
 
-            AssertThatAfter(lights.Off(), WeHave(0));
-            AssertThatAfter(lights.Off(), WeHave(0));
+            After(lights.Off(), WeShouldHave(0));
+            After(lights.Off(), WeShouldHave(0));
 
-            AssertThatAfter(lights.Toggle(), WeHave(1));
-            AssertThatAfter(lights.Toggle(), WeHave(0));
+            After(lights.Toggle(), WeShouldHave(1));
+            After(lights.Toggle(), WeShouldHave(0));
 
-            AssertThatAfter(lights.On(), WeHave(1));
-            AssertThatAfter(lights.Toggle(), WeHave(0));
-            AssertThatAfter(lights.On(), WeHave(1));
-            AssertThatAfter(lights.Off(), WeHave(0));
-            AssertThatAfter(lights.Toggle(), WeHave(1));
+            After(lights.On(), WeShouldHave(1));
+            After(lights.Toggle(), WeShouldHave(0));
+            After(lights.On(), WeShouldHave(1));
+            After(lights.Off(), WeShouldHave(0));
+            After(lights.Toggle(), WeShouldHave(1));
         }
 
         [Fact]
         public void ManipulatesTwoLights()
         {
             var lights = new Lights(new[] {0, 0});
-            AssertThatAfter(lights.On(), WeHave(1, 1));
-            AssertThatAfter(lights.Off(), WeHave(0, 0));
+            After(lights.On(), WeShouldHave(1, 1));
+            After(lights.Off(), WeShouldHave(0, 0));
 
-            AssertThatAfter(lights.Toggle(), WeHave(1, 1));
-            AssertThatAfter(lights.Toggle(), WeHave(0, 0));
-            AssertThatAfter(lights.Toggle(), WeHave(1, 1));
+            After(lights.Toggle(), WeShouldHave(1, 1));
+            After(lights.Toggle(), WeShouldHave(0, 0));
+            After(lights.Toggle(), WeShouldHave(1, 1));
 
-            AssertThatAfter(lights.Off(), WeHave(0, 0));
-            AssertThatAfter(lights.Toggle(), WeHave(1, 1));
-            AssertThatAfter(lights.Toggle(), WeHave(0, 0));
-            AssertThatAfter(lights.On(), WeHave(1, 1));
+            After(lights.Off(), WeShouldHave(0, 0));
+            After(lights.Toggle(), WeShouldHave(1, 1));
+            After(lights.Toggle(), WeShouldHave(0, 0));
+            After(lights.On(), WeShouldHave(1, 1));
         }
 
         // [Fact]
@@ -52,12 +52,12 @@ namespace Kata.Tests
         // }
 
 
-        private static void AssertThatAfter(Lights actual, Lights expected)
+        private static void After(Lights actual, Lights expected)
         {
             actual.Should().Be(expected);
         }
 
-        private static Lights WeHave(params int[] expected)
+        private static Lights WeShouldHave(params int[] expected)
         {
             return new Lights(expected);
         }
