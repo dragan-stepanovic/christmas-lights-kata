@@ -9,7 +9,22 @@ namespace Kata.Tests
     public class HelloWorldTests
     {
         public static TheoryData<Lights, Func<Lights, Lights>, Lights> BeforeData =>
-            new() {{Lights(0, 0, 0), before => before.On(), Lights(1, 1, 1)}};
+            new()
+            {
+                {Lights(0, 0, 0), before => before.On(), Lights(1, 1, 1)},
+                {Lights(0, 0, 0), before => before.On(), Lights(1, 1, 1)},
+                {Lights(1, 1, 1), before => before.Off(), Lights(0, 0, 0)},
+                {Lights(0, 0, 0), before => before.Toggle(), Lights(1, 1, 1)},
+            };
+
+        // After(lights3.Toggle(), WeShouldHave(0, 0, 0));
+        // After(lights3.On(), WeShouldHave(1, 1, 1));
+        // After(lights3.On(), WeShouldHave(1, 1, 1));
+        // After(lights3.Off(), WeShouldHave(0, 0, 0));
+        //
+        // var lights5 = new Lights(new[] {0, 0, 0, 0, 0});
+        // After(lights5.On(), WeShouldHave(1, 1, 1, 1, 1));
+
 
         [Fact]
         public void ManipulatesOneLight()
