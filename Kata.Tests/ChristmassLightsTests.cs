@@ -33,6 +33,7 @@ namespace Kata.Tests
             Assert.Equal(new[] {0, 0}, TurnOff());
             Assert.Equal(new[] {1, 1}, Toggle(new[] {0, 0}));
             Assert.Equal(new[] {0, 0}, Toggle(new[] {1, 1}));
+            Assert.Equal(new[] {0, 0}, TurnOff(new[] {0, 0}));
         }
 
         private static IEnumerable<int> Toggle(IEnumerable<int> ints)
@@ -43,7 +44,7 @@ namespace Kata.Tests
             return new[] {0, 0};
         }
 
-        private static int[] TurnOff()
+        private static int[] TurnOff(int[] ints = null)
         {
             return new[] {0, 0};
         }
