@@ -122,7 +122,7 @@ namespace Kata.Tests
 
         public override string ToString()
         {
-            return string.Join(',', _lights);
+            return string.Join(", ", _lights);
         }
     }
 }
