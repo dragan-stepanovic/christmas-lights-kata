@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Xunit;
 
 namespace Kata.Tests
@@ -30,7 +31,12 @@ namespace Kata.Tests
             Assert.Equal(new[] {1, 1}, TurnOn());
             Assert.Equal(new[] {0, 0}, TurnOff());
             Assert.Equal(new[] {1, 1}, Toggle());
-            Assert.Equal(new[] {0, 0}, Toggle());
+            Assert.Equal(new[] {0, 0}, Toggle(new[] {1, 1}));
+        }
+
+        private static IEnumerable<int> Toggle(int[] ints)
+        {
+            return new[] {0, 0};
         }
 
         private static int[] Toggle()
