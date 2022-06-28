@@ -7,6 +7,8 @@ namespace Kata.Tests
 {
     public class HelloWorldTests
     {
+        public static TheoryData<Lights, Lights> BeforeData => new() {{Lights(0, 0, 0), Lights(1, 1, 1)}};
+
         [Fact]
         public void ManipulatesOneLight()
         {
@@ -44,11 +46,12 @@ namespace Kata.Tests
             After(lights.On(), WeShouldHave(1, 1));
         }
 
-        [Fact]
-        public void ManipulatesNLightsInTheSameRow()
+        [Theory]
+        [MemberData(nameof(BeforeData))]
+        public void ManipulatesNLightsInTheSameRow(Lights before, Lights after)
         {
             var lights3 = new Lights(new[] {0, 0, 0});
-            After(Lights(0, 0, 0).On(), WeShouldHave(1, 1, 1));
+            After(before.On(), after);
             After(lights3.On(), WeShouldHave(1, 1, 1));
             After(lights3.Off(), WeShouldHave(0, 0, 0));
             After(lights3.Toggle(), WeShouldHave(1, 1, 1));
