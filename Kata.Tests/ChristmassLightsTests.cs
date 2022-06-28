@@ -72,7 +72,7 @@ namespace Kata.Tests
             _lights = lights;
         }
 
-        public int[] On()
+        public IEnumerable<int> On()
         {
             if (_lights.Length == 1)
                 _lights = new[] {1};
@@ -83,7 +83,7 @@ namespace Kata.Tests
             return _lights;
         }
 
-        public int[] Off()
+        public IEnumerable<int> Off()
         {
             if (_lights.Length == 1)
             {
