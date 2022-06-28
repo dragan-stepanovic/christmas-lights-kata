@@ -31,24 +31,24 @@ namespace Kata.Tests
         public void ManipulatesTwoLights()
         {
             var lights = new Lights(new[] {0, 0});
-            AssertThat(lights.On(), Is(1, 1));
-            AssertThat(lights.Off(), Is(0, 0));
-            AssertThat(lights.Toggle(), Is(1, 1));
-            AssertThat(lights.Toggle(), Is(0, 0));
-            AssertThat(lights.Toggle(), Is(1, 1));
-            AssertThat(lights.Off(), Is(0, 0));
-            AssertThat(lights.Toggle(), Is(1, 1));
-            AssertThat(lights.Toggle(), Is(0, 0));
-            AssertThat(lights.On(), Is(1, 1));
-            AssertThat(lights.Toggle(), Is(0, 0));
+            AssertThatAfter(lights.On(), WeHave(1, 1));
+            AssertThatAfter(lights.Off(), WeHave(0, 0));
+            AssertThatAfter(lights.Toggle(), WeHave(1, 1));
+            AssertThatAfter(lights.Toggle(), WeHave(0, 0));
+            AssertThatAfter(lights.Toggle(), WeHave(1, 1));
+            AssertThatAfter(lights.Off(), WeHave(0, 0));
+            AssertThatAfter(lights.Toggle(), WeHave(1, 1));
+            AssertThatAfter(lights.Toggle(), WeHave(0, 0));
+            AssertThatAfter(lights.On(), WeHave(1, 1));
+            AssertThatAfter(lights.Toggle(), WeHave(0, 0));
         }
 
-        private static void AssertThat(IEnumerable<int> actual, IEnumerable<int> expected)
+        private static void AssertThatAfter(IEnumerable<int> actual, IEnumerable<int> expected)
         {
             actual.Should().BeEquivalentTo(expected);
         }
 
-        private static IEnumerable<int> Is(params int[] expected)
+        private static IEnumerable<int> WeHave(params int[] expected)
         {
             return expected;
         }
