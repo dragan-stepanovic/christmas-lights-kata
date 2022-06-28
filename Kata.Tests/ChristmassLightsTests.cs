@@ -20,11 +20,11 @@ namespace Kata.Tests
             AssertThatAfter(lights.Toggle(), WeHave(1));
             AssertThatAfter(lights.Toggle(), WeHave(0));
 
-            lights.On().Should().BeEquivalentTo(new[] {1});
-            lights.Toggle().Should().BeEquivalentTo(new[] {0});
-            lights.On().Should().BeEquivalentTo(new[] {1});
-            lights.Off().Should().BeEquivalentTo(new[] {0});
-            lights.Toggle().Should().BeEquivalentTo(new[] {1});
+            AssertThatAfter(lights.On(), WeHave(1));
+            AssertThatAfter(lights.Toggle(), WeHave(0));
+            AssertThatAfter(lights.On(), WeHave(1));
+            AssertThatAfter(lights.Off(), WeHave(0));
+            AssertThatAfter(lights.Toggle(), WeHave(1));
         }
 
         [Fact]
