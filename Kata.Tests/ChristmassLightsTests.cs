@@ -94,13 +94,9 @@ namespace Kata.Tests
         public IEnumerable<int> ToggleTwo()
         {
             if (_lights.SequenceEqual(new[] {0, 0}))
-            {
                 _lights = new[] {1, 1};
-            }
             else
-            {
                 _lights = new[] {0, 0};
-            }
 
             return _lights;
         }
