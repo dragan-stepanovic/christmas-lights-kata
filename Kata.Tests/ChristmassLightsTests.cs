@@ -17,7 +17,7 @@ namespace Kata.Tests
             lights.Off().Should().BeEquivalentTo(new[] {0});
             lights.Off().Should().BeEquivalentTo(new[] {0});
 
-            lights.Toggle().First().Should().Be(1);
+            lights.Toggle().Should().BeEquivalentTo(new[] {1});
             lights.Toggle().First().Should().Be(0);
 
             lights.On().First().Should().Be(1);
@@ -82,8 +82,14 @@ namespace Kata.Tests
         public IEnumerable<int> Toggle()
         {
             if (_lights.All(l => l == 0))
-                _lights = new[] {1, 1};
+            {
+                if (_lights.Length == 1)
+                    _lights = new[] {1};
+                else
+                    _lights = new[] {1, 1};
+            }
             else
+
                 _lights = new[] {0, 0};
 
             return _lights;
