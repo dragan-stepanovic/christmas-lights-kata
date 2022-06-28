@@ -74,13 +74,13 @@ namespace Kata.Tests
 
         public IEnumerable<int> On()
         {
-            _lights = _lights.ToList().Select(_ => 1).ToArray();
+            _lights = _lights.Select(_ => 1).ToArray();
             return _lights;
         }
 
         public IEnumerable<int> Off()
         {
-            _lights = _lights.ToList().Select(_ => 0).ToArray();
+            _lights = _lights.Select(_ => 0).ToArray();
             return _lights;
         }
 
