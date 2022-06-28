@@ -35,7 +35,7 @@ namespace Kata.Tests
             Assert.Equal(new[] {0, 0}, Toggle(new[] {1, 1}));
         }
 
-        private static IEnumerable<int> Toggle(int[] ints)
+        private static IEnumerable<int> Toggle(IEnumerable<int> ints)
         {
             if (ints.SequenceEqual(new[] {0, 0}))
                 return new[] {1, 1};
