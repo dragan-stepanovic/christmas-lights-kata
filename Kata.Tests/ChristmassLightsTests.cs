@@ -96,10 +96,10 @@ namespace Kata.Tests
 
         public Lights Toggle()
         {
-            return LightsTurnedOff() ? On() : Off();
+            return TurnedOff() ? On() : Off();
         }
 
-        private bool LightsTurnedOff()
+        private bool TurnedOff()
         {
             return _lights.First() == 0;
         }
