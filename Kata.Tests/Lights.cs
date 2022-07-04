@@ -37,7 +37,7 @@ namespace Kata.Tests
 
         private bool Equals(Lights that)
         {
-            Copy();
+            CopyParallelFields();
 
             if (that._lights.Length != _lights2D.GetLength(0))
                 return false;
@@ -49,7 +49,7 @@ namespace Kata.Tests
             return true;
         }
 
-        private void Copy()
+        private void CopyParallelFields()
         {
             _lights2D = new int[_lights.Length, 1];
             for (var i = 0; i < _lights2D.GetLength(0); i++)
