@@ -39,7 +39,7 @@ namespace Kata.Tests
         private bool TurnedOff()
         {
             //todo: assumption is that all lights have the same value; listing assumptions is good to incrementally grow the solution
-            return _lights.First() == 0;
+            return _lights2D[0, 0] == 0;
         }
 
         private bool Equals(Lights that)
