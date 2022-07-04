@@ -2,7 +2,6 @@ namespace Kata.Tests
 {
     public class Lights
     {
-        private readonly int[] _lights;
         private int[,] _lights2D;
 
         public Lights(int[] lights)
