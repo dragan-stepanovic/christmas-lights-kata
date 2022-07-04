@@ -9,8 +9,7 @@ namespace Kata.Tests
 
         public Lights(int[] lights)
         {
-            _lights = lights;
-            CopyParallelArrays();
+            CopyParallelArrays(lights);
         }
 
         public Lights On()
@@ -52,11 +51,11 @@ namespace Kata.Tests
             return true;
         }
 
-        private void CopyParallelArrays()
+        private void CopyParallelArrays(int[] lights)
         {
-            _lights2D = new int[_lights.Length, 1];
+            _lights2D = new int[lights.Length, 1];
             for (var i = 0; i < _lights2D.GetLength(0); i++)
-                _lights2D[i, 0] = _lights[i];
+                _lights2D[i, 0] = lights[i];
         }
 
         public override bool Equals(object obj)
