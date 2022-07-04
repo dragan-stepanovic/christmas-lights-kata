@@ -33,14 +33,27 @@ namespace Kata.Tests
             return _lights.First() == 0;
         }
 
-        private bool Equals(Lights other)
+        private bool Equals(Lights that)
         {
             var lights2D = new int[_lights.Length, 1];
             for (var i = 0; i < _lights.Length; i++)
                 lights2D[i, 0] = _lights[i];
+
+
+            if (that._lights.Length != lights2D.GetLength(0))
+            {
+                return false;
+            }
             
-            
-            return _lights.SequenceEqual(other._lights);
+            for (int i = 0; i < lights2D.GetLength(0); i++)
+            {
+                if (lights2D[i, 0] != that._lights[i])
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public override bool Equals(object obj)
