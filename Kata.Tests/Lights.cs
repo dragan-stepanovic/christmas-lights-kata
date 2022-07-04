@@ -5,7 +5,7 @@ namespace Kata.Tests
     public class Lights
     {
         private int[] _lights;
-        private int[,] lights2D;
+        private int[,] _lights2D;
 
         public Lights(int[] lights)
         {
@@ -37,15 +37,15 @@ namespace Kata.Tests
 
         private bool Equals(Lights that)
         {
-            lights2D = new int[_lights.Length, 1];
-            for (var i = 0; i < lights2D.GetLength(0); i++)
-                lights2D[i, 0] = _lights[i];
+            _lights2D = new int[_lights.Length, 1];
+            for (var i = 0; i < _lights2D.GetLength(0); i++)
+                _lights2D[i, 0] = _lights[i];
 
-            if (that._lights.Length != lights2D.GetLength(0))
+            if (that._lights.Length != _lights2D.GetLength(0))
                 return false;
 
-            for (var i = 0; i < lights2D.GetLength(0); i++)
-                if (lights2D[i, 0] != that._lights[i])
+            for (var i = 0; i < _lights2D.GetLength(0); i++)
+                if (_lights2D[i, 0] != that._lights[i])
                     return false;
 
             return true;
