@@ -40,11 +40,9 @@ namespace Kata.Tests
                 lights2D[i, 0] = _lights[i];
 
             if (that._lights.Length != lights2D.GetLength(0))
-            {
                 return false;
-            }
 
-            for (int i = 0; i < lights2D.GetLength(0); i++)
+            for (var i = 0; i < lights2D.GetLength(0); i++)
             {
                 if (lights2D[i, 0] != that._lights[i])
                 {
