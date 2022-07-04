@@ -15,7 +15,6 @@ namespace Kata.Tests
 
         public Lights On()
         {
-            _lights = _lights.Select(_ => 1).ToArray();
             for (var i = 0; i < _lights2D.GetLength(0); i++)
                 _lights2D[i, 0] = 1;
 
@@ -24,7 +23,6 @@ namespace Kata.Tests
 
         public Lights Off()
         {
-            _lights = _lights.Select(_ => 0).ToArray();
             for (var i = 0; i < _lights2D.GetLength(0); i++)
                 _lights2D[i, 0] = 0;
 
