@@ -37,9 +37,7 @@ namespace Kata.Tests
 
         private bool Equals(Lights that)
         {
-            _lights2D = new int[_lights.Length, 1];
-            for (var i = 0; i < _lights2D.GetLength(0); i++)
-                _lights2D[i, 0] = _lights[i];
+            Copy();
 
             if (that._lights.Length != _lights2D.GetLength(0))
                 return false;
@@ -49,6 +47,13 @@ namespace Kata.Tests
                     return false;
 
             return true;
+        }
+
+        private void Copy()
+        {
+            _lights2D = new int[_lights.Length, 1];
+            for (var i = 0; i < _lights2D.GetLength(0); i++)
+                _lights2D[i, 0] = _lights[i];
         }
 
         public override bool Equals(object obj)
