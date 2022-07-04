@@ -10,6 +10,7 @@ namespace Kata.Tests
         public Lights(int[] lights)
         {
             _lights = lights;
+            CopyParallelArrays();
         }
 
         public Lights On()
