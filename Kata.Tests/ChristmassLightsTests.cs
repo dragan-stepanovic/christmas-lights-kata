@@ -81,6 +81,7 @@ namespace Kata.Tests
         public Lights(int[] lights)
         {
             _lights = lights;
+
             _lights2D = new int[_lights.Length, 1];
             for (var i = 0; i < _lights.Length; i++)
                 _lights2D[i, 0] = _lights[i];
