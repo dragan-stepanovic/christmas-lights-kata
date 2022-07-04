@@ -10,10 +10,6 @@ namespace Kata.Tests
         public Lights(int[] lights)
         {
             _lights = lights;
-
-            _lights2D = new int[_lights.Length, 1];
-            for (var i = 0; i < _lights.Length; i++)
-                _lights2D[i, 0] = _lights[i];
         }
 
         public Lights On()
@@ -40,6 +36,10 @@ namespace Kata.Tests
 
         private bool Equals(Lights other)
         {
+            _lights2D = new int[_lights.Length, 1];
+            for (var i = 0; i < _lights.Length; i++)
+                _lights2D[i, 0] = _lights[i];
+            
             return _lights.SequenceEqual(other._lights);
         }
 
