@@ -1,5 +1,3 @@
-using System.Linq;
-
 namespace Kata.Tests
 {
     public class Lights
