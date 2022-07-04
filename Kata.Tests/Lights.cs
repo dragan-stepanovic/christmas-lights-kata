@@ -36,15 +36,14 @@ namespace Kata.Tests
         private bool Equals(Lights that)
         {
             var lights2D = new int[_lights.Length, 1];
-            for (var i = 0; i < _lights.Length; i++)
+            for (var i = 0; i < lights2D.GetLength(0); i++)
                 lights2D[i, 0] = _lights[i];
-
 
             if (that._lights.Length != lights2D.GetLength(0))
             {
                 return false;
             }
-            
+
             for (int i = 0; i < lights2D.GetLength(0); i++)
             {
                 if (lights2D[i, 0] != that._lights[i])
