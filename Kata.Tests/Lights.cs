@@ -5,6 +5,7 @@ namespace Kata.Tests
     public class Lights
     {
         private int[] _lights;
+        private int[,] lights2D;
 
         public Lights(int[] lights)
         {
@@ -36,7 +37,7 @@ namespace Kata.Tests
 
         private bool Equals(Lights that)
         {
-            var lights2D = new int[_lights.Length, 1];
+            lights2D = new int[_lights.Length, 1];
             for (var i = 0; i < lights2D.GetLength(0); i++)
                 lights2D[i, 0] = _lights[i];
 
