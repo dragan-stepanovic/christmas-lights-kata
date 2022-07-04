@@ -76,6 +76,7 @@ namespace Kata.Tests
     public class Lights
     {
         private int[] _lights;
+        private int[,] _lights2D;
 
         public Lights(int[] lights)
         {
