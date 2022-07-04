@@ -73,7 +73,11 @@ namespace Kata.Tests
 
         public override string ToString()
         {
-            return string.Join(", ", _lights);
+            var lights1D = new int[_lights2D.GetLength(0)];
+            for (var i = 0; i < _lights2D.GetLength(0); i++)
+                lights1D[i] = _lights2D[i, 0];
+
+            return string.Join(", ", lights1D);
         }
     }
 }
