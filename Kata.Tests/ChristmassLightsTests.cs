@@ -57,12 +57,6 @@ namespace Kata.Tests
             Lights(0, 0, 0, 0, 0).On().Should().Be(Lights(1, 1, 1, 1, 1));
         }
 
-        [Fact]
-        public void AllLightsInSquare()
-        {
-            new Lights(new[,] {{0, 0}, {0, 0}}).On().Should().Be(new Lights(new[,] {{1, 1}, {1, 1}}));
-        } 
-
         private static Lights Lights(params int[] initial)
         {
             return new Lights(initial);
