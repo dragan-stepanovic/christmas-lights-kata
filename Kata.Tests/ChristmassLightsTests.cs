@@ -83,10 +83,6 @@ namespace Kata.Tests
             _lights = lights;
         }
 
-        public Lights(int[,] lights)
-        {
-        }
-
         public Lights On()
         {
             _lights = _lights.Select(_ => 1).ToArray();
