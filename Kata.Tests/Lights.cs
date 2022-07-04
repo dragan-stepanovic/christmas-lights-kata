@@ -25,6 +25,9 @@ namespace Kata.Tests
         public Lights Off()
         {
             _lights = _lights.Select(_ => 0).ToArray();
+            for (var i = 0; i < _lights2D.GetLength(0); i++)
+                _lights2D[i, 0] = 0;
+
             return this;
         }
 
@@ -41,8 +44,6 @@ namespace Kata.Tests
 
         private bool Equals(Lights that)
         {
-            CopyParallelArrays();
-
             if (that._lights.Length != _lights2D.GetLength(0))
                 return false;
 
