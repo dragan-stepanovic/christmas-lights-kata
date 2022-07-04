@@ -81,9 +81,9 @@ namespace Kata.Tests
 
     public class Lights
     {
-        private IEnumerable<int> _lights;
+        private int[] _lights;
 
-        public Lights(IEnumerable<int> lights)
+        public Lights(int[] lights)
         {
             _lights = lights;
         }
@@ -94,13 +94,13 @@ namespace Kata.Tests
 
         public Lights On()
         {
-            _lights = _lights.Select(_ => 1);
+            _lights = _lights.Select(_ => 1).ToArray();
             return this;
         }
 
         public Lights Off()
         {
-            _lights = _lights.Select(_ => 0);
+            _lights = _lights.Select(_ => 0).ToArray();
             return this;
         }
 
