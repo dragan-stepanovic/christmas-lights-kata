@@ -81,6 +81,8 @@ namespace Kata.Tests
         public Lights(int[] lights)
         {
             _lights = lights;
+            _lights2D = new int[_lights.Length, 1];
+            
         }
 
         public Lights On()
