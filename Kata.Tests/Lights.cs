@@ -9,7 +9,7 @@ namespace Kata.Tests
 
         public Lights(int[] lights)
         {
-            CopyParallelArrays(lights);
+            To2DArray(lights);
         }
 
         public Lights On()
@@ -51,7 +51,7 @@ namespace Kata.Tests
             return true;
         }
 
-        private void CopyParallelArrays(int[] lights)
+        private void To2DArray(int[] lights)
         {
             _lights2D = new int[lights.Length, 1];
             for (var i = 0; i < _lights2D.GetLength(0); i++)
