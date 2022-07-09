@@ -24,9 +24,7 @@ namespace Kata.Tests
 
         public Lights On(int[] toChange)
         {
-            var array = RangeFrom(toChange);
-
-            foreach (var t in array)
+            foreach (var t in RangeFrom(toChange))
                 _lights[t] = 1;
 
             return this;
@@ -44,9 +42,7 @@ namespace Kata.Tests
 
         public Lights Off(int[] toChange)
         {
-            var array = RangeFrom(toChange);
-
-            foreach (var i in array)
+            foreach (var i in RangeFrom(toChange))
                 _lights[i] = 0;
 
             return this;
