@@ -107,7 +107,7 @@ namespace Kata.Tests
 
         public override int GetHashCode()
         {
-            return _lights1D != null ? _lights1D.GetHashCode() : 0;
+            return _lights2D != null ? _lights2D.GetHashCode() : 0;
         }
 
         public override string ToString()
