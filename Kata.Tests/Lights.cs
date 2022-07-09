@@ -24,12 +24,17 @@ namespace Kata.Tests
 
         public Lights On(int[] toChange)
         {
-            var array = Enumerable.Range(toChange[0], toChange[^1] - toChange[0] + 1).ToArray();
+            var array = RangeFrom(toChange);
 
             foreach (var t in array)
                 _lights[t] = 1;
 
             return this;
+        }
+
+        private static int[] RangeFrom(int[] toChange)
+        {
+            return Enumerable.Range(toChange[0], toChange[^1] - toChange[0] + 1).ToArray();
         }
 
         public Lights AllOff()
@@ -39,7 +44,7 @@ namespace Kata.Tests
 
         public Lights Off(int[] toChange)
         {
-            var array = Enumerable.Range(toChange[0], toChange[^1] - toChange[0] + 1).ToArray();
+            var array = RangeFrom(toChange);
 
             foreach (var i in array)
                 _lights[i] = 0;
