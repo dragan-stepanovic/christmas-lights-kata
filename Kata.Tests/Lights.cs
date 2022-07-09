@@ -19,8 +19,6 @@ namespace Kata.Tests
             _lights = lights;
             _lights2D = lights2D;
         }
-        
-        
 
         public Lights AllOn()
         {
