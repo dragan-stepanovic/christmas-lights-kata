@@ -1,18 +1,10 @@
 using FluentAssertions;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace Kata.Tests
 {
     public class HelloWorldTests
     {
-        private readonly ITestOutputHelper _testOutputHelper;
-
-        public HelloWorldTests(ITestOutputHelper testOutputHelper)
-        {
-            _testOutputHelper = testOutputHelper;
-        }
-
         [Fact]
         public void ManipulatesOneLight()
         {
