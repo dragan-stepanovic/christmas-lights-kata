@@ -58,8 +58,8 @@ namespace Kata.Tests
         [Fact]
         public void ManipulateIndividualLightsInTheSameRow()
         {
-            Lights(0, 0).On(new[] {1}).Should().Be(Lights(0, 1));
-            Lights(0, 0).On(new[] {0}).Should().Be(Lights(1, 0));
+            Lights(0, 0).On(new[] {1, 1}).Should().Be(Lights(0, 1));
+            Lights(0, 0).On(new[] {0, 0}).Should().Be(Lights(1, 0));
             Lights(0, 0).On(new[] {0, 1}).Should().Be(Lights(1, 1));
             Lights(0, 0, 0).On(new[] {0, 1}).Should().Be(Lights(1, 1, 0));
             Lights(0, 0, 0, 0).On(new[] {1, 2}).Should().Be(Lights(0, 1, 1, 0));
@@ -68,7 +68,7 @@ namespace Kata.Tests
 
             Lights(1, 1).Off(new[] {1}).Should().Be(Lights(1, 0));
             Lights(1, 1).Off(new[] {0, 1}).Should().Be(Lights(0, 0));
-            Lights(1, 1, 1).Off(new[] {2}).Should().Be(Lights(1, 1, 0));
+            Lights(1, 1, 1).Off(new[] {2, 2}).Should().Be(Lights(1, 1, 0));
             Lights(1, 1, 1).Off(new[] {0, 2}).Should().Be(Lights(0, 0, 0));
             Lights(0, 1, 0, 1).Off(new[] {0, 3}).Should().Be(Lights(0, 0, 0, 0));
             Lights(0, 1, 0, 1).Off(new[] {1, 2}).Should().Be(Lights(0, 0, 0, 1));
@@ -77,19 +77,19 @@ namespace Kata.Tests
         [Fact]
         public void ManipulateAllLightsInMultipleRows()
         {
-            new Lights(new[,] {{0}}).On(new[] {0}).Should().Be(new Lights(new[,] {{1}}));
+            new Lights(new[,] {{0}}).On(new[] {0, 0}).Should().Be(new Lights(new[,] {{1}}));
             new Lights(new[,] {{0, 0}}).On(new[] {0, 1}).Should().Be(new Lights(new[,] {{1, 1}}));
             new Lights(new[,] {{0, 0, 0}}).On(new[] {0, 2}).Should().Be(new Lights(new[,] {{1, 1, 1}}));
-            new Lights(new[,]
-                {
-                    {0, 0, 0},
-                    {0, 1, 0}
-                }).On(new[] {1, 1}).Should()
-                .Be(new Lights(new[,]
-                {
-                    {1, 1, 0},
-                    {1, 1, 0}
-                }));
+            // new Lights(new[,]
+            //     {
+            //         {0, 0, 0},
+            //         {0, 1, 0}
+            //     }).On(new[] {1, 1}).Should()
+            //     .Be(new Lights(new[,]
+            //     {
+            //         {1, 1, 0},
+            //         {1, 1, 0}
+            //     }));
         }
 
         [Fact]
