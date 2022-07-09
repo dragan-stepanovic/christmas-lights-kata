@@ -6,8 +6,8 @@ namespace Kata.Tests
     public class Lights
     {
         private readonly int[] _lights;
-        private readonly int _size;
         private readonly int[,] _lights2D;
+        private readonly int _size;
 
         public Lights(int[] lights) : this(lights.Length, lights)
         {
