@@ -21,9 +21,9 @@ namespace Kata.Tests
 
         private static int[,] Lights2DFrom(IReadOnlyList<int> lights1D)
         {
-            var newList2D = new int[lights1D.Count, 1];
+            var newList2D = new int[1, lights1D.Count];
             for (var i = 0; i < lights1D.Count; i++)
-                newList2D[i, 0] = lights1D[i];
+                newList2D[0, i] = lights1D[i];
             return newList2D;
         }
 
@@ -52,6 +52,11 @@ namespace Kata.Tests
         private void ForEachSet(int valueToSet, int[] toChange)
         {
             var range = RangeFrom(toChange);
+            foreach (var index in range)
+            {
+                _lights2D[0, index] = valueToSet;
+            }
+
             for (var i = 0; i < _lights2D.GetLength(1); i++)
                 _lights2D[0, i] = valueToSet;
         }
