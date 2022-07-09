@@ -25,7 +25,7 @@ namespace Kata.Tests
             return this;
         }
 
-        public Lights Off()
+        public Lights Off(int[] ints = null)
         {
             _lights = _lights.Select(_ => 0).ToArray();
             return this;
