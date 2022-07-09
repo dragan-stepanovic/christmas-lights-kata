@@ -13,7 +13,7 @@ namespace Kata.Tests
             _lights = lights;
         }
 
-        public Lights(int[] lights, int[,] lights2D = null)
+        public Lights(int[] lights, int[,] lights2D)
         {
             _lights = lights;
             _lights2D = lights2D;
