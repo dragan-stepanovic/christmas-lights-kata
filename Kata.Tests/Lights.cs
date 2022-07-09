@@ -49,7 +49,7 @@ namespace Kata.Tests
             return this;
         }
 
-        private void ForEachSet(int valueToSet, int[] toChange)
+        private void ForEachSet(int valueToSet, IReadOnlyList<int> toChange)
         {
             foreach (var index in RangeFrom(toChange))
                 _lights2D[0, index] = valueToSet;
