@@ -65,7 +65,7 @@ namespace Kata.Tests
 
         private static IEnumerable<int> RangeFrom(IReadOnlyList<int> toChange)
         {
-            return Enumerable.Range(toChange[0], toChange[^1] - toChange[0] + 1).ToArray();
+            return Enumerable.Range(toChange[0], toChange[1] - toChange[0] + 1).ToArray();
         }
 
         private bool TurnedOff()
