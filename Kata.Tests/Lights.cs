@@ -53,12 +53,7 @@ namespace Kata.Tests
         {
             var range = RangeFrom(toChange);
             foreach (var index in range)
-            {
                 _lights2D[0, index] = valueToSet;
-            }
-
-            for (var i = 0; i < _lights2D.GetLength(1); i++)
-                _lights2D[0, i] = valueToSet;
         }
 
         public Lights Off(int[] toChange)
