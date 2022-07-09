@@ -35,6 +35,11 @@ namespace Kata.Tests
                 return this;
             }
 
+            return OffNew(toChange);
+        }
+
+        public Lights OffNew(int[] toChange)
+        {
             var array = Enumerable.Range(toChange[0], toChange[^1] - toChange[0] + 1).ToArray();
 
             foreach (var i in array)
