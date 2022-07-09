@@ -19,7 +19,7 @@ namespace Kata.Tests
 
         public Lights On(int[] toChange)
         {
-            var array = Enumerable.Range(toChange[0], toChange.Length).ToArray();
+            var array = Enumerable.Range(toChange[0], toChange[^1] - toChange[0] + 1).ToArray();
 
             foreach (var t in array)
                 _lights[t] = 1;
