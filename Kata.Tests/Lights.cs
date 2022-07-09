@@ -29,13 +29,10 @@ namespace Kata.Tests
         {
             if (ints != null)
                 foreach (var i in ints)
-                {
                     _lights[i] = 0;
-                    
-                }
             else
                 _lights = _lights.Select(_ => 0).ToArray();
-            
+
             return this;
         }
 
