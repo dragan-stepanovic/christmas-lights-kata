@@ -4,7 +4,6 @@ namespace Kata.Tests
 {
     public class Lights
     {
-        private int[,] _lights2D;
         private int[] _lights;
 
         public Lights(int[] lights)
@@ -12,7 +11,7 @@ namespace Kata.Tests
             _lights = lights;
         }
 
-        public Lights On()
+        public Lights On(int toChange = 0)
         {
             _lights = _lights.Select(_ => 1).ToArray();
             return this;
