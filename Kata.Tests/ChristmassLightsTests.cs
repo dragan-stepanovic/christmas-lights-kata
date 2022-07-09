@@ -80,8 +80,16 @@ namespace Kata.Tests
             new Lights(new[,] {{0}}).On(new[] {0}).Should().Be(new Lights(new[,] {{1}}));
             new Lights(new[,] {{0, 0}}).On(new[] {0, 1}).Should().Be(new Lights(new[,] {{1, 1}}));
             new Lights(new[,] {{0, 0, 0}}).On(new[] {0, 2}).Should().Be(new Lights(new[,] {{1, 1, 1}}));
-            new Lights(new[,] {{0, 0, 0}, {0, 1, 0}}).On(new[] {0, 2}).Should()
-                .Be(new Lights(new[,] {{1, 1, 1}, {0, 1, 0}}));
+            new Lights(new[,]
+                {
+                    {0, 0, 0},
+                    {0, 1, 0}
+                }).On(new[] {1, 1}).Should()
+                .Be(new Lights(new[,]
+                {
+                    {1, 1, 0},
+                    {1, 1, 0}
+                }));
         }
 
         [Fact]
