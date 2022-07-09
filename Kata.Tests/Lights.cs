@@ -51,9 +51,8 @@ namespace Kata.Tests
 
         private void ForEachSet(int valueToSet)
         {
-            for (var i = 0; i < _lights2D.GetLength(0); i++)
-            for (var j = 0; j < _lights2D.GetLength(1); j++)
-                _lights2D[i, j] = valueToSet;
+            for (var i = 0; i < _lights2D.GetLength(1); i++)
+                _lights2D[0, i] = valueToSet;
         }
 
         public Lights Off(int[] toChange)
