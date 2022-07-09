@@ -9,18 +9,22 @@ namespace Kata.Tests
         private readonly int[] _lights;
         private readonly int[,] _lights2D;
 
-        public Lights(int[] lights)
+        public Lights(int[] lights) : this(Lights2DFrom(lights))
         {
             _lights = lights;
-
-            _lights2D = new int[lights.Length, 1];
-            for (var i = 0; i < lights.Length; i++)
-                _lights2D[i, 0] = lights[i];
         }
 
         public Lights(int[,] lights2D)
         {
             _lights2D = lights2D;
+        }
+
+        private static int[,] Lights2DFrom(IReadOnlyList<int> lights)
+        {
+            var newList2D = new int[lights.Count, 1];
+            for (var i = 0; i < lights.Count; i++)
+                newList2D[i, 0] = lights[i];
+            return newList2D;
         }
 
         public Lights AllOn()
