@@ -12,7 +12,7 @@ namespace Kata.Tests
             _lights = lights;
         }
 
-        public Lights On()
+        public Lights AllOn()
         {
             return On(Enumerable.Range(0, _lights.Length).ToArray());
         }
@@ -33,7 +33,7 @@ namespace Kata.Tests
 
         public Lights Toggle()
         {
-            return TurnedOff() ? On() : Off();
+            return TurnedOff() ? AllOn() : Off();
         }
 
         private bool TurnedOff()
