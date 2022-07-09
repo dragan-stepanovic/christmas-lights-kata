@@ -19,11 +19,11 @@ namespace Kata.Tests
             _lights2D = lights2D;
         }
 
-        private static int[,] Lights2DFrom(IReadOnlyList<int> lights)
+        private static int[,] Lights2DFrom(IReadOnlyList<int> lights1D)
         {
-            var newList2D = new int[lights.Count, 1];
-            for (var i = 0; i < lights.Count; i++)
-                newList2D[i, 0] = lights[i];
+            var newList2D = new int[lights1D.Count, 1];
+            for (var i = 0; i < lights1D.Count; i++)
+                newList2D[i, 0] = lights1D[i];
             return newList2D;
         }
 
