@@ -11,10 +11,15 @@ namespace Kata.Tests
             _lights = lights;
         }
 
-        public Lights On(int toChange = -1)
+        public Lights On(int[] toChange = null)
         {
-            if (toChange != -1)
-                _lights[toChange] = 1;
+            if (toChange != null)
+            {
+                foreach (var t in toChange)
+                {
+                    _lights[t] = 1;
+                }
+            }
             else
                 _lights = _lights.Select(_ => 1).ToArray();
 
