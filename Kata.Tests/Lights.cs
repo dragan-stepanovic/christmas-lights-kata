@@ -6,14 +6,16 @@ namespace Kata.Tests
     public class Lights
     {
         private readonly int[] _lights;
+        private readonly int _size;
 
-        public Lights(int[] lights)
+        public Lights(int[] lights) : this(lights.Length, lights)
         {
-            _lights = lights;
         }
 
         public Lights(int size, int[] lights)
         {
+            _size = size;
+            _lights = lights;
         }
 
         public Lights AllOn()
