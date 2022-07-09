@@ -27,16 +27,12 @@ namespace Kata.Tests
             return this;
         }
 
-        public Lights Off(int[] toChange = null)
+        public Lights AllOff()
         {
-            if (toChange != null) return OffNew(toChange);
-            
-            _lights = _lights.Select(_ => 0).ToArray();
-            return this;
-
+            return Off(Enumerable.Range(0, _lights.Length).ToArray());
         }
 
-        public Lights OffNew(int[] toChange)
+        public Lights Off(int[] toChange)
         {
             var array = Enumerable.Range(toChange[0], toChange[^1] - toChange[0] + 1).ToArray();
 
@@ -48,7 +44,7 @@ namespace Kata.Tests
 
         public Lights Toggle()
         {
-            return TurnedOff() ? AllOn() : Off();
+            return TurnedOff() ? AllOn() : AllOff();
         }
 
         private bool TurnedOff()

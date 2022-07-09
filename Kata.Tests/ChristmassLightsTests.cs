@@ -12,8 +12,8 @@ namespace Kata.Tests
             After(lights.AllOn(), WeShouldHave(1));
             After(lights.AllOn(), WeShouldHave(1));
 
-            After(lights.Off(), WeShouldHave(0));
-            After(lights.Off(), WeShouldHave(0));
+            After(lights.AllOff(), WeShouldHave(0));
+            After(lights.AllOff(), WeShouldHave(0));
 
             After(lights.Toggle(), WeShouldHave(1));
             After(lights.Toggle(), WeShouldHave(0));
@@ -21,7 +21,7 @@ namespace Kata.Tests
             After(lights.AllOn(), WeShouldHave(1));
             After(lights.Toggle(), WeShouldHave(0));
             After(lights.AllOn(), WeShouldHave(1));
-            After(lights.Off(), WeShouldHave(0));
+            After(lights.AllOff(), WeShouldHave(0));
             After(lights.Toggle(), WeShouldHave(1));
         }
 
@@ -30,13 +30,13 @@ namespace Kata.Tests
         {
             var lights = new Lights(new[] {0, 0});
             After(lights.AllOn(), WeShouldHave(1, 1));
-            After(lights.Off(), WeShouldHave(0, 0));
+            After(lights.AllOff(), WeShouldHave(0, 0));
 
             After(lights.Toggle(), WeShouldHave(1, 1));
             After(lights.Toggle(), WeShouldHave(0, 0));
             After(lights.Toggle(), WeShouldHave(1, 1));
 
-            After(lights.Off(), WeShouldHave(0, 0));
+            After(lights.AllOff(), WeShouldHave(0, 0));
             After(lights.Toggle(), WeShouldHave(1, 1));
             After(lights.Toggle(), WeShouldHave(0, 0));
             After(lights.AllOn(), WeShouldHave(1, 1));
@@ -47,11 +47,11 @@ namespace Kata.Tests
         {
             Lights(0, 0, 0).AllOn().Should().Be(Lights(1, 1, 1));
             Lights(0, 0, 0).AllOn().Should().Be(Lights(1, 1, 1));
-            Lights(1, 1, 1).Off().Should().Be(Lights(0, 0, 0));
+            Lights(1, 1, 1).AllOff().Should().Be(Lights(0, 0, 0));
             Lights(0, 0, 0).Toggle().Should().Be(Lights(1, 1, 1));
             Lights(1, 1, 1).Toggle().Should().Be(Lights(0, 0, 0));
             Lights(0, 0, 0).AllOn().Should().Be(Lights(1, 1, 1));
-            Lights(1, 1, 1).Off().Should().Be(Lights(0, 0, 0));
+            Lights(1, 1, 1).AllOff().Should().Be(Lights(0, 0, 0));
             Lights(0, 0, 0, 0, 0).AllOn().Should().Be(Lights(1, 1, 1, 1, 1));
         }
 
@@ -66,10 +66,10 @@ namespace Kata.Tests
             Lights(0, 1, 0, 1).On(new[] {1, 2}).Should().Be(Lights(0, 1, 1, 1));
             Lights(0, 1, 0, 1).On(new[] {0, 3}).Should().Be(Lights(1, 1, 1, 1));
             
-            Lights(1, 1).OffNew(new[] {1}).Should().Be(Lights(1, 0));
-            Lights(1, 1, 1).OffNew(new[] {2}).Should().Be(Lights(1, 1, 0));
-            Lights(1, 1, 1).OffNew(new[] {0, 2}).Should().Be(Lights(0, 0, 0));
-            Lights(0, 1, 0, 1).OffNew(new[] {0, 3}).Should().Be(Lights(0, 0, 0, 0));
+            Lights(1, 1).Off(new[] {1}).Should().Be(Lights(1, 0));
+            Lights(1, 1, 1).Off(new[] {2}).Should().Be(Lights(1, 1, 0));
+            Lights(1, 1, 1).Off(new[] {0, 2}).Should().Be(Lights(0, 0, 0));
+            Lights(0, 1, 0, 1).Off(new[] {0, 3}).Should().Be(Lights(0, 0, 0, 0));
         }
 
         private static Lights Lights(params int[] initial)
