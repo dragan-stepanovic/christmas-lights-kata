@@ -6,12 +6,12 @@ namespace Kata.Tests
 {
     public class Lights
     {
-        private readonly int[] _lights;
+        private readonly int[] _lights1D;
         private readonly int[,] _lights2D;
 
-        public Lights(int[] lights) : this(Lights2DFrom(lights))
+        public Lights(int[] lights1D) : this(Lights2DFrom(lights1D))
         {
-            _lights = lights;
+            _lights1D = lights1D;
         }
 
         public Lights(int[,] lights2D)
@@ -39,9 +39,9 @@ namespace Kata.Tests
 
         public Lights On(int[] toChange)
         {
-            if (_lights != null)
+            if (_lights1D != null)
                 foreach (var lightPosition in RangeFrom(toChange))
-                    _lights[lightPosition] = 1;
+                    _lights1D[lightPosition] = 1;
 
             if (_lights2D != null)
                 ForEachSet(1);
@@ -59,7 +59,7 @@ namespace Kata.Tests
         public Lights Off(int[] toChange)
         {
             foreach (var lightPosition in RangeFrom(toChange))
-                _lights[lightPosition] = 0;
+                _lights1D[lightPosition] = 0;
 
             return this;
         }
@@ -71,7 +71,7 @@ namespace Kata.Tests
 
         private int[] SelectAllLights()
         {
-            return Enumerable.Range(0, _lights.Length).ToArray();
+            return Enumerable.Range(0, _lights1D.Length).ToArray();
         }
 
         private static IEnumerable<int> RangeFrom(IReadOnlyList<int> toChange)
@@ -82,13 +82,13 @@ namespace Kata.Tests
         private bool TurnedOff()
         {
             //todo: assumption is that all lights have the same value; listing assumptions is good to incrementally grow the solution
-            return _lights.First() == 0;
+            return _lights1D.First() == 0;
         }
 
         private bool Equals(Lights that)
         {
-            if (_lights != null)
-                return _lights.SequenceEqual(that._lights);
+            if (_lights1D != null)
+                return _lights1D.SequenceEqual(that._lights1D);
 
             if (_lights2D != null)
                 for (var i = 0; i < _lights2D.GetLength(0); i++)
@@ -109,13 +109,13 @@ namespace Kata.Tests
 
         public override int GetHashCode()
         {
-            return _lights != null ? _lights.GetHashCode() : 0;
+            return _lights1D != null ? _lights1D.GetHashCode() : 0;
         }
 
         public override string ToString()
         {
-            if (_lights != null)
-                return string.Join(", ", _lights);
+            if (_lights1D != null)
+                return string.Join(", ", _lights1D);
 
             var stringBuilder = new StringBuilder("");
             for (var i = 0; i < _lights2D.GetLength(0); i++)
