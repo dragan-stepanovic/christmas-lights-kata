@@ -39,7 +39,13 @@ namespace Kata.Tests
             }
 
             if (_lights2D != null)
+            {
                 _lights2D[0, 0] = 1;
+                if (_lights2D.Length > 1)
+                {
+                    _lights2D[0, 1] = 1;
+                }
+            }
 
             return this;
         }
