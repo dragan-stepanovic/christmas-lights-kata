@@ -49,12 +49,6 @@ namespace Kata.Tests
             return this;
         }
 
-        private void ForEachSet(int valueToSet, IReadOnlyList<int> toChange)
-        {
-            foreach (var index in RangeFrom(toChange))
-                _lights2D[0, index] = valueToSet;
-        }
-
         public Lights Off(int[] toChange)
         {
             foreach (var lightPosition in RangeFrom(toChange))
@@ -69,6 +63,12 @@ namespace Kata.Tests
         public Lights Toggle()
         {
             return TurnedOff() ? AllOn() : AllOff();
+        }
+
+        private void ForEachSet(int valueToSet, IReadOnlyList<int> toChange)
+        {
+            foreach (var index in RangeFrom(toChange))
+                _lights2D[0, index] = valueToSet;
         }
 
         private int[] SelectAllLights()
