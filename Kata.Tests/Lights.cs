@@ -107,17 +107,13 @@ namespace Kata.Tests
             for (var i = 0; i < _lights2D.GetLength(0); i++)
             {
                 for (var j = 0; j < _lights2D.GetLength(1); j++)
-                {
-                    stringBuilder.Append(_lights2D[i, j]);
-                    stringBuilder.Append(", ");
-                }
+                    stringBuilder.Append(_lights2D[i, j] + ", ");
 
                 stringBuilder.Remove(stringBuilder.Length - 1, 1);
                 stringBuilder.Append('\n');
             }
 
-            stringBuilder.Remove(stringBuilder.Length - 1, 1);
-            stringBuilder.Remove(stringBuilder.Length - 1, 1);
+            stringBuilder.Remove(stringBuilder.Length - 2, 2);
             return stringBuilder.ToString();
         }
     }
