@@ -11,10 +11,13 @@ namespace Kata.Tests
             _lights = lights;
         }
 
-        public Lights On(int[] toChange = null)
+        public Lights On()
         {
-            toChange ??= Enumerable.Range(0, _lights.Length).ToArray();
+            return On(Enumerable.Range(0, _lights.Length).ToArray());
+        }
 
+        public Lights On(int[] toChange)
+        {
             foreach (var t in toChange)
                 _lights[t] = 1;
 
