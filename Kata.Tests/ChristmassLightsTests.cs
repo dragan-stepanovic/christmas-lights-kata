@@ -65,7 +65,7 @@ namespace Kata.Tests
             Lights(0, 0, 0, 0).On(new[] {1, 2}).Should().Be(Lights(0, 1, 1, 0));
             Lights(0, 1, 0, 1).On(new[] {1, 2}).Should().Be(Lights(0, 1, 1, 1));
             Lights(0, 1, 0, 1).On(new[] {0, 3}).Should().Be(Lights(1, 1, 1, 1));
-            
+
             Lights(1, 1).Off(new[] {1}).Should().Be(Lights(1, 0));
             Lights(1, 1).Off(new[] {0, 1}).Should().Be(Lights(0, 0));
             Lights(1, 1, 1).Off(new[] {2}).Should().Be(Lights(1, 1, 0));
@@ -74,11 +74,8 @@ namespace Kata.Tests
             Lights(0, 1, 0, 1).Off(new[] {1, 2}).Should().Be(Lights(0, 0, 0, 1));
         }
 
-        [Fact]
-        public void ManipulateAllLightsInMultipleRows()
-        {
-            
-        }
+        //ManipulateAllLightsInMultipleRows
+
         private static Lights Lights(params int[] initial)
         {
             return new Lights(initial);
