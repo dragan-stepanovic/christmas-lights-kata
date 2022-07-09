@@ -60,6 +60,9 @@ namespace Kata.Tests
             foreach (var lightPosition in RangeFrom(toChange))
                 _lights1D[lightPosition] = 0;
 
+            if (_lights2D != null)
+                ForEachSet(0, toChange);
+
             return this;
         }
 
