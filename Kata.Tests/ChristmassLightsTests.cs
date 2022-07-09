@@ -89,9 +89,6 @@ namespace Kata.Tests
             new Lights(new[] {0}, new[,] {{0}}).On(new[] {0}).Should().Be(new Lights(new[] {1}));
             // new Lights(2, new[,] {{0,0,1}, }).On(new[] {0}).Should().Be(new Lights(1, new[] {1}));
 
-            //1,0 1,1
-            //0,0 1,0
-            //2x2x1
             var array3D = new[,]
             {
                 {1, 1, 1},
