@@ -73,7 +73,7 @@ namespace Kata.Tests
 
         private int[] SelectAllLights()
         {
-            return Enumerable.Range(0, _lights1D.Length).ToArray();
+            return Enumerable.Range(0, _lights2D.GetLength(1)).ToArray();
         }
 
         private static IEnumerable<int> RangeFrom(IReadOnlyList<int> toChange)
