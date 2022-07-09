@@ -12,6 +12,10 @@ namespace Kata.Tests
             _lights = lights;
         }
 
+        public Lights(int size, int[] lights)
+        {
+        }
+
         public Lights AllOn()
         {
             return On(SelectAllLights());

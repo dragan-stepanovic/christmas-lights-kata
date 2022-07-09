@@ -74,7 +74,11 @@ namespace Kata.Tests
             Lights(0, 1, 0, 1).Off(new[] {1, 2}).Should().Be(Lights(0, 0, 0, 1));
         }
 
-        //ManipulateAllLightsInMultipleRows
+        [Fact]
+        public void ManipulateAllLightsInMultipleRows()
+        {
+            new Lights(1, new[] {0}).On(new[] {1}).Should().Be(new Lights(1, new[] {1}));
+        }
 
         private static Lights Lights(params int[] initial)
         {
