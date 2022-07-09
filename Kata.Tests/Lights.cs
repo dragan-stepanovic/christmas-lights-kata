@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using Microsoft.VisualStudio.TestPlatform.CoreUtilities.Extensions;
 
 namespace Kata.Tests
 {
@@ -39,13 +41,6 @@ namespace Kata.Tests
             if (_lights2D != null)
                 _lights2D[0, 0] = 1;
 
-            // for (var i = 0; i < _lights2D.GetLength(0); i++)
-            // {
-            //     for (int j = 0; j < _lights2D.GetLength(1); j++)
-            //     {
-            //         
-            //     }
-            // }
             return this;
         }
 
@@ -83,7 +78,21 @@ namespace Kata.Tests
             if (_lights != null)
                 return _lights.SequenceEqual(that._lights);
 
-            return _lights2D[0, 0] == that._lights2D[0, 0];
+            if (_lights2D != null)
+            {
+                for (var i = 0; i < _lights2D.GetLength(0); i++)
+                {
+                    for (var j = 0; j < _lights2D.GetLength(1); j++)
+                    {
+                        if (_lights2D[i, j] != that._lights2D[i, j])
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+
+            return true;
         }
 
         public override bool Equals(object obj)
@@ -101,7 +110,25 @@ namespace Kata.Tests
 
         public override string ToString()
         {
-            return string.Join(", ", _lights);
+            if (_lights != null)
+                return string.Join(", ", _lights);
+
+            var stringBuilder = new StringBuilder("");
+            for (var i = 0; i < _lights2D.GetLength(0); i++)
+            {
+                for (var j = 0; j < _lights2D.GetLength(1); j++)
+                {
+                    stringBuilder.Append(_lights2D[i, j]);
+                    stringBuilder.Append(", ");
+                }
+
+                stringBuilder.Remove(stringBuilder.Length - 1, 1);
+                stringBuilder.Append('\n');
+            }
+
+            stringBuilder.Remove(stringBuilder.Length - 1, 1);
+            stringBuilder.Remove(stringBuilder.Length - 1, 1);
+            return stringBuilder.ToString();
         }
     }
 }
