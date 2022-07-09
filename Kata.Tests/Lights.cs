@@ -51,8 +51,7 @@ namespace Kata.Tests
 
         private void ForEachSet(int valueToSet, int[] toChange)
         {
-            var range = RangeFrom(toChange);
-            foreach (var index in range)
+            foreach (var index in RangeFrom(toChange))
                 _lights2D[0, index] = valueToSet;
         }
 
