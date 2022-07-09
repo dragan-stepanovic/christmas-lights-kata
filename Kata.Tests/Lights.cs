@@ -30,7 +30,7 @@ namespace Kata.Tests
             return this;
         }
 
-        private static int[] RangeFrom(int[] toChange)
+        private static IEnumerable<int> RangeFrom(IReadOnlyList<int> toChange)
         {
             return Enumerable.Range(toChange[0], toChange[^1] - toChange[0] + 1).ToArray();
         }
