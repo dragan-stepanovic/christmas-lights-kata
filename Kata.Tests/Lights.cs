@@ -8,8 +8,9 @@ namespace Kata.Tests
         private readonly int[] _lights;
         private readonly int[,] _lights2D;
 
-        public Lights(int[] lights) : this(lights, null)
+        public Lights(int[] lights)
         {
+            _lights = lights;
         }
 
         public Lights(int[] lights, int[,] lights2D = null)
