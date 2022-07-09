@@ -13,9 +13,8 @@ namespace Kata.Tests
             _lights = lights;
         }
 
-        public Lights(int[] lights, int[,] lights2D)
+        public Lights(int[,] lights2D)
         {
-            _lights = lights;
             _lights2D = lights2D;
         }
 
@@ -31,9 +30,22 @@ namespace Kata.Tests
 
         public Lights On(int[] toChange)
         {
-            foreach (var lightPosition in RangeFrom(toChange))
-                _lights[lightPosition] = 1;
+            if (_lights != null)
+            {
+                foreach (var lightPosition in RangeFrom(toChange))
+                    _lights[lightPosition] = 1;
+            }
 
+            if (_lights2D != null)
+                _lights2D[0, 0] = 1;
+
+            // for (var i = 0; i < _lights2D.GetLength(0); i++)
+            // {
+            //     for (int j = 0; j < _lights2D.GetLength(1); j++)
+            //     {
+            //         
+            //     }
+            // }
             return this;
         }
 
@@ -68,7 +80,10 @@ namespace Kata.Tests
 
         private bool Equals(Lights that)
         {
-            return _lights.SequenceEqual(that._lights);
+            if (_lights != null)
+                return _lights.SequenceEqual(that._lights);
+
+            return _lights2D[0, 0] == that._lights2D[0, 0];
         }
 
         public override bool Equals(object obj)
