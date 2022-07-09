@@ -14,7 +14,7 @@ namespace Kata.Tests
 
         public Lights AllOn()
         {
-            return On(AllLights());
+            return On(SelectAllLights());
         }
 
         public Lights On(int[] toChange)
@@ -27,7 +27,7 @@ namespace Kata.Tests
 
         public Lights AllOff()
         {
-            return Off(AllLights());
+            return Off(SelectAllLights());
         }
 
         public Lights Off(int[] toChange)
@@ -43,7 +43,7 @@ namespace Kata.Tests
             return TurnedOff() ? AllOn() : AllOff();
         }
 
-        private int[] AllLights()
+        private int[] SelectAllLights()
         {
             return Enumerable.Range(0, _lights.Length).ToArray();
         }
