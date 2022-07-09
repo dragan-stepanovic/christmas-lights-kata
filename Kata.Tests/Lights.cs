@@ -17,17 +17,17 @@ namespace Kata.Tests
             return On(SelectAllLights());
         }
 
+        public Lights AllOff()
+        {
+            return Off(SelectAllLights());
+        }
+
         public Lights On(int[] toChange)
         {
             foreach (var lightPosition in RangeFrom(toChange))
                 _lights[lightPosition] = 1;
 
             return this;
-        }
-
-        public Lights AllOff()
-        {
-            return Off(SelectAllLights());
         }
 
         public Lights Off(int[] toChange)
