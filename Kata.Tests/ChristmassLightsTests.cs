@@ -103,6 +103,12 @@ namespace Kata.Tests
             _testOutputHelper.WriteLine(array3D[2, 0].ToString());
         }
 
+        [Fact]
+        public void TestToString()
+        {
+            new Lights(new[,] {{1, 0, 1}}).ToString().Should().Be("1, 0, 1");
+        }
+
         private static Lights Lights(params int[] initial)
         {
             return new Lights(initial);
