@@ -44,12 +44,12 @@ namespace Kata.Tests
                     _lights1D[lightPosition] = 1;
 
             if (_lights2D != null)
-                ForEachSet(1);
+                ForEachSet(1, toChange);
 
             return this;
         }
 
-        private void ForEachSet(int valueToSet)
+        private void ForEachSet(int valueToSet, int[] toChange)
         {
             for (var i = 0; i < _lights2D.GetLength(1); i++)
                 _lights2D[0, i] = valueToSet;
