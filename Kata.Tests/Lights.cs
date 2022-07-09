@@ -13,7 +13,11 @@ namespace Kata.Tests
 
         public Lights On(int toChange = -1)
         {
-            _lights = _lights.Select(_ => 1).ToArray();
+            if (toChange != -1)
+                _lights[toChange] = 1;
+            else
+                _lights = _lights.Select(_ => 1).ToArray();
+
             return this;
         }
 
