@@ -37,17 +37,13 @@ namespace Kata.Tests
 
         public Lights On(int[] toChange)
         {
-            if (_lights2D != null)
-                ForEachSet(1, toChange);
-
+            ForEachSet(1, toChange);
             return this;
         }
 
         public Lights Off(int[] toChange)
         {
-            if (_lights2D != null)
-                ForEachSet(0, toChange);
-
+            ForEachSet(0, toChange);
             return this;
         }
 
