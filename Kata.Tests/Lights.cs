@@ -39,10 +39,6 @@ namespace Kata.Tests
 
         public Lights On(int[] toChange)
         {
-            if (_lights1D != null)
-                foreach (var lightPosition in RangeFrom(toChange))
-                    _lights1D[lightPosition] = 1;
-
             if (_lights2D != null)
                 ForEachSet(1, toChange);
 
@@ -51,9 +47,6 @@ namespace Kata.Tests
 
         public Lights Off(int[] toChange)
         {
-            foreach (var lightPosition in RangeFrom(toChange))
-                _lights1D[lightPosition] = 0;
-
             if (_lights2D != null)
                 ForEachSet(0, toChange);
 
