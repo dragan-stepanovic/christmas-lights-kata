@@ -28,7 +28,11 @@ namespace Kata.Tests
         public Lights Off(int[] ints = null)
         {
             if (ints != null)
-                _lights[1] = 0;
+                foreach (var i in ints)
+                {
+                    _lights[i] = 0;
+                    
+                }
             else
                 _lights = _lights.Select(_ => 0).ToArray();
             

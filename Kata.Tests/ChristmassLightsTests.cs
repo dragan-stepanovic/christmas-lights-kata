@@ -67,6 +67,7 @@ namespace Kata.Tests
             Lights(0, 1, 0, 1).On(new[] {0, 3}).Should().Be(Lights(1, 1, 0, 1));
 
             Lights(1, 1).Off(new[] {1}).Should().Be(Lights(1, 0));
+            Lights(1, 1, 1).Off(new[] {2}).Should().Be(Lights(1, 1, 0));
         }
 
         private static Lights Lights(params int[] initial)
