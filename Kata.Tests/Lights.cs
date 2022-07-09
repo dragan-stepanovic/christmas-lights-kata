@@ -1,18 +1,24 @@
+using System.Linq;
+
 namespace Kata.Tests
 {
     public class Lights
     {
         private int[,] _lights2D;
+        private int[] _lights;
 
         public Lights(int[] lights)
         {
             To2DArray(lights);
+            _lights = lights;
         }
 
         public Lights On()
         {
             for (var i = 0; i < _lights2D.GetLength(0); i++)
                 _lights2D[i, 0] = 1;
+
+            _lights = _lights.Select(_ => 1).ToArray();
 
             return this;
         }
@@ -21,6 +27,8 @@ namespace Kata.Tests
         {
             for (var i = 0; i < _lights2D.GetLength(0); i++)
                 _lights2D[i, 0] = 0;
+
+            _lights = _lights.Select(_ => 0).ToArray();
 
             return this;
         }
@@ -33,19 +41,12 @@ namespace Kata.Tests
         private bool TurnedOff()
         {
             //todo: assumption is that all lights have the same value; listing assumptions is good to incrementally grow the solution
-            return _lights2D[0, 0] == 0;
+            return _lights.First() == 0;
         }
 
         private bool Equals(Lights that)
         {
-            if (that._lights2D.Length != _lights2D.Length)
-                return false;
-
-            for (var i = 0; i < _lights2D.GetLength(0); i++)
-                if (_lights2D[i, 0] != that._lights2D[i, 0])
-                    return false;
-
-            return true;
+            return _lights.SequenceEqual(that._lights);
         }
 
         private void To2DArray(int[] lights)
@@ -65,16 +66,12 @@ namespace Kata.Tests
 
         public override int GetHashCode()
         {
-            return _lights2D != null ? _lights2D.GetHashCode() : 0;
+            return _lights != null ? _lights.GetHashCode() : 0;
         }
 
         public override string ToString()
         {
-            var lights1D = new int[_lights2D.GetLength(0)];
-            for (var i = 0; i < _lights2D.GetLength(0); i++)
-                lights1D[i] = _lights2D[i, 0];
-
-            return string.Join(", ", lights1D);
+            return string.Join(", ", _lights);
         }
     }
 }
