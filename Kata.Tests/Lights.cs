@@ -29,13 +29,11 @@ namespace Kata.Tests
 
         public Lights Off(int[] toChange = null)
         {
-            if (toChange == null)
-            {
-                _lights = _lights.Select(_ => 0).ToArray();
-                return this;
-            }
+            if (toChange != null) return OffNew(toChange);
+            
+            _lights = _lights.Select(_ => 0).ToArray();
+            return this;
 
-            return OffNew(toChange);
         }
 
         public Lights OffNew(int[] toChange)
