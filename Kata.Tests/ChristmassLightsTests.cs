@@ -55,6 +55,12 @@ namespace Kata.Tests
             Lights(0, 0, 0, 0, 0).On().Should().Be(Lights(1, 1, 1, 1, 1));
         }
 
+        [Fact]
+        public void ManipulateIndividualLightsInTheSameRow()
+        {
+            
+        }
+
         private static Lights Lights(params int[] initial)
         {
             return new Lights(initial);
