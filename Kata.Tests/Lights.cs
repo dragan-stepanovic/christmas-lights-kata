@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Kata.Tests
@@ -16,7 +17,7 @@ namespace Kata.Tests
             return On(Enumerable.Range(0, _lights.Length).ToArray());
         }
 
-        public Lights On(int[] toChange)
+        public Lights On(IEnumerable<int> toChange)
         {
             foreach (var t in toChange)
                 _lights[t] = 1;
