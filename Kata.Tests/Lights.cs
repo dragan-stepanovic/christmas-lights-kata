@@ -89,14 +89,10 @@ namespace Kata.Tests
 
         private bool Equals(Lights that)
         {
-            if (_lights1D != null)
-                return _lights1D.SequenceEqual(that._lights1D);
-
-            if (_lights2D != null)
-                for (var i = 0; i < _lights2D.GetLength(0); i++)
-                for (var j = 0; j < _lights2D.GetLength(1); j++)
-                    if (_lights2D[i, j] != that._lights2D[i, j])
-                        return false;
+            for (var i = 0; i < _lights2D.GetLength(0); i++)
+            for (var j = 0; j < _lights2D.GetLength(1); j++)
+                if (_lights2D[i, j] != that._lights2D[i, j])
+                    return false;
 
             return true;
         }
