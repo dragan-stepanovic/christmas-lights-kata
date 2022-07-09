@@ -30,8 +30,12 @@ namespace Kata.Tests
         public Lights Off(int[] toChange = null)
         {
             if (toChange != null)
-                foreach (var i in toChange)
+            {
+                var array = Enumerable.Range(toChange[0], toChange[^1] - toChange[0] + 1).ToArray();
+
+                foreach (var i in array)
                     _lights[i] = 0;
+            }
             else
                 _lights = _lights.Select(_ => 0).ToArray();
 
