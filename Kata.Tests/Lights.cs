@@ -19,8 +19,8 @@ namespace Kata.Tests
 
         public Lights On(int[] toChange)
         {
-            foreach (var t in RangeFrom(toChange))
-                _lights[t] = 1;
+            foreach (var lightPosition in RangeFrom(toChange))
+                _lights[lightPosition] = 1;
 
             return this;
         }
@@ -32,8 +32,8 @@ namespace Kata.Tests
 
         public Lights Off(int[] toChange)
         {
-            foreach (var i in RangeFrom(toChange))
-                _lights[i] = 0;
+            foreach (var lightPosition in RangeFrom(toChange))
+                _lights[lightPosition] = 0;
 
             return this;
         }
