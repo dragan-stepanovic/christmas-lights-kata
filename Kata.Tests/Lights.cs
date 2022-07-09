@@ -11,7 +11,7 @@ namespace Kata.Tests
             _lights = lights;
         }
 
-        public Lights On(int toChange = 0)
+        public Lights On(int toChange = -1)
         {
             _lights = _lights.Select(_ => 1).ToArray();
             return this;
