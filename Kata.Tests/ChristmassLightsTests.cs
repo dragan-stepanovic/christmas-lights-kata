@@ -88,6 +88,7 @@ namespace Kata.Tests
         public void TestToString()
         {
             new Lights(new[,] {{1, 0, 1}}).ToString().Should().Be("1, 0, 1");
+            new Lights(new[,] {{1, 0, 1}, {1, 0, 0}}).ToString().Should().Be("1, 0, 1\n1, 0, 0");
         }
 
         private static Lights Lights(params int[] initial)

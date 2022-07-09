@@ -109,11 +109,11 @@ namespace Kata.Tests
                 for (var j = 0; j < _lights2D.GetLength(1); j++)
                     stringBuilder.Append(_lights2D[i, j] + ", ");
 
-                stringBuilder.Remove(stringBuilder.Length - 1, 1);
+                stringBuilder.Remove(stringBuilder.Length - 2, 2);
                 stringBuilder.Append('\n');
             }
 
-            stringBuilder.Remove(stringBuilder.Length - 2, 2);
+            stringBuilder.Remove(stringBuilder.Length - 1, 1);
             return stringBuilder.ToString();
         }
     }
