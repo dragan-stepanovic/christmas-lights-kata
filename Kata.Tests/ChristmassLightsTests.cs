@@ -88,19 +88,6 @@ namespace Kata.Tests
             new Lights(new[,] {{0}}).On(new[] {0}).Should().Be(new Lights(new[,] {{1}}));
             new Lights(new[,] {{0, 0}}).On(new[] {0, 1}).Should().Be(new Lights(new[,] {{1, 1}}));
             new Lights(new[,] {{0, 0, 0}}).On(new[] {0, 2}).Should().Be(new Lights(new[,] {{1, 1, 1}}));
-
-            var array3D = new[,]
-            {
-                {1, 1, 1},
-                {0, 0, 1},
-                {0, 1, 0}
-            };
-            var array1 = new int[1, 1]
-            {
-                {1}
-            };
-
-            _testOutputHelper.WriteLine(array3D[2, 0].ToString());
         }
 
         [Fact]
