@@ -25,11 +25,6 @@ namespace Kata.Tests
             return this;
         }
 
-        private static IEnumerable<int> RangeFrom(IReadOnlyList<int> toChange)
-        {
-            return Enumerable.Range(toChange[0], toChange[^1] - toChange[0] + 1).ToArray();
-        }
-
         public Lights AllOff()
         {
             return Off(AllLights());
@@ -51,6 +46,11 @@ namespace Kata.Tests
         private int[] AllLights()
         {
             return Enumerable.Range(0, _lights.Length).ToArray();
+        }
+
+        private static IEnumerable<int> RangeFrom(IReadOnlyList<int> toChange)
+        {
+            return Enumerable.Range(toChange[0], toChange[^1] - toChange[0] + 1).ToArray();
         }
 
         private bool TurnedOff()
