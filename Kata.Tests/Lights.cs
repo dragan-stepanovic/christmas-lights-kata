@@ -39,17 +39,16 @@ namespace Kata.Tests
             }
 
             if (_lights2D != null)
-            {
-                for (var i = 0; i < _lights2D.GetLength(0); i++)
-                {
-                    for (var j = 0; j < _lights2D.GetLength(1); j++)
-                    {
-                        _lights2D[i, j] = 1;
-                    }
-                }
-            }
+                ForEachSet(1);
 
             return this;
+        }
+
+        private void ForEachSet(int valueToSet)
+        {
+            for (var i = 0; i < _lights2D.GetLength(0); i++)
+            for (var j = 0; j < _lights2D.GetLength(1); j++)
+                _lights2D[i, j] = valueToSet;
         }
 
         public Lights Off(int[] toChange)
