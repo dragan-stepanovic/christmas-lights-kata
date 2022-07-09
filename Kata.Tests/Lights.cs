@@ -17,11 +17,6 @@ namespace Kata.Tests
             return On(AllLights());
         }
 
-        private int[] AllLights()
-        {
-            return Enumerable.Range(0, _lights.Length).ToArray();
-        }
-
         public Lights On(int[] toChange)
         {
             foreach (var t in RangeFrom(toChange))
@@ -51,6 +46,11 @@ namespace Kata.Tests
         public Lights Toggle()
         {
             return TurnedOff() ? AllOn() : AllOff();
+        }
+
+        private int[] AllLights()
+        {
+            return Enumerable.Range(0, _lights.Length).ToArray();
         }
 
         private bool TurnedOff()
