@@ -6,12 +6,10 @@ namespace Kata.Tests
 {
     public class Lights
     {
-        private readonly int[] _lights1D;
         private readonly int[,] _lights2D;
 
-        public Lights(int[] lights1D) : this(Lights2DFrom(lights1D))
+        public Lights(IReadOnlyList<int> lights1D) : this(Lights2DFrom(lights1D))
         {
-            _lights1D = lights1D;
         }
 
         public Lights(int[,] lights2D)
@@ -105,9 +103,6 @@ namespace Kata.Tests
 
         public override string ToString()
         {
-            if (_lights1D != null)
-                return string.Join(", ", _lights1D);
-
             var stringBuilder = new StringBuilder("");
             for (var i = 0; i < _lights2D.GetLength(0); i++)
             {
