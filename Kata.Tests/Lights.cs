@@ -40,10 +40,12 @@ namespace Kata.Tests
 
             if (_lights2D != null)
             {
-                _lights2D[0, 0] = 1;
-                if (_lights2D.Length > 1)
+                for (var i = 0; i < _lights2D.GetLength(0); i++)
                 {
-                    _lights2D[0, 1] = 1;
+                    for (var j = 0; j < _lights2D.GetLength(1); j++)
+                    {
+                        _lights2D[i, j] = 1;
+                    }
                 }
             }
 
