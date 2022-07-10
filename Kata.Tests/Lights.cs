@@ -36,11 +36,6 @@ namespace Kata.Tests
             return new Pair<int, int>(0, 0);
         }
 
-        public Lights AllOff()
-        {
-            return SetValue(ZeroZero(), TopUpperRight(), 0);
-        }
-
         public Lights On(int[] columns)
         {
             return SetValue(new Pair<int, int>(0, columns[0]), new Pair<int, int>(0, columns[1]), 1);
