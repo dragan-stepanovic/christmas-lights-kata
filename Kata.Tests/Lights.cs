@@ -55,7 +55,7 @@ namespace Kata.Tests
         private static List<Pair<int, int>> RangeFrom(Pair<int, int> upperRight, Pair<int, int> bottomLeft)
         {
             var result = new List<Pair<int, int>>();
-            for (var row = 0; row <= upperRight.First; row++)
+            for (var row = bottomLeft.First; row <= upperRight.First; row++)
                 result.AddRange(Enumerable.Range(0, upperRight.Second + 1)
                     .Select(column => new Pair<int, int>(row, column)));
 
