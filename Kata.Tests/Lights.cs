@@ -64,10 +64,9 @@ namespace Kata.Tests
             return result;
         }
 
-        public Lights Off(int[] toChange)
+        public Lights Off(int[] columns)
         {
-            ForEachSet(0, toChange);
-            return this;
+            return SetValue(new Pair<int, int>(0, columns[0]), new Pair<int, int>(0, columns[1]), 0);
         }
 
         public Lights Toggle()
