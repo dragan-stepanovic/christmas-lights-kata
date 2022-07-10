@@ -7,43 +7,6 @@ namespace Kata.Tests
     public class HelloWorldTests
     {
         [Fact]
-        public void ManipulatesOneLight()
-        {
-            var lights = new Lights(new[] {0});
-            After(lights.AllOn(), WeShouldHave(1));
-            After(lights.AllOn(), WeShouldHave(1));
-
-            After(lights.AllOff(), WeShouldHave(0));
-            After(lights.AllOff(), WeShouldHave(0));
-
-            After(lights.Toggle(), WeShouldHave(1));
-            After(lights.Toggle(), WeShouldHave(0));
-
-            After(lights.AllOn(), WeShouldHave(1));
-            After(lights.Toggle(), WeShouldHave(0));
-            After(lights.AllOn(), WeShouldHave(1));
-            After(lights.AllOff(), WeShouldHave(0));
-            After(lights.Toggle(), WeShouldHave(1));
-        }
-
-        [Fact]
-        public void ManipulatesTwoLights()
-        {
-            var lights = new Lights(new[] {0, 0});
-            After(lights.AllOn(), WeShouldHave(1, 1));
-            After(lights.AllOff(), WeShouldHave(0, 0));
-
-            After(lights.Toggle(), WeShouldHave(1, 1));
-            After(lights.Toggle(), WeShouldHave(0, 0));
-            After(lights.Toggle(), WeShouldHave(1, 1));
-
-            After(lights.AllOff(), WeShouldHave(0, 0));
-            After(lights.Toggle(), WeShouldHave(1, 1));
-            After(lights.Toggle(), WeShouldHave(0, 0));
-            After(lights.AllOn(), WeShouldHave(1, 1));
-        }
-
-        [Fact]
         public void ManipulatesNLightsInTheSameRow()
         {
             Lights(0, 0, 0).AllOn().Should().Be(Lights(1, 1, 1));
