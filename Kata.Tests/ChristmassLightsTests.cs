@@ -27,7 +27,7 @@ namespace Kata.Tests
                 {
                     {0, 0, 0},
                     {0, 1, 0}
-                }).On(new Pair<int, int>(1, 2)).Should()
+                }).On(Coordinate(1, 2)).Should()
                 .Be(new Lights(new[,]
                 {
                     {1, 1, 1},
@@ -39,7 +39,7 @@ namespace Kata.Tests
                     {0, 0, 0},
                     {0, 1, 0},
                     {1, 1, 0}
-                }).On(new Pair<int, int>(2, 1)).Should()
+                }).On(Coordinate(2, 1)).Should()
                 .Be(new Lights(new[,]
                 {
                     {1, 1, 0},
@@ -65,7 +65,7 @@ namespace Kata.Tests
                     {0, 0, 0, 0},
                     {0, 1, 0, 1},
                     {1, 1, 0, 0}
-                }).Toggle(new Pair<int, int>(1, 1), new Pair<int, int>(2, 3)).Should()
+                }).Toggle(Coordinate(1, 1), Coordinate(2, 3)).Should()
                 .Be(new Lights(new[,]
                 {
                     {0, 0, 0, 0},
