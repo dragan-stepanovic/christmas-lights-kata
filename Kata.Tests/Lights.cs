@@ -87,7 +87,7 @@ namespace Kata.Tests
             return this;
         }
 
-        public Lights Toggle()
+        public Lights ToggleAll()
         {
             return TurnedOff() ? AllOn() : AllOff();
         }

@@ -12,8 +12,8 @@ namespace Kata.Tests
             Lights(0, 0, 0).AllOn().Should().Be(Lights(1, 1, 1));
             Lights(0, 0, 0).AllOn().Should().Be(Lights(1, 1, 1));
             Lights(1, 1, 1).AllOff().Should().Be(Lights(0, 0, 0));
-            Lights(0, 0, 0).Toggle().Should().Be(Lights(1, 1, 1));
-            Lights(1, 1, 1).Toggle().Should().Be(Lights(0, 0, 0));
+            Lights(0, 0, 0).ToggleAll().Should().Be(Lights(1, 1, 1));
+            Lights(1, 1, 1).ToggleAll().Should().Be(Lights(0, 0, 0));
             Lights(0, 0, 0).AllOn().Should().Be(Lights(1, 1, 1));
             Lights(1, 1, 1).AllOff().Should().Be(Lights(0, 0, 0));
             Lights(0, 0, 0, 0, 0).AllOn().Should().Be(Lights(1, 1, 1, 1, 1));
