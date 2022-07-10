@@ -74,6 +74,11 @@ namespace Kata.Tests
             return SetValue(new Pair<int, int>(0, columns[0]), new Pair<int, int>(0, columns[1]), 0);
         }
 
+        public Lights Toggle(Pair<int, int> bottomLeft, Pair<int, int> upperRight)
+        {
+            return this;
+        }
+
         public Lights Toggle()
         {
             return TurnedOff() ? AllOn() : AllOff();
@@ -127,11 +132,6 @@ namespace Kata.Tests
 
             stringBuilder.Remove(stringBuilder.Length - 1, 1);
             return stringBuilder.ToString();
-        }
-
-        public Lights Toggle(Pair<int, int> bottomLeft, Pair<int, int> upperRight)
-        {
-            return this;
         }
     }
 }
