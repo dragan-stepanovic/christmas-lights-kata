@@ -84,7 +84,7 @@ namespace Kata.Tests
 
         private static Pair<int, int> TopUpperRightOf(int[,] lights2D)
         {
-            return new Pair<int, int>(lights2D.GetLength(0) - 1, lights2D.GetLength(1) - 1);
+            return Coordinate(lights2D.GetLength(0) - 1, lights2D.GetLength(1) - 1);
         }
 
         private bool Equals(Lights that)
