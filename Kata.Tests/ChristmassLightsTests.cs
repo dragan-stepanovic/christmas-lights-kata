@@ -1,3 +1,4 @@
+using Castle.Core;
 using FluentAssertions;
 using Xunit;
 
@@ -84,7 +85,7 @@ namespace Kata.Tests
                 {
                     {0, 0, 0},
                     {0, 1, 0}
-                }).On(new[] {1, 1}).Should()
+                }).On(new Pair<int, int>(1, 1)).Should()
                 .Be(new Lights(new[,]
                 {
                     {1, 1, 0},

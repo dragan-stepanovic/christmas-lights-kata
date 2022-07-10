@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Castle.Core;
 
 namespace Kata.Tests
 {
@@ -41,6 +42,29 @@ namespace Kata.Tests
             return this;
         }
 
+        public Lights On(Pair<int, int> toChange)
+        {
+            foreach (var position in RangeFrom(new Pair<int, int>(0, 0), toChange))
+                _lights2D[position.First, position.Second] = 1;
+
+            return this;
+        }
+
+        private static List<Pair<int, int>> RangeFrom(Pair<int, int> bottomLeftCoordinate,
+            Pair<int, int> upperRightCoordinate)
+        {
+            var result = new List<Pair<int, int>>();
+            var range = Enumerable.Range(bottomLeftCoordinate.First,
+                upperRightCoordinate.First - bottomLeftCoordinate.First + 1).ToArray();
+
+            for (var row = bottomLeftCoordinate.Second; row <= upperRightCoordinate.Second; row++)
+            {
+                result.AddRange(range.Select(t => new Pair<int, int>(t, row)).ToList());
+            }
+
+            return result;
+        }
+
         public Lights Off(int[] toChange)
         {
             ForEachSet(0, toChange);
@@ -55,7 +79,7 @@ namespace Kata.Tests
         private void ForEachSet(int valueToSet, IReadOnlyList<int> toChange)
         {
             foreach (var index in RangeFrom(toChange))
-                _lights2D[0, index] = valueToSet;
+                _lights2D[index.First, index.Second] = valueToSet;
         }
 
         private int[] SelectAllLights()
@@ -63,9 +87,11 @@ namespace Kata.Tests
             return new[] {0, _lights2D.GetLength(1) - 1};
         }
 
-        private static IEnumerable<int> RangeFrom(IReadOnlyList<int> toChange)
+        private static List<Pair<int, int>> RangeFrom(IReadOnlyList<int> toChange)
         {
-            return Enumerable.Range(toChange[0], toChange[1] - toChange[0] + 1).ToArray();
+            var range = Enumerable.Range(toChange[0], toChange[1] - toChange[0] + 1).ToArray();
+            var result = range.Select(t => new Pair<int, int>(0, t)).ToList();
+            return result;
         }
 
         private bool TurnedOff()
