@@ -33,7 +33,7 @@ namespace Kata.Tests
 
         private static Pair<int, int> ZeroZero()
         {
-            return new Pair<int, int>(0, 0);
+            return Coordinate(0, 0);
         }
 
         public Lights On(int[] columns)
