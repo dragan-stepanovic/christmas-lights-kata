@@ -7,7 +7,7 @@ namespace Kata.Tests
     public class HelloWorldTests
     {
         [Fact]
-        public void ManipulateAllLightsInMultipleRows()
+        public void ManipulateLightsInMultipleRows()
         {
             new Lights(new[,] {{0}}).On(new[] {0, 0}).Should().Be(new Lights(new[,] {{1}}));
             new Lights(new[,] {{0, 0}}).On(new[] {0, 1}).Should().Be(new Lights(new[,] {{1, 1}}));
