@@ -16,7 +16,7 @@ namespace Kata.Tests
 
         public Lights AllOn()
         {
-            return SetValue(ZeroZero(), TopUpperRightOf(_lights2D), 1);
+            return TurnOnBetween(ZeroZero(), TopUpperRightOf(_lights2D));
         }
 
         public static Pair<int, int> ZeroZero()
