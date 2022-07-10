@@ -56,7 +56,7 @@ namespace Kata.Tests
         {
             var result = new List<Pair<int, int>>();
             for (var row = bottomLeft.First; row <= upperRight.First; row++)
-                result.AddRange(Enumerable.Range(0, upperRight.Second + 1)
+                result.AddRange(Enumerable.Range(bottomLeft.Second, upperRight.Second + 1)
                     .Select(column => new Pair<int, int>(row, column)));
 
             return result;
