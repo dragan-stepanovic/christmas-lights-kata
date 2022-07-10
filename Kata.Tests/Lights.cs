@@ -14,14 +14,6 @@ namespace Kata.Tests
             _lights2D = lights2D;
         }
 
-        private static int[,] Lights2DFrom(IReadOnlyList<int> lights1D)
-        {
-            var newList2D = new int[1, lights1D.Count];
-            for (var i = 0; i < lights1D.Count; i++)
-                newList2D[0, i] = lights1D[i];
-            return newList2D;
-        }
-
         public Lights AllOn()
         {
             return SetValue(ZeroZero(), TopUpperRightOf(_lights2D), 1);
