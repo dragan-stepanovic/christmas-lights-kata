@@ -36,12 +36,9 @@ namespace Kata.Tests
             return Off(SelectAllLights());
         }
 
-        public Lights On(int[] upperRight)
+        public Lights On(int[] columns)
         {
-            foreach (var index in RangeFrom(upperRight))
-                _lights2D[index.First, index.Second] = 1;
-
-            return this;
+            return On(new Pair<int, int>(0, columns[0]), new Pair<int, int>(0, columns[1]));
         }
 
         public Lights On(Pair<int, int> upperRight)
@@ -51,13 +48,13 @@ namespace Kata.Tests
 
         private Lights On(Pair<int, int> bottomLeft, Pair<int, int> upperRight)
         {
-            foreach (var position in RangeFrom(upperRight, bottomLeft))
+            foreach (var position in RangeFrom(bottomLeft, upperRight))
                 _lights2D[position.First, position.Second] = 1;
 
             return this;
         }
 
-        private static List<Pair<int, int>> RangeFrom(Pair<int, int> upperRight, Pair<int, int> bottomLeft)
+        private static List<Pair<int, int>> RangeFrom(Pair<int, int> bottomLeft, Pair<int, int> upperRight)
         {
             var result = new List<Pair<int, int>>();
             for (var row = bottomLeft.First; row <= upperRight.First; row++)
