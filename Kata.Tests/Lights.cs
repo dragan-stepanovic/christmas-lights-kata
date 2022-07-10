@@ -44,9 +44,9 @@ namespace Kata.Tests
             return this;
         }
 
-        public Lights On(Pair<int, int> toChange)
+        public Lights On(Pair<int, int> upperRight)
         {
-            foreach (var position in RangeFrom(toChange))
+            foreach (var position in RangeFrom(upperRight))
                 _lights2D[position.First, position.Second] = 1;
 
             return this;
