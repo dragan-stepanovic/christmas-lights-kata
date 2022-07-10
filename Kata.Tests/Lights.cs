@@ -87,11 +87,6 @@ namespace Kata.Tests
             return this;
         }
 
-        public Lights ToggleAll()
-        {
-            return Toggle(ZeroZero(), TopUpperRight());
-        }
-
         private Pair<int, int> TopUpperRight()
         {
             return new Pair<int, int>(_lights2D.GetLength(0) - 1, _lights2D.GetLength(1) - 1);
