@@ -27,7 +27,7 @@ namespace Kata.Tests
                 {
                     {0, 0, 0},
                     {0, 1, 0}
-                }).On(Coordinate(1, 2)).Should()
+                }).TurnOnBetween(Lights.ZeroZero(), Coordinate(1, 2)).Should()
                 .Be(new Lights(new[,]
                 {
                     {1, 1, 1},
@@ -79,21 +79,6 @@ namespace Kata.Tests
         {
             new Lights(new[,] {{1, 0, 1}}).ToString().Should().Be("1, 0, 1");
             new Lights(new[,] {{1, 0, 1}, {1, 0, 0}}).ToString().Should().Be("1, 0, 1\n1, 0, 0");
-        }
-
-        private static Lights Lights(params int[] initial)
-        {
-            return new Lights(initial);
-        }
-
-        private static void After(Lights actual, Lights expected)
-        {
-            actual.Should().Be(expected);
-        }
-
-        private static Lights WeShouldHave(params int[] expected)
-        {
-            return new Lights(expected);
         }
 
         private static Pair<int, int> Coordinate(int first, int second)

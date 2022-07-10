@@ -46,7 +46,7 @@ namespace Kata.Tests
             return TurnOnBetween(ZeroZero(), upperRight);
         }
 
-        private Lights TurnOnBetween(Pair<int, int> bottomLeft, Pair<int, int> upperRight)
+        public Lights TurnOnBetween(Pair<int, int> bottomLeft, Pair<int, int> upperRight)
         {
             return SetValue(bottomLeft, upperRight, 1);
         }
