@@ -46,7 +46,12 @@ namespace Kata.Tests
 
         public Lights On(Pair<int, int> upperRight)
         {
-            foreach (var position in RangeFrom(upperRight, new Pair<int, int>(0, 0)))
+            return OnNew(new Pair<int, int>(0, 0), upperRight);
+        }
+
+        private Lights OnNew(Pair<int, int> bottomLeft, Pair<int, int> upperRight)
+        {
+            foreach (var position in RangeFrom(upperRight, bottomLeft))
                 _lights2D[position.First, position.Second] = 1;
 
             return this;
