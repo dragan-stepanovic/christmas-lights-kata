@@ -69,7 +69,7 @@ namespace Kata.Tests
             return result;
         }
 
-        public Lights Toggle(Pair<int, int> bottomLeft, Pair<int, int> upperRight)
+        public Lights ToggleBetween(Pair<int, int> bottomLeft, Pair<int, int> upperRight)
         {
             foreach (var lightPosition in RangeFrom(bottomLeft, upperRight))
             {

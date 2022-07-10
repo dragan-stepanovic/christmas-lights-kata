@@ -65,7 +65,7 @@ namespace Kata.Tests
                     {0, 0, 0, 0},
                     {0, 1, 0, 1},
                     {1, 1, 0, 0}
-                }).Toggle(Coordinate(1, 1), Coordinate(2, 3)).Should()
+                }).ToggleBetween(Coordinate(1, 1), Coordinate(2, 3)).Should()
                 .Be(new Lights(new[,]
                 {
                     {0, 0, 0, 0},
