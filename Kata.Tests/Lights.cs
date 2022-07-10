@@ -31,7 +31,7 @@ namespace Kata.Tests
             return SetValue(ZeroZero(), TopUpperRightOf(_lights2D), 1);
         }
 
-        private static Pair<int, int> ZeroZero()
+        public static Pair<int, int> ZeroZero()
         {
             return Coordinate(0, 0);
         }
@@ -48,7 +48,12 @@ namespace Kata.Tests
 
         public Lights On(Pair<int, int> upperRight)
         {
-            return SetValue(ZeroZero(), upperRight, 1);
+            return On(ZeroZero(), upperRight);
+        }
+
+        private Lights On(Pair<int, int> bottomLeft, Pair<int, int> upperRight)
+        {
+            return SetValue(bottomLeft, upperRight, 1);
         }
 
         private Lights SetValue(Pair<int, int> bottomLeft, Pair<int, int> upperRight, int valueToSet)
