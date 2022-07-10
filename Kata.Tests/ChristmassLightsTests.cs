@@ -91,6 +91,17 @@ namespace Kata.Tests
                     {1, 1, 0},
                     {1, 1, 0}
                 }));
+
+            new Lights(new[,]
+                {
+                    {0, 0, 0},
+                    {0, 1, 0}
+                }).On(new Pair<int, int>(1, 2)).Should()
+                .Be(new Lights(new[,]
+                {
+                    {1, 1, 1},
+                    {1, 1, 1}
+                }));
         }
 
         [Fact]
