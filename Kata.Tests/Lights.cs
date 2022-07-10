@@ -46,16 +46,14 @@ namespace Kata.Tests
 
         public Lights On(Pair<int, int> upperRight)
         {
-            foreach (var position in RangeFrom(upperRight))
+            foreach (var position in RangeFrom(upperRight, new Pair<int, int>(0, 0)))
                 _lights2D[position.First, position.Second] = 1;
 
             return this;
         }
 
-        private static List<Pair<int, int>> RangeFrom(Pair<int, int> upperRight)
+        private static List<Pair<int, int>> RangeFrom(Pair<int, int> upperRight, Pair<int, int> bottomLeft)
         {
-            var bottomLeft = new Pair<int, int>(0, 0);
-
             var result = new List<Pair<int, int>>();
             for (var row = 0; row <= upperRight.First; row++)
                 result.AddRange(Enumerable.Range(0, upperRight.Second + 1)
