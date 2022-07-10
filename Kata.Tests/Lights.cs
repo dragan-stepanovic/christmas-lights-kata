@@ -74,22 +74,9 @@ namespace Kata.Tests
             return TurnedOff() ? AllOn() : AllOff();
         }
 
-        private void ForEachSet(int valueToSet, IReadOnlyList<int> toChange)
-        {
-            foreach (var index in RangeFrom(toChange))
-                _lights2D[index.First, index.Second] = valueToSet;
-        }
-
         private int[] SelectAllLights()
         {
             return new[] {0, _lights2D.GetLength(1) - 1};
-        }
-
-        private static List<Pair<int, int>> RangeFrom(IReadOnlyList<int> upperRight)
-        {
-            var range = Enumerable.Range(upperRight[0], upperRight[1] - upperRight[0] + 1).ToArray();
-            var result = range.Select(t => new Pair<int, int>(0, t)).ToList();
-            return result;
         }
 
         private bool TurnedOff()
