@@ -58,9 +58,7 @@ namespace Kata.Tests
                 upperRightCoordinate.First - bottomLeftCoordinate.First + 1).ToArray();
 
             for (var row = bottomLeftCoordinate.Second; row <= upperRightCoordinate.Second; row++)
-            {
                 result.AddRange(range.Select(t => new Pair<int, int>(t, row)).ToList());
-            }
 
             return result;
         }
