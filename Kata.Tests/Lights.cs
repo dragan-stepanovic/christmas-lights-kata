@@ -28,7 +28,7 @@ namespace Kata.Tests
 
         public Lights AllOn()
         {
-            return SetValue(ZeroZero(), TopUpperRight(_lights2D), 1);
+            return SetValue(ZeroZero(), TopUpperRightOf(_lights2D), 1);
         }
 
         private static Pair<int, int> ZeroZero()
@@ -77,7 +77,7 @@ namespace Kata.Tests
             return this;
         }
 
-        private static Pair<int, int> TopUpperRight(int[,] lights2D)
+        private static Pair<int, int> TopUpperRightOf(int[,] lights2D)
         {
             return new Pair<int, int>(lights2D.GetLength(0) - 1, lights2D.GetLength(1) - 1);
         }
