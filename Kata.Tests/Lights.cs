@@ -38,7 +38,12 @@ namespace Kata.Tests
 
         public Lights On(int[] columns)
         {
-            return SetValue(new Pair<int, int>(0, columns[0]), new Pair<int, int>(0, columns[1]), 1);
+            return SetValue(Coordinate(0, columns[0]), new Pair<int, int>(0, columns[1]), 1);
+        }
+
+        private static Pair<int, int> Coordinate(int first, int second)
+        {
+            return new Pair<int, int>(first, second);
         }
 
         public Lights On(Pair<int, int> upperRight)
