@@ -86,6 +86,8 @@ namespace Kata.Tests
 
         private static List<Pair<int, int>> RangeFrom(IReadOnlyList<int> upperRight)
         {
+            var bottomLeft = new Pair<int, int>(0, 0);
+
             var range = Enumerable.Range(upperRight[0], upperRight[1] - upperRight[0] + 1).ToArray();
             var result = range.Select(t => new Pair<int, int>(0, t)).ToList();
             return result;
