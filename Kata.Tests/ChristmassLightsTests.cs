@@ -9,14 +9,17 @@ namespace Kata.Tests
         [Fact]
         public void ManipulateLightsInMultipleRows()
         {
-            new Lights(new[,] {{0}}).On(Coordinate(0, 0)).Should().Be(new Lights(new[,] {{1}}));
-            new Lights(new[,] {{0, 0}}).On(Coordinate(0, 1)).Should().Be(new Lights(new[,] {{1, 1}}));
-            new Lights(new[,] {{0, 0, 0}}).On(Coordinate(0, 2)).Should().Be(new Lights(new[,] {{1, 1, 1}}));
+            new Lights(new[,] {{0}}).TurnOnBetween(Lights.ZeroZero(), Coordinate(0, 0)).Should()
+                .Be(new Lights(new[,] {{1}}));
+            new Lights(new[,] {{0, 0}}).TurnOnBetween(Lights.ZeroZero(), Coordinate(0, 1)).Should()
+                .Be(new Lights(new[,] {{1, 1}}));
+            new Lights(new[,] {{0, 0, 0}}).TurnOnBetween(Lights.ZeroZero(), Coordinate(0, 2)).Should()
+                .Be(new Lights(new[,] {{1, 1, 1}}));
             new Lights(new[,]
                 {
                     {0, 0, 0},
                     {0, 1, 0}
-                }).On(Coordinate(1, 1))
+                }).TurnOnBetween(Lights.ZeroZero(), Coordinate(1, 1))
                 .Should().Be(new Lights(new[,]
                 {
                     {1, 1, 0},
@@ -39,7 +42,7 @@ namespace Kata.Tests
                     {0, 0, 0},
                     {0, 1, 0},
                     {1, 1, 0}
-                }).On(Coordinate(2, 1))
+                }).TurnOnBetween(Lights.ZeroZero(), Coordinate(2, 1))
                 .Should().Be(new Lights(new[,]
                 {
                     {1, 1, 0},
