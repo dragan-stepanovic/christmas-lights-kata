@@ -128,5 +128,10 @@ namespace Kata.Tests
             stringBuilder.Remove(stringBuilder.Length - 1, 1);
             return stringBuilder.ToString();
         }
+
+        public Lights Toggle(Pair<int, int> bottomLeft, Pair<int, int> upperRight)
+        {
+            return this;
+        }
     }
 }
