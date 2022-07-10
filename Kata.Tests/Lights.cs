@@ -40,6 +40,7 @@ namespace Kata.Tests
         {
             foreach (var index in RangeFrom(toChange))
                 _lights2D[index.First, index.Second] = 1;
+
             return this;
         }
 
