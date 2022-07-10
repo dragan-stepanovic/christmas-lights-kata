@@ -38,15 +38,15 @@ namespace Kata.Tests
 
         public Lights On(int[] columns)
         {
-            return On(new Pair<int, int>(0, columns[0]), new Pair<int, int>(0, columns[1]), 1);
+            return SetValue(new Pair<int, int>(0, columns[0]), new Pair<int, int>(0, columns[1]), 1);
         }
 
         public Lights On(Pair<int, int> upperRight)
         {
-            return On(new Pair<int, int>(0, 0), upperRight, 1);
+            return SetValue(new Pair<int, int>(0, 0), upperRight, 1);
         }
 
-        private Lights On(Pair<int, int> bottomLeft, Pair<int, int> upperRight, int valueToSet)
+        private Lights SetValue(Pair<int, int> bottomLeft, Pair<int, int> upperRight, int valueToSet)
         {
             foreach (var position in RangeFrom(bottomLeft, upperRight))
                 _lights2D[position.First, position.Second] = valueToSet;
