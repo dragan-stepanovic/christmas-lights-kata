@@ -76,6 +76,14 @@ namespace Kata.Tests
 
         public Lights Toggle(Pair<int, int> bottomLeft, Pair<int, int> upperRight)
         {
+            foreach (var lightPosition in RangeFrom(bottomLeft, upperRight))
+            {
+                if (_lights2D[lightPosition.First, lightPosition.Second] == 0)
+                    _lights2D[lightPosition.First, lightPosition.Second] = 1;
+                else
+                    _lights2D[lightPosition.First, lightPosition.Second] = 0;
+            }
+
             return this;
         }
 

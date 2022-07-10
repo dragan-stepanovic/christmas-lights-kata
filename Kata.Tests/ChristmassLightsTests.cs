@@ -143,15 +143,15 @@ namespace Kata.Tests
                 }));
         }
 
-        [Fact]
-        public void FinalTest()
-        {
-            const int maxSize = 1000000;
-            var grid = new int[maxSize, maxSize];
-            for (var i = 0; i < maxSize; i++)
-            for (var j = 0; j < maxSize; j++)
-                grid[i, j] = 0;
-        }
+        // [Fact]
+        // public void FinalTest()
+        // {
+        //     const int maxSize = 1000000;
+        //     var grid = new int[maxSize, maxSize];
+        //     for (var i = 0; i < maxSize; i++)
+        //     for (var j = 0; j < maxSize; j++)
+        //         grid[i, j] = 0;
+        // }
 
         [Fact]
         public void TestToString()
