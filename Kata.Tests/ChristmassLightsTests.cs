@@ -9,6 +9,7 @@ namespace Kata.Tests
         [Fact]
         public void ManipulateLightsInMultipleRows()
         {
+            //todo: I need tests for Off
             new Lights(new[,] {{0}}).TurnOnBetween(Lights.ZeroZero(), Coordinate(0, 0)).Should()
                 .Be(new Lights(new[,] {{1}}));
             new Lights(new[,] {{0, 0}}).TurnOnBetween(Lights.ZeroZero(), Coordinate(0, 1)).Should()
