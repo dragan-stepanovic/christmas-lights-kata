@@ -36,9 +36,9 @@ namespace Kata.Tests
             return Off(SelectAllLights());
         }
 
-        public Lights On(int[] toChange)
+        public Lights On(int[] upperRight)
         {
-            foreach (var index in RangeFrom(toChange))
+            foreach (var index in RangeFrom(upperRight))
                 _lights2D[index.First, index.Second] = 1;
 
             return this;
@@ -84,9 +84,9 @@ namespace Kata.Tests
             return new[] {0, _lights2D.GetLength(1) - 1};
         }
 
-        private static List<Pair<int, int>> RangeFrom(IReadOnlyList<int> toChange)
+        private static List<Pair<int, int>> RangeFrom(IReadOnlyList<int> upperRight)
         {
-            var range = Enumerable.Range(toChange[0], toChange[1] - toChange[0] + 1).ToArray();
+            var range = Enumerable.Range(upperRight[0], upperRight[1] - upperRight[0] + 1).ToArray();
             var result = range.Select(t => new Pair<int, int>(0, t)).ToList();
             return result;
         }
