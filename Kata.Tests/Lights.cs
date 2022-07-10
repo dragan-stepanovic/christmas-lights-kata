@@ -89,18 +89,12 @@ namespace Kata.Tests
 
         public Lights ToggleAll()
         {
-            return TurnedOff() ? AllOn() : AllOff();
+            return Toggle(ZeroZero(), TopUpperRight());
         }
 
         private Pair<int, int> TopUpperRight()
         {
             return new Pair<int, int>(_lights2D.GetLength(0) - 1, _lights2D.GetLength(1) - 1);
-        }
-
-        private bool TurnedOff()
-        {
-            //todo: assumption is that all lights have the same value; listing assumptions is good to incrementally grow the solution
-            return _lights2D[0, 0] == 0;
         }
 
         private bool Equals(Lights that)
