@@ -9,10 +9,6 @@ namespace Kata.Tests
     {
         private readonly int[,] _lights2D;
 
-        public Lights(IReadOnlyList<int> lights1D) : this(Lights2DFrom(lights1D))
-        {
-        }
-
         public Lights(int[,] lights2D)
         {
             _lights2D = lights2D;
