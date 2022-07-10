@@ -69,11 +69,6 @@ namespace Kata.Tests
             return result;
         }
 
-        public Lights Off(int[] columns)
-        {
-            return SetValue(new Pair<int, int>(0, columns[0]), new Pair<int, int>(0, columns[1]), 0);
-        }
-
         public Lights Toggle(Pair<int, int> bottomLeft, Pair<int, int> upperRight)
         {
             foreach (var lightPosition in RangeFrom(bottomLeft, upperRight))
