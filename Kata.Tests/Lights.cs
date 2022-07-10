@@ -44,13 +44,13 @@ namespace Kata.Tests
 
         public Lights On(Pair<int, int> toChange)
         {
-            foreach (var position in RangeFrom())
+            foreach (var position in RangeFrom(toChange))
                 _lights2D[position.First, position.Second] = 1;
 
             return this;
         }
 
-        private static List<Pair<int, int>> RangeFrom()
+        private static List<Pair<int, int>> RangeFrom(Pair<int, int> toChange)
         {
             var result = new List<Pair<int, int>>();
             result.AddRange(new[] {0, 1}.Select(t => new Pair<int, int>(t, 0)).ToList());
