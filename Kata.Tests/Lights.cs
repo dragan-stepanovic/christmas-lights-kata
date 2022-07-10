@@ -38,7 +38,8 @@ namespace Kata.Tests
 
         public Lights On(int[] toChange)
         {
-            ForEachSet(1, toChange);
+            foreach (var index in RangeFrom(toChange))
+                _lights2D[index.First, index.Second] = 1;
             return this;
         }
 
