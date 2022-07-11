@@ -10,10 +10,10 @@ namespace Kata
 
         public Lights(int[,] lights)
         {
-            ArrayOfLightsFrom(lights);
+            LightsGridFrom(lights);
         }
 
-        private void ArrayOfLightsFrom(int[,] lights)
+        private void LightsGridFrom(int[,] lights)
         {
             _lights = new Light[NumberOfRows(lights), NumberOfColumns(lights)];
             AllCoordinatesIn(lights).ForEach(c => _lights[c.Row, c.Column] = new Light(lights[c.Row, c.Column]));
