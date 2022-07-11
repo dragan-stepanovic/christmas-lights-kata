@@ -13,9 +13,9 @@ internal class Coordinate
     public int Column { get; }
     public int Row { get; }
 
-    public static Coordinate At(Pair<int, int> bottomLeft)
+    public static Coordinate At(int row, int column)
     {
-        return new Coordinate(bottomLeft.First, bottomLeft.Second);
+        return new Coordinate(row, column);
     }
 
     public static Pair<int, int> ZeroZero()
