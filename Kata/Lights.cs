@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace Kata
@@ -25,29 +23,15 @@ namespace Kata
 
         private Lights SetValue(Coordinate bottomLeft, Coordinate topRight, int valueToSet)
         {
-            foreach (var position in RangeBetween(bottomLeft, topRight))
+            foreach (var position in Range.RangeBetween(bottomLeft, topRight))
                 _lights2D[position.Row, position.Column] = valueToSet;
 
             return this;
         }
 
-        private static List<Coordinate> RangeBetween(Coordinate bottomLeft, Coordinate topRight)
-        {
-            var range = new List<Coordinate>();
-            for (var row = bottomLeft.Row; row <= topRight.Row; row++)
-                range.AddRange(ColumnsBetween(bottomLeft.Column, topRight.Column)
-                    .Select(column => Coordinate.At(row, column)));
-            return range;
-        }
-
-        private static IEnumerable<int> ColumnsBetween(int leftColumn, int rightColumn)
-        {
-            return Enumerable.Range(leftColumn, rightColumn - leftColumn + 1);
-        }
-
         public Lights ToggleBetween(Coordinate bottomLeft, Coordinate topRight)
         {
-            foreach (var lightPosition in RangeBetween(bottomLeft, topRight))
+            foreach (var lightPosition in Range.RangeBetween(bottomLeft, topRight))
             {
                 if (_lights2D[lightPosition.Row, lightPosition.Column] == 0)
                     _lights2D[lightPosition.Row, lightPosition.Column] = 1;
