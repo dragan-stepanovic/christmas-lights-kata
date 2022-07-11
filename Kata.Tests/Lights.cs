@@ -26,17 +26,19 @@ namespace Kata.Tests
 
         private Lights SetValue(Pair<int, int> bottomLeft, Pair<int, int> topRight, int valueToSet)
         {
-            foreach (var position in RangeFrom(new Coordinate(bottomLeft.First, bottomLeft.Second), topRight))
+            foreach (var position in RangeFrom(new Coordinate(bottomLeft.First, bottomLeft.Second),
+                         new Coordinate(topRight.First, topRight.Second)))
                 _lights2D[position.First, position.Second] = valueToSet;
 
             return this;
         }
 
-        private static List<Pair<int, int>> RangeFrom(Coordinate bottomLeft, Pair<int, int> topRight)
+        private static List<Pair<int, int>> RangeFrom(Coordinate bottomLeft, Coordinate topRight)
         {
             var result = new List<Pair<int, int>>();
-            for (var row = bottomLeft.Row; row <= topRight.First; row++)
-                result.AddRange(Enumerable.Range(bottomLeft.Column, topRight.Second - bottomLeft.Column + 1)
+
+            for (var row = bottomLeft.Row; row <= topRight.Row; row++)
+                result.AddRange(Enumerable.Range(bottomLeft.Column, topRight.Column - bottomLeft.Column + 1)
                     .Select(column => Coordinate.At(row, column)));
 
             return result;
@@ -44,7 +46,8 @@ namespace Kata.Tests
 
         public Lights ToggleBetween(Pair<int, int> bottomLeft, Pair<int, int> topRight)
         {
-            foreach (var lightPosition in RangeFrom(new Coordinate(bottomLeft.First, bottomLeft.Second), topRight))
+            foreach (var lightPosition in RangeFrom(new Coordinate(bottomLeft.First, bottomLeft.Second),
+                         new Coordinate(topRight.First, topRight.Second)))
             {
                 if (_lights2D[lightPosition.First, lightPosition.Second] == 0)
                     _lights2D[lightPosition.First, lightPosition.Second] = 1;
