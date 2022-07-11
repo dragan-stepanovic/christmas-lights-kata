@@ -16,7 +16,7 @@ namespace Kata.Tests
 
         public Lights AllOn()
         {
-            return TurnOnBetween(ZeroZero(), TopUpperRightOf(_lights2D));
+            return TurnOnBetween(ZeroZero(), TopRightOf(_lights2D));
         }
 
         public static Pair<int, int> ZeroZero()
@@ -39,27 +39,27 @@ namespace Kata.Tests
             return this;
         }
 
-        private Lights SetValue(Pair<int, int> bottomLeft, Pair<int, int> upperRight, int valueToSet)
+        private Lights SetValue(Pair<int, int> bottomLeft, Pair<int, int> topRight, int valueToSet)
         {
-            foreach (var position in RangeFrom(bottomLeft, upperRight))
+            foreach (var position in RangeFrom(bottomLeft, topRight))
                 _lights2D[position.First, position.Second] = valueToSet;
 
             return this;
         }
 
-        private static List<Pair<int, int>> RangeFrom(Pair<int, int> bottomLeft, Pair<int, int> upperRight)
+        private static List<Pair<int, int>> RangeFrom(Pair<int, int> bottomLeft, Pair<int, int> topRight)
         {
             var result = new List<Pair<int, int>>();
-            for (var row = bottomLeft.First; row <= upperRight.First; row++)
-                result.AddRange(Enumerable.Range(bottomLeft.Second, upperRight.Second - bottomLeft.Second + 1)
+            for (var row = bottomLeft.First; row <= topRight.First; row++)
+                result.AddRange(Enumerable.Range(bottomLeft.Second, topRight.Second - bottomLeft.Second + 1)
                     .Select(column => Coordinate(row, column)));
 
             return result;
         }
 
-        public Lights ToggleBetween(Pair<int, int> bottomLeft, Pair<int, int> upperRight)
+        public Lights ToggleBetween(Pair<int, int> bottomLeft, Pair<int, int> topRight)
         {
-            foreach (var lightPosition in RangeFrom(bottomLeft, upperRight))
+            foreach (var lightPosition in RangeFrom(bottomLeft, topRight))
             {
                 if (_lights2D[lightPosition.First, lightPosition.Second] == 0)
                     _lights2D[lightPosition.First, lightPosition.Second] = 1;
@@ -70,7 +70,7 @@ namespace Kata.Tests
             return this;
         }
 
-        private static Pair<int, int> TopUpperRightOf(int[,] lights2D)
+        private static Pair<int, int> TopRightOf(int[,] lights2D)
         {
             return Coordinate(lights2D.GetLength(0) - 1, lights2D.GetLength(1) - 1);
         }
