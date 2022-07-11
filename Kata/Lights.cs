@@ -1,5 +1,5 @@
 using System;
-using System.Linq;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Kata
@@ -15,11 +15,14 @@ namespace Kata
 
         private void ArrayOfLightsFrom(int[,] lights)
         {
-            var coordinates = Coordinates.Between(Coordinate.ZeroZero,
-                Coordinate.At(NumberOfRows(lights) - 1, NumberOfColumns(lights) - 1));
-
             _lights = new Light[NumberOfRows(lights), NumberOfColumns(lights)];
-            coordinates.ToList().ForEach(c => _lights[c.Row, c.Column] = new Light(lights[c.Row, c.Column]));
+            AllCoordinatesIn(lights).ForEach(c => _lights[c.Row, c.Column] = new Light(lights[c.Row, c.Column]));
+        }
+
+        private static List<Coordinate> AllCoordinatesIn(int[,] lights)
+        {
+            return Coordinates.Between(Coordinate.ZeroZero,
+                Coordinate.At(NumberOfRows(lights) - 1, NumberOfColumns(lights) - 1));
         }
 
         private static int NumberOfColumns(int[,] lights)
