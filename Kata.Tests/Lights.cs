@@ -34,11 +34,9 @@ namespace Kata.Tests
         private static List<Coordinate> RangeBetween(Coordinate bottomLeft, Coordinate topRight)
         {
             var range = new List<Coordinate>();
-
             for (var row = bottomLeft.Row; row <= topRight.Row; row++)
                 range.AddRange(ColumnsBetween(bottomLeft.Column, topRight.Column)
                     .Select(column => Coordinate.At(row, column)));
-
             return range;
         }
 
