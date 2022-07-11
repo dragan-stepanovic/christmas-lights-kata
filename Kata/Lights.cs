@@ -1,3 +1,4 @@
+using System;
 using System.Text;
 
 namespace Kata
@@ -37,8 +38,10 @@ namespace Kata
 
         public Lights ToggleBetween(Coordinate bottomLeft, Coordinate topRight)
         {
+            Action<Light> action = light => light.Toggle();
             foreach (var position in Range.Between(bottomLeft, topRight))
-                LightAt(position).Toggle();
+                action.Invoke(LightAt(position));
+            // LightAt(position).Toggle();
 
             return this;
         }
