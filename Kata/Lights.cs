@@ -8,10 +8,10 @@ namespace Kata
 
         public Lights(int[,] lights2D)
         {
-            CreateArrayOfLightsFrom(lights2D);
+            ArrayOfLightsFrom(lights2D);
         }
 
-        private void CreateArrayOfLightsFrom(int[,] lights2D)
+        private void ArrayOfLightsFrom(int[,] lights2D)
         {
             _lights = new Light[lights2D.GetLength(0), lights2D.GetLength(1)];
             for (var row = 0; row < lights2D.GetLength(0); row++)
