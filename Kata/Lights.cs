@@ -23,6 +23,7 @@ namespace Kata
         {
             foreach (var position in Range.Between(bottomLeft, topRight))
                 LightAt(position).TurnOn();
+
             return this;
         }
 
@@ -30,6 +31,7 @@ namespace Kata
         {
             foreach (var position in Range.Between(bottomLeft, topRight))
                 LightAt(position).TurnOff();
+
             return this;
         }
 
