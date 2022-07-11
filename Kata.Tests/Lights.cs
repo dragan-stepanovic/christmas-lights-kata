@@ -35,9 +35,14 @@ namespace Kata.Tests
         private static List<Pair<int, int>> RangeBetween(Coordinate bottomLeft, Coordinate topRight)
         {
             var result = new List<Pair<int, int>>();
+            var newResult = new List<Coordinate>();
+
             for (var row = bottomLeft.Row; row <= topRight.Row; row++)
-                result.AddRange(ColumnsBetween(bottomLeft.Column, topRight.Column)
-                    .Select(column => Coordinate.At_ToRemove(row, column)));
+            {
+                var columnsBetween = ColumnsBetween(bottomLeft.Column, topRight.Column);
+                result.AddRange(columnsBetween.Select(column => Coordinate.At_ToRemove(row, column)));
+            }
+
             return result;
         }
 
