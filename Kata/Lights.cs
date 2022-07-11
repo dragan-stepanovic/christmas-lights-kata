@@ -24,7 +24,10 @@ namespace Kata
         public Lights TurnOnBetween(Coordinate bottomLeft, Coordinate topRight)
         {
             foreach (var position in Range.Between(bottomLeft, topRight))
+            {
                 _lights2D[position.Row, position.Column] = 1;
+                _newLights2D[position.Row, position.Column].TurnOn();
+            }
 
             return this;
         }
@@ -32,7 +35,10 @@ namespace Kata
         public Lights TurnOffBetween(Coordinate bottomLeft, Coordinate topRight)
         {
             foreach (var position in Range.Between(bottomLeft, topRight))
+            {
                 _lights2D[position.Row, position.Column] = 0;
+                _newLights2D[position.Row, position.Column].TurnOff();
+            }
 
             return this;
         }
