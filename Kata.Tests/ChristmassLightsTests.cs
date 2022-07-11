@@ -7,7 +7,7 @@ namespace Kata.Tests
     public class HelloWorldTests
     {
         [Fact]
-        public void ManipulateLightsInMultipleRows()
+        public void TurningOn()
         {
             //todo: I need tests for Off
             new Lights(new[,] {{0}}).TurnOnBetween(Lights.ZeroZero(), Coordinate(0, 0)).Should()
