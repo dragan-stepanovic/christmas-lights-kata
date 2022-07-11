@@ -36,7 +36,6 @@ namespace Kata.Tests
         private static List<Pair<int, int>> RangeBetween(Coordinate bottomLeft, Coordinate topRight)
         {
             var result = new List<Pair<int, int>>();
-
             for (var row = bottomLeft.Row; row <= topRight.Row; row++)
                 result.AddRange(Enumerable.Range(bottomLeft.Column, topRight.Column - bottomLeft.Column + 1)
                     .Select(column => Coordinate.At(row, column)));
