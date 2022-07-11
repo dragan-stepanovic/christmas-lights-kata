@@ -36,9 +36,14 @@ namespace Kata.Tests
         {
             var result = new List<Pair<int, int>>();
             for (var row = bottomLeft.Row; row <= topRight.Row; row++)
-                result.AddRange(Enumerable.Range(bottomLeft.Column, topRight.Column - bottomLeft.Column + 1)
+                result.AddRange(ColumnsBetween(bottomLeft.Column, topRight.Column)
                     .Select(column => Coordinate.At_ToRemove(row, column)));
             return result;
+        }
+
+        private static IEnumerable<int> ColumnsBetween(int leftColumn, int rightColumn)
+        {
+            return Enumerable.Range(leftColumn, rightColumn - leftColumn + 1);
         }
 
         public Lights ToggleBetween(Coordinate bottomLeft, Coordinate topRight)
