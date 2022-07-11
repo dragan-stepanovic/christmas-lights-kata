@@ -29,9 +29,9 @@ namespace Kata.Tests
             return new Pair<int, int>(first, second);
         }
 
-        public Lights TurnOnBetween(Pair<int, int> bottomLeft, Pair<int, int> upperRight)
+        public Lights TurnOnBetween(Pair<int, int> bottomLeft, Pair<int, int> topRight)
         {
-            return SetValue(bottomLeft, upperRight, 1);
+            return SetValue(bottomLeft, topRight, 1);
         }
 
         public Lights TurnOffBetween(Pair<int, int> bottomLeft, Pair<int, int> topRight)
