@@ -13,13 +13,18 @@ internal class Coordinate
     public int Column { get; }
     public int Row { get; }
 
-    public static Pair<int, int> At(int first, int second)
+    public static Coordinate At(Pair<int, int> bottomLeft)
     {
-        return new Pair<int, int>(first, second);
+        return new Coordinate(bottomLeft.First, bottomLeft.Second);
     }
 
     public static Pair<int, int> ZeroZero()
     {
-        return At(0, 0);
+        return At_ToRemove(0, 0);
+    }
+
+    public static Pair<int, int> At_ToRemove(int first, int second)
+    {
+        return new Pair<int, int>(first, second);
     }
 }

@@ -22,7 +22,7 @@ namespace Kata.Tests
 
         public Lights TurnOffBetween(Pair<int, int> bottomLeft, Pair<int, int> topRight)
         {
-            return SetValue(new Coordinate(bottomLeft.First, bottomLeft.Second),
+            return SetValue(Coordinate.At(bottomLeft),
                 new Coordinate(topRight.First, topRight.Second), 0);
         }
 
@@ -39,7 +39,7 @@ namespace Kata.Tests
             var result = new List<Pair<int, int>>();
             for (var row = bottomLeft.Row; row <= topRight.Row; row++)
                 result.AddRange(Enumerable.Range(bottomLeft.Column, topRight.Column - bottomLeft.Column + 1)
-                    .Select(column => Coordinate.At(row, column)));
+                    .Select(column => Coordinate.At_ToRemove(row, column)));
             return result;
         }
 
