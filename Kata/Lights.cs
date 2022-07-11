@@ -6,7 +6,7 @@ namespace Kata
 {
     public class Lights
     {
-        private Light[,] _lightsGrid;
+        private Light[,] _grid;
 
         public Lights(int[,] lights)
         {
@@ -15,8 +15,8 @@ namespace Kata
 
         private void LightsGridFrom(int[,] lights)
         {
-            _lightsGrid = new Light[NumberOfRows(lights), NumberOfColumns(lights)];
-            AllCoordinatesIn(lights).ForEach(c => _lightsGrid[c.Row, c.Column] = new Light(lights[c.Row, c.Column]));
+            _grid = new Light[NumberOfRows(lights), NumberOfColumns(lights)];
+            AllCoordinatesIn(lights).ForEach(c => _grid[c.Row, c.Column] = new Light(lights[c.Row, c.Column]));
         }
 
         private static List<Coordinate> AllCoordinatesIn(int[,] lights)
@@ -60,14 +60,14 @@ namespace Kata
 
         private Light LightAt(Coordinate position)
         {
-            return _lightsGrid[position.Row, position.Column];
+            return _grid[position.Row, position.Column];
         }
 
         private bool Equals(Lights that)
         {
-            for (var i = 0; i < _lightsGrid.GetLength(0); i++)
-            for (var j = 0; j < _lightsGrid.GetLength(1); j++)
-                if (_lightsGrid[i, j].DoesNotEqual(that._lightsGrid[i, j]))
+            for (var i = 0; i < _grid.GetLength(0); i++)
+            for (var j = 0; j < _grid.GetLength(1); j++)
+                if (_grid[i, j].DoesNotEqual(that._grid[i, j]))
                     return false;
 
             return true;
@@ -82,16 +82,16 @@ namespace Kata
 
         public override int GetHashCode()
         {
-            return _lightsGrid != null ? _lightsGrid.GetHashCode() : 0;
+            return _grid != null ? _grid.GetHashCode() : 0;
         }
 
         public override string ToString()
         {
             var stringBuilder = new StringBuilder("");
-            for (var i = 0; i < _lightsGrid.GetLength(0); i++)
+            for (var i = 0; i < _grid.GetLength(0); i++)
             {
-                for (var j = 0; j < _lightsGrid.GetLength(1); j++)
-                    stringBuilder.Append(_lightsGrid[i, j] + ", ");
+                for (var j = 0; j < _grid.GetLength(1); j++)
+                    stringBuilder.Append(_grid[i, j] + ", ");
 
                 stringBuilder.Remove(stringBuilder.Length - 2, 2);
                 stringBuilder.Append('\n');
