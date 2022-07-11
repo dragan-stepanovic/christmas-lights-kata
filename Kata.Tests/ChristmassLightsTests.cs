@@ -12,18 +12,17 @@ namespace Kata.Tests
             new Lights(new[,] {{0}}).TurnOnBetween(Coordinate.ZeroZero, Coordinate.ZeroZero)
                 .Should()
                 .Be(new Lights(new[,] {{1}}));
-            Pair<int, int> bottomLeft1 = Coordinate.ZeroZero_ToRemove();
-            Pair<int, int> topRight1 = Coordinate.At_ToRemove(0, 1);
-            new Lights(new[,] {{0, 0}}).TurnOnBetween(new Coordinate(bottomLeft1.First, bottomLeft1.Second),
-                    new Coordinate(topRight1.First, topRight1.Second))
-                .Should()
-                .Be(new Lights(new[,] {{1, 1}}));
+
+            new Lights(new[,] {{0, 0}}).TurnOnBetween(Coordinate.ZeroZero, Coordinate.At(0, 1))
+                .Should().Be(new Lights(new[,] {{1, 1}}));
+
             Pair<int, int> bottomLeft2 = Coordinate.ZeroZero_ToRemove();
             Pair<int, int> topRight2 = Coordinate.At_ToRemove(0, 2);
             new Lights(new[,] {{0, 0, 0}}).TurnOnBetween(new Coordinate(bottomLeft2.First, bottomLeft2.Second),
                     new Coordinate(topRight2.First, topRight2.Second))
                 .Should()
                 .Be(new Lights(new[,] {{1, 1, 1}}));
+
             Pair<int, int> bottomLeft3 = Coordinate.ZeroZero_ToRemove();
             Pair<int, int> topRight3 = Coordinate.At_ToRemove(1, 1);
             new Lights(new[,]
