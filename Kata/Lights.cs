@@ -11,12 +11,8 @@ namespace Kata
         {
             _newLights2D = new Light[lights2D.GetLength(0), lights2D.GetLength(1)];
             for (var row = 0; row < lights2D.GetLength(0); row++)
-            {
-                for (int column = 0; column < lights2D.GetLength(1); column++)
-                {
-                    _newLights2D[row, column] = new Light(lights2D[row, column]);
-                }
-            }
+            for (var column = 0; column < lights2D.GetLength(1); column++)
+                _newLights2D[row, column] = new Light(lights2D[row, column]);
 
             _lights2D = lights2D;
         }
