@@ -62,8 +62,7 @@ namespace Kata
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != GetType()) return false;
-            return Equals((Lights) obj);
+            return obj.GetType() == GetType() && Equals((Lights) obj);
         }
 
         public override int GetHashCode()
