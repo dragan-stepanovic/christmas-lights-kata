@@ -22,7 +22,7 @@ namespace Kata.Tests
 
         public Lights TurnOffBetween(Pair<int, int> bottomLeft, Pair<int, int> topRight)
         {
-            return SetValue(Coordinate.At(bottomLeft, bottomLeft.First, bottomLeft.Second),
+            return SetValue(Coordinate.At(bottomLeft.First, bottomLeft.Second),
                 new Coordinate(topRight.First, topRight.Second), 0);
         }
 
