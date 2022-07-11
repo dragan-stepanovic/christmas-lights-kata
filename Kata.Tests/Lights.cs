@@ -55,11 +55,6 @@ namespace Kata.Tests
             return this;
         }
 
-        private static Pair<int, int> TopRightOf(int[,] lights2D)
-        {
-            return Coordinate.At(lights2D.GetLength(0) - 1, lights2D.GetLength(1) - 1);
-        }
-
         private bool Equals(Lights that)
         {
             for (var i = 0; i < _lights2D.GetLength(0); i++)
