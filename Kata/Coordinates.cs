@@ -11,14 +11,8 @@ internal static class Coordinates
         foreach (var row in RowsBetween(bottomLeft, topRight))
             range.AddRange(ColumnsBetween(topRight.Column, bottomLeft)
                 .Select(column => Coordinate.At(row, column)));
-
-        // var range = new List<Coordinate>();
-        // for (var row = bottomLeft.Row; row <= topRight.Row; row++)
-        //     range.AddRange(ColumnsBetween(bottomLeft.Column, topRight.Column)
-        //         .Select(column => Coordinate.At(row, column)));
         return range;
     }
-
 
     private static IEnumerable<int> RowsBetween(Coordinate bottomLeft, Coordinate topRight)
     {
