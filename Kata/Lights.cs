@@ -33,6 +33,8 @@ namespace Kata
         {
             foreach (var lightPosition in Range.Between(bottomLeft, topRight))
             {
+                new Light(lightPosition, _lights2D[lightPosition.Row, lightPosition.Column]);
+
                 if (_lights2D[lightPosition.Row, lightPosition.Column] == 0)
                     _lights2D[lightPosition.Row, lightPosition.Column] = 1;
                 else
@@ -79,6 +81,13 @@ namespace Kata
 
             stringBuilder.Remove(stringBuilder.Length - 1, 1);
             return stringBuilder.ToString();
+        }
+    }
+
+    public class Light
+    {
+        public Light(Coordinate coordinate, int state)
+        {
         }
     }
 }
