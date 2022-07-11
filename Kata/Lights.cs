@@ -51,7 +51,10 @@ namespace Kata
                     _newLights2D[lightPosition.Row, lightPosition.Column].TurnOn();
                 }
                 else
+                {
                     _lights2D[lightPosition.Row, lightPosition.Column] = 0;
+                    _newLights2D[lightPosition.Row, lightPosition.Column].TurnOff();
+                }
             }
 
             return this;
@@ -114,6 +117,11 @@ namespace Kata
         public void TurnOn()
         {
             _state = 1;
+        }
+
+        public void TurnOff()
+        {
+            _state = 0;
         }
     }
 }
