@@ -2,7 +2,7 @@ using Castle.Core;
 
 namespace Kata.Tests;
 
-internal class Coordinate
+public class Coordinate
 {
     public Coordinate(int row, int column)
     {
