@@ -34,6 +34,8 @@ namespace Kata.Tests
 
         private static List<Pair<int, int>> RangeFrom(Pair<int, int> bottomLeft, Pair<int, int> topRight)
         {
+            var bottomLeftNew = new Coordinate(bottomLeft.First, bottomLeft.Second);
+
             var result = new List<Pair<int, int>>();
             for (var row = bottomLeft.First; row <= topRight.First; row++)
                 result.AddRange(Enumerable.Range(bottomLeft.Second, topRight.Second - bottomLeft.Second + 1)

@@ -2,8 +2,17 @@ using Castle.Core;
 
 namespace Kata.Tests;
 
-internal static class Coordinate
+internal class Coordinate
 {
+    private readonly int _column;
+    private readonly int _row;
+
+    public Coordinate(int row, int column)
+    {
+        _row = row;
+        _column = column;
+    }
+
     public static Pair<int, int> At(int first, int second)
     {
         return new Pair<int, int>(first, second);
