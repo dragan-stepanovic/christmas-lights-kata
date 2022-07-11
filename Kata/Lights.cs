@@ -23,7 +23,7 @@ namespace Kata
 
         private Lights SetValue(Coordinate bottomLeft, Coordinate topRight, int valueToSet)
         {
-            foreach (var position in Range.RangeBetween(bottomLeft, topRight))
+            foreach (var position in Range.Between(bottomLeft, topRight))
                 _lights2D[position.Row, position.Column] = valueToSet;
 
             return this;
@@ -31,7 +31,7 @@ namespace Kata
 
         public Lights ToggleBetween(Coordinate bottomLeft, Coordinate topRight)
         {
-            foreach (var lightPosition in Range.RangeBetween(bottomLeft, topRight))
+            foreach (var lightPosition in Range.Between(bottomLeft, topRight))
             {
                 if (_lights2D[lightPosition.Row, lightPosition.Column] == 0)
                     _lights2D[lightPosition.Row, lightPosition.Column] = 1;

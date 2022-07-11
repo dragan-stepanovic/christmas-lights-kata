@@ -5,7 +5,7 @@ namespace Kata;
 
 internal static class Range
 {
-    public static List<Coordinate> RangeBetween(Coordinate bottomLeft, Coordinate topRight)
+    public static List<Coordinate> Between(Coordinate bottomLeft, Coordinate topRight)
     {
         var range = new List<Coordinate>();
         for (var row = bottomLeft.Row; row <= topRight.Row; row++)
