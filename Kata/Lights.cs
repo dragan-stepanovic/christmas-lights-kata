@@ -37,17 +37,20 @@ namespace Kata
 
         public Lights ToggleBetween(Coordinate bottomLeft, Coordinate topRight)
         {
-            foreach (var lightPosition in Range.Between(bottomLeft, topRight))
+            foreach (var position in Range.Between(bottomLeft, topRight))
             {
-                var light = _lights[lightPosition.Row, lightPosition.Column];
-
-                if (light.IsTurnedOff())
-                    _lights[lightPosition.Row, lightPosition.Column].TurnOn();
+                if (LightAt(position).IsTurnedOff())
+                    LightAt(position).TurnOn();
                 else
-                    _lights[lightPosition.Row, lightPosition.Column].TurnOff();
+                    LightAt(position).TurnOff();
             }
 
             return this;
+        }
+
+        private Light LightAt(Coordinate lightPosition)
+        {
+            return _lights[lightPosition.Row, lightPosition.Column];
         }
 
         private bool Equals(Lights that)
