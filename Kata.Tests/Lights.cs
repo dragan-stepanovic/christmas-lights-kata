@@ -39,8 +39,9 @@ namespace Kata.Tests
 
             for (var row = bottomLeft.Row; row <= topRight.Row; row++)
             {
-                var columnsBetween = ColumnsBetween(bottomLeft.Column, topRight.Column);
+                var columnsBetween = ColumnsBetween(bottomLeft.Column, topRight.Column).ToList();
                 result.AddRange(columnsBetween.Select(column => Coordinate.At_ToRemove(row, column)));
+                newResult.AddRange(columnsBetween.Select(column => Coordinate.At(row, column)));
             }
 
             return result;
