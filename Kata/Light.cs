@@ -9,11 +9,6 @@ public class Light
         _state = state;
     }
 
-    public bool IsTurnedOff()
-    {
-        return _state == 0;
-    }
-
     public void TurnOn()
     {
         _state = 1;
@@ -22,6 +17,19 @@ public class Light
     public void TurnOff()
     {
         _state = 0;
+    }
+
+    public void Toggle()
+    {
+        if (IsTurnedOff())
+            TurnOn();
+        else
+            TurnOff();
+    }
+
+    private bool IsTurnedOff()
+    {
+        return _state == 0;
     }
 
     public bool DoesNotEqual(Light other)

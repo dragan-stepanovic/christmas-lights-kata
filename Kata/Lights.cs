@@ -37,10 +37,7 @@ namespace Kata
         {
             foreach (var position in Range.Between(bottomLeft, topRight))
             {
-                if (LightAt(position).IsTurnedOff())
-                    LightAt(position).TurnOn();
-                else
-                    LightAt(position).TurnOff();
+                LightAt(position).Toggle();
             }
 
             return this;
