@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Kata;
 
-internal static class Range
+internal static class Coordinates
 {
     public static List<Coordinate> Between(Coordinate bottomLeft, Coordinate topRight)
     {

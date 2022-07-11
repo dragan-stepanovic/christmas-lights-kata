@@ -37,7 +37,7 @@ namespace Kata
 
         private Lights DoActionBetween(Coordinate bottomLeft, Coordinate topRight, Action<Light> action)
         {
-            foreach (var position in Range.Between(bottomLeft, topRight))
+            foreach (var position in Coordinates.Between(bottomLeft, topRight))
                 action.Invoke(LightAt(position));
 
             return this;
