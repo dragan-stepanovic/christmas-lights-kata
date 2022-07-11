@@ -38,10 +38,13 @@ namespace Kata
 
         public Lights ToggleBetween(Coordinate bottomLeft, Coordinate topRight)
         {
-            Action<Light> action = light => light.Toggle();
+            return DoActionBetween(bottomLeft, topRight, light => light.Toggle());
+        }
+
+        private Lights DoActionBetween(Coordinate bottomLeft, Coordinate topRight, Action<Light> action)
+        {
             foreach (var position in Range.Between(bottomLeft, topRight))
                 action.Invoke(LightAt(position));
-            // LightAt(position).Toggle();
 
             return this;
         }
