@@ -63,7 +63,11 @@ namespace Kata.Tests
                     {1, 1, 1, 1},
                     {1, 1, 1, 1}
                 }));
+        }
 
+        [Fact]
+        public void Toggling()
+        {
             new Lights(new[,]
                 {
                     {0, 0, 0, 0},
