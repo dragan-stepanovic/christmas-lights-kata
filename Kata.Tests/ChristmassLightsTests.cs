@@ -9,10 +9,8 @@ namespace Kata.Tests
         [Fact]
         public void TurningOn()
         {
-            Pair<int, int> bottomLeft = Coordinate.ZeroZero_ToRemove();
             Pair<int, int> topRight = Coordinate.At_ToRemove(0, 0);
-            new Lights(new[,] {{0}}).TurnOnBetween(new Coordinate(bottomLeft.First, bottomLeft.Second),
-                    new Coordinate(topRight.First, topRight.Second))
+            new Lights(new[,] {{0}}).TurnOnBetween(Coordinate.ZeroZero, new Coordinate(topRight.First, topRight.Second))
                 .Should()
                 .Be(new Lights(new[,] {{1}}));
             Pair<int, int> bottomLeft1 = Coordinate.ZeroZero_ToRemove();
