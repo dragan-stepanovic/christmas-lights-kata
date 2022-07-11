@@ -33,9 +33,10 @@ namespace Kata
         {
             foreach (var lightPosition in Range.Between(bottomLeft, topRight))
             {
-                new Light(lightPosition, _lights2D[lightPosition.Row, lightPosition.Column]);
+                var lightState = _lights2D[lightPosition.Row, lightPosition.Column];
+                var light = new Light(lightPosition, lightState);
 
-                if (_lights2D[lightPosition.Row, lightPosition.Column] == 0)
+                if (lightState == 0)
                     _lights2D[lightPosition.Row, lightPosition.Column] = 1;
                 else
                     _lights2D[lightPosition.Row, lightPosition.Column] = 0;
