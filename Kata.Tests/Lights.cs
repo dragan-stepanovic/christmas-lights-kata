@@ -34,6 +34,11 @@ namespace Kata.Tests
             return SetValue(bottomLeft, upperRight, 1);
         }
 
+        public Lights TurnOffBetween(Pair<int, int> bottomLeft, Pair<int, int> topRight)
+        {
+            return this;
+        }
+
         private Lights SetValue(Pair<int, int> bottomLeft, Pair<int, int> upperRight, int valueToSet)
         {
             foreach (var position in RangeFrom(bottomLeft, upperRight))
@@ -107,11 +112,6 @@ namespace Kata.Tests
 
             stringBuilder.Remove(stringBuilder.Length - 1, 1);
             return stringBuilder.ToString();
-        }
-
-        public Lights TurnOffBetween(Pair<int, int> bottomLeft, Pair<int, int> topRight)
-        {
-            return this;
         }
     }
 }
