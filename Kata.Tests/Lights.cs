@@ -16,18 +16,19 @@ namespace Kata.Tests
 
         public Lights TurnOnBetween(Pair<int, int> bottomLeft, Pair<int, int> topRight)
         {
-            return SetValue(bottomLeft, topRight, 1);
+            return SetValue(new Coordinate(bottomLeft.First, bottomLeft.Second),
+                new Coordinate(topRight.First, topRight.Second), 1);
         }
 
         public Lights TurnOffBetween(Pair<int, int> bottomLeft, Pair<int, int> topRight)
         {
-            return SetValue(bottomLeft, topRight, 0);
+            return SetValue(new Coordinate(bottomLeft.First, bottomLeft.Second),
+                new Coordinate(topRight.First, topRight.Second), 0);
         }
 
-        private Lights SetValue(Pair<int, int> bottomLeft, Pair<int, int> topRight, int valueToSet)
+        private Lights SetValue(Coordinate bottomLeft, Coordinate topRight, int valueToSet)
         {
-            foreach (var position in RangeBetween(new Coordinate(bottomLeft.First, bottomLeft.Second),
-                         new Coordinate(topRight.First, topRight.Second)))
+            foreach (var position in RangeBetween(bottomLeft, topRight))
                 _lights2D[position.First, position.Second] = valueToSet;
 
             return this;
