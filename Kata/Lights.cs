@@ -36,9 +36,7 @@ namespace Kata
         public Lights ToggleBetween(Coordinate bottomLeft, Coordinate topRight)
         {
             foreach (var position in Range.Between(bottomLeft, topRight))
-            {
                 LightAt(position).Toggle();
-            }
 
             return this;
         }
