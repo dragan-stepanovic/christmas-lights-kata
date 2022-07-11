@@ -37,8 +37,8 @@ namespace Kata.Tests
             var bottomLeftNew = new Coordinate(bottomLeft.First, bottomLeft.Second);
 
             var result = new List<Pair<int, int>>();
-            for (var row = bottomLeft.First; row <= topRight.First; row++)
-                result.AddRange(Enumerable.Range(bottomLeft.Second, topRight.Second - bottomLeft.Second + 1)
+            for (var row = bottomLeftNew.Row; row <= topRight.First; row++)
+                result.AddRange(Enumerable.Range(bottomLeftNew.Column, topRight.Second - bottomLeftNew.Column + 1)
                     .Select(column => Coordinate.At(row, column)));
 
             return result;

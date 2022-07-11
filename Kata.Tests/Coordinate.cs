@@ -4,14 +4,14 @@ namespace Kata.Tests;
 
 internal class Coordinate
 {
-    private readonly int _column;
-    private readonly int _row;
-
     public Coordinate(int row, int column)
     {
-        _row = row;
-        _column = column;
+        Row = row;
+        Column = column;
     }
+
+    public int Column { get; }
+    public int Row { get; }
 
     public static Pair<int, int> At(int first, int second)
     {
