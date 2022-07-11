@@ -15,11 +15,11 @@ namespace Kata
 
         private void ArrayOfLightsFrom(int[,] lights)
         {
-            var test = Coordinates.Between(Coordinate.ZeroZero,
+            var coordinates = Coordinates.Between(Coordinate.ZeroZero,
                 Coordinate.At(NumberOfRows(lights) - 1, NumberOfColumns(lights) - 1));
 
             _lights = new Light[NumberOfRows(lights), NumberOfColumns(lights)];
-            test.ToList().ForEach(c => _lights[c.Row, c.Column] = new Light(lights[c.Row, c.Column]));
+            coordinates.ToList().ForEach(c => _lights[c.Row, c.Column] = new Light(lights[c.Row, c.Column]));
         }
 
         private static int NumberOfColumns(int[,] lights)
