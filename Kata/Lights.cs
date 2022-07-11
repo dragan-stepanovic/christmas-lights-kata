@@ -84,16 +84,16 @@ namespace Kata
 
         public override int GetHashCode()
         {
-            return _lights2D != null ? _lights2D.GetHashCode() : 0;
+            return _newLights2D != null ? _newLights2D.GetHashCode() : 0;
         }
 
         public override string ToString()
         {
             var stringBuilder = new StringBuilder("");
-            for (var i = 0; i < _lights2D.GetLength(0); i++)
+            for (var i = 0; i < _newLights2D.GetLength(0); i++)
             {
-                for (var j = 0; j < _lights2D.GetLength(1); j++)
-                    stringBuilder.Append(_lights2D[i, j] + ", ");
+                for (var j = 0; j < _newLights2D.GetLength(1); j++)
+                    stringBuilder.Append(_newLights2D[i, j] + ", ");
 
                 stringBuilder.Remove(stringBuilder.Length - 2, 2);
                 stringBuilder.Append('\n');
@@ -131,6 +131,11 @@ namespace Kata
         public bool DoesNotEqual(Light other)
         {
             return _state != other._state;
+        }
+
+        public override string ToString()
+        {
+            return _state.ToString();
         }
     }
 }
