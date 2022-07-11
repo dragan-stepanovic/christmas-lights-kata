@@ -23,18 +23,16 @@ namespace Kata
 
         public Lights TurnOnBetween(Coordinate bottomLeft, Coordinate topRight)
         {
-            return SetValue(bottomLeft, topRight, 1);
+            foreach (var position in Range.Between(bottomLeft, topRight))
+                _lights2D[position.Row, position.Column] = 1;
+
+            return this;
         }
 
         public Lights TurnOffBetween(Coordinate bottomLeft, Coordinate topRight)
         {
-            return SetValue(bottomLeft, topRight, 0);
-        }
-
-        private Lights SetValue(Coordinate bottomLeft, Coordinate topRight, int valueToSet)
-        {
             foreach (var position in Range.Between(bottomLeft, topRight))
-                _lights2D[position.Row, position.Column] = valueToSet;
+                _lights2D[position.Row, position.Column] = 0;
 
             return this;
         }
