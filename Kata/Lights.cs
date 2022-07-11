@@ -15,8 +15,13 @@ namespace Kata
 
         private void LightsGridFrom(int[,] lights)
         {
-            _grid = new Light[NumberOfRows(lights), NumberOfColumns(lights)];
+            _grid = SizeAs(lights);
             AllCoordinatesIn(lights).ForEach(c => _grid[c.Row, c.Column] = new Light(lights[c.Row, c.Column]));
+        }
+
+        private static Light[,] SizeAs(int[,] lights)
+        {
+            return new Light[NumberOfRows(lights), NumberOfColumns(lights)];
         }
 
         private static List<Coordinate> AllCoordinatesIn(int[,] lights)
