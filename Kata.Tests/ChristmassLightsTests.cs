@@ -1,4 +1,3 @@
-using Castle.Core;
 using FluentAssertions;
 using Xunit;
 
@@ -80,15 +79,12 @@ namespace Kata.Tests
                     {1, 0, 0, 0}
                 }));
 
-            Pair<int, int> bottomLeft1 = Coordinate.ZeroZero();
-            Pair<int, int> topRight1 = Coordinate.At_ToRemove(2, 3);
             new Lights(new[,]
                 {
                     {0, 0, 1, 0},
                     {1, 1, 0, 1},
                     {1, 1, 0, 1}
-                }).TurnOffBetween(Coordinate.At(bottomLeft1.First, bottomLeft1.Second),
-                    Coordinate.At(topRight1.First, topRight1.Second))
+                }).TurnOffBetween(Coordinate.At(0, 0), Coordinate.At(2, 3))
                 .Should().Be(new Lights(new[,]
                 {
                     {0, 0, 0, 0},
