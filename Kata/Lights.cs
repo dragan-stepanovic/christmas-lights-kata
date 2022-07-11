@@ -68,7 +68,7 @@ namespace Kata
         {
             for (var i = 0; i < _lights2D.GetLength(0); i++)
             for (var j = 0; j < _lights2D.GetLength(1); j++)
-                if (_lights2D[i, j] != that._lights2D[i, j])
+                if (_newLights2D[i, j].DoesNotEqual(that._newLights2D[i, j]))
                     return false;
 
             return true;
@@ -126,6 +126,11 @@ namespace Kata
         public void TurnOff()
         {
             _state = 0;
+        }
+
+        public bool DoesNotEqual(Light other)
+        {
+            return _state != other._state;
         }
     }
 }
