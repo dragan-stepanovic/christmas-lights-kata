@@ -33,10 +33,9 @@ namespace Kata
         {
             foreach (var lightPosition in Range.Between(bottomLeft, topRight))
             {
-                var lightState = _lights2D[lightPosition.Row, lightPosition.Column];
-                var light = new Light(lightPosition, lightState);
+                var light = new Light(_lights2D[lightPosition.Row, lightPosition.Column]);
 
-                if (lightState == 0)
+                if (light.IsTurnedOff())
                     _lights2D[lightPosition.Row, lightPosition.Column] = 1;
                 else
                     _lights2D[lightPosition.Row, lightPosition.Column] = 0;
@@ -87,8 +86,16 @@ namespace Kata
 
     public class Light
     {
-        public Light(Coordinate coordinate, int state)
+        private readonly int _state;
+
+        public Light(int state)
         {
+            _state = state;
+        }
+
+        public bool IsTurnedOff()
+        {
+            return _state == 0;
         }
     }
 }
