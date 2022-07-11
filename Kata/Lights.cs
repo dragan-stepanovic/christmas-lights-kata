@@ -5,12 +5,16 @@ namespace Kata
     public class Lights
     {
         private readonly int[,] _lights2D;
-        private readonly Light[,] _newLights2D;
+        private Light[,] _newLights2D;
 
         public Lights(int[,] lights2D)
         {
             _lights2D = lights2D;
+            CreateArrayOfLightsFrom(lights2D);
+        }
 
+        private void CreateArrayOfLightsFrom(int[,] lights2D)
+        {
             _newLights2D = new Light[lights2D.GetLength(0), lights2D.GetLength(1)];
             for (var row = 0; row < lights2D.GetLength(0); row++)
             for (var column = 0; column < lights2D.GetLength(1); column++)
