@@ -27,4 +27,9 @@ public class Coordinate
     {
         return new Pair<int, int>(first, second);
     }
+
+    public static Coordinate ZeroZero()
+    {
+        return Coordinate.At(0, 0);
+    }
 }
