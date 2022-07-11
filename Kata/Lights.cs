@@ -24,10 +24,7 @@ namespace Kata
         public Lights TurnOnBetween(Coordinate bottomLeft, Coordinate topRight)
         {
             foreach (var position in Range.Between(bottomLeft, topRight))
-            {
-                _lights2D[position.Row, position.Column] = 1;
                 _newLights2D[position.Row, position.Column].TurnOn();
-            }
 
             return this;
         }
@@ -35,10 +32,7 @@ namespace Kata
         public Lights TurnOffBetween(Coordinate bottomLeft, Coordinate topRight)
         {
             foreach (var position in Range.Between(bottomLeft, topRight))
-            {
-                _lights2D[position.Row, position.Column] = 0;
                 _newLights2D[position.Row, position.Column].TurnOff();
-            }
 
             return this;
         }
@@ -50,15 +44,9 @@ namespace Kata
                 var light = _newLights2D[lightPosition.Row, lightPosition.Column];
 
                 if (light.IsTurnedOff())
-                {
-                    _lights2D[lightPosition.Row, lightPosition.Column] = 1;
                     _newLights2D[lightPosition.Row, lightPosition.Column].TurnOn();
-                }
                 else
-                {
-                    _lights2D[lightPosition.Row, lightPosition.Column] = 0;
                     _newLights2D[lightPosition.Row, lightPosition.Column].TurnOff();
-                }
             }
 
             return this;
@@ -66,8 +54,8 @@ namespace Kata
 
         private bool Equals(Lights that)
         {
-            for (var i = 0; i < _lights2D.GetLength(0); i++)
-            for (var j = 0; j < _lights2D.GetLength(1); j++)
+            for (var i = 0; i < _newLights2D.GetLength(0); i++)
+            for (var j = 0; j < _newLights2D.GetLength(1); j++)
                 if (_newLights2D[i, j].DoesNotEqual(that._newLights2D[i, j]))
                     return false;
 
