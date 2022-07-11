@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Text;
 
 namespace Kata
@@ -7,17 +8,30 @@ namespace Kata
     {
         private Light[,] _lights;
 
-        public Lights(int[,] lights2D)
+        public Lights(int[,] lights)
         {
-            ArrayOfLightsFrom(lights2D);
+            ArrayOfLightsFrom(lights);
         }
 
-        private void ArrayOfLightsFrom(int[,] lights2D)
+        private void ArrayOfLightsFrom(int[,] lights)
         {
-            _lights = new Light[lights2D.GetLength(0), lights2D.GetLength(1)];
-            for (var row = 0; row < lights2D.GetLength(0); row++)
-            for (var column = 0; column < lights2D.GetLength(1); column++)
-                _lights[row, column] = new Light(lights2D[row, column]);
+            _lights = new Light[NumberOfRows(lights), NumberOfColumns(lights)];
+            var coordinates =
+                from row in Enumerable.Range(0, NumberOfRows(lights))
+                from column in Enumerable.Range(0, NumberOfColumns(lights))
+                select Coordinate.At(row, column);
+
+            coordinates.ToList().ForEach(c => _lights[c.Row, c.Column] = new Light(lights[c.Row, c.Column]));
+        }
+
+        private static int NumberOfColumns(int[,] lights)
+        {
+            return lights.GetLength(1);
+        }
+
+        private static int NumberOfRows(int[,] lights)
+        {
+            return lights.GetLength(0);
         }
 
         public Lights TurnOnBetween(Coordinate bottomLeft, Coordinate topRight)
