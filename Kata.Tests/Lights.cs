@@ -42,9 +42,9 @@ namespace Kata.Tests
             return result;
         }
 
-        public Lights ToggleBetween(Pair<int, int> bottomLeft, Pair<int, int> topRight)
+        public Lights ToggleBetween(Coordinate bottomLeft, Pair<int, int> topRight)
         {
-            foreach (var lightPosition in RangeBetween(new Coordinate(bottomLeft.First, bottomLeft.Second),
+            foreach (var lightPosition in RangeBetween(bottomLeft,
                          new Coordinate(topRight.First, topRight.Second)))
             {
                 if (_lights2D[lightPosition.First, lightPosition.Second] == 0)

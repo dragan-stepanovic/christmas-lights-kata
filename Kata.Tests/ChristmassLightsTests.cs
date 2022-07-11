@@ -1,3 +1,4 @@
+using Castle.Core;
 using FluentAssertions;
 using Xunit;
 
@@ -99,12 +100,13 @@ namespace Kata.Tests
         [Fact]
         public void Toggling()
         {
+            Pair<int, int> bottomLeft = Coordinate.At_ToRemove(1, 1);
             new Lights(new[,]
                 {
                     {0, 0, 0, 0},
                     {0, 1, 0, 1},
                     {1, 1, 0, 0}
-                }).ToggleBetween(Coordinate.At_ToRemove(1, 1), Coordinate.At_ToRemove(2, 3))
+                }).ToggleBetween(new Coordinate(bottomLeft.First, bottomLeft.Second), Coordinate.At_ToRemove(2, 3))
                 .Should().Be(new Lights(new[,]
                 {
                     {0, 0, 0, 0},
