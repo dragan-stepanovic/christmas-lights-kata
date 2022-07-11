@@ -1,5 +1,3 @@
-using Castle.Core;
-
 namespace Kata.Tests;
 
 public class Coordinate
@@ -18,10 +16,5 @@ public class Coordinate
     public static Coordinate At(int row, int column)
     {
         return new Coordinate(row, column);
-    }
-
-    public static Pair<int, int> At_ToRemove(int first, int second)
-    {
-        return new Pair<int, int>(first, second);
     }
 }
