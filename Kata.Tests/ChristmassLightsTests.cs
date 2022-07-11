@@ -67,14 +67,13 @@ namespace Kata.Tests
         [Fact]
         public void TurningOff()
         {
-            Pair<int, int> bottomLeft = Coordinate.At_ToRemove(1, 1);
             Pair<int, int> topRight = Coordinate.At_ToRemove(2, 3);
             new Lights(new[,]
                 {
                     {0, 0, 0, 0},
                     {0, 1, 0, 1},
                     {1, 1, 0, 0}
-                }).TurnOffBetween(Coordinate.At(bottomLeft.First, bottomLeft.Second),
+                }).TurnOffBetween(Coordinate.At(1, 1),
                     Coordinate.At(topRight.First, topRight.Second))
                 .Should().Be(new Lights(new[,]
                 {
