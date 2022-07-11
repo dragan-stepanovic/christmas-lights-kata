@@ -42,7 +42,10 @@ namespace Kata
                 var light = new Light(_lights2D[lightPosition.Row, lightPosition.Column]);
 
                 if (light.IsTurnedOff())
+                {
                     _lights2D[lightPosition.Row, lightPosition.Column] = 1;
+                    _newLights2D[lightPosition.Row, lightPosition.Column].TurnOn();
+                }
                 else
                     _lights2D[lightPosition.Row, lightPosition.Column] = 0;
             }
@@ -92,7 +95,7 @@ namespace Kata
 
     public class Light
     {
-        private readonly int _state;
+        private int _state;
 
         public Light(int state)
         {
@@ -102,6 +105,11 @@ namespace Kata
         public bool IsTurnedOff()
         {
             return _state == 0;
+        }
+
+        public void TurnOn()
+        {
+            _state = 1;
         }
     }
 }
