@@ -36,7 +36,7 @@ namespace Kata.Tests
 
         public Lights TurnOffBetween(Pair<int, int> bottomLeft, Pair<int, int> topRight)
         {
-            return this;
+            return SetValue(bottomLeft, topRight, 0);
         }
 
         private Lights SetValue(Pair<int, int> bottomLeft, Pair<int, int> topRight, int valueToSet)
