@@ -66,6 +66,23 @@ namespace Kata.Tests
         }
 
         [Fact]
+        public void TurningOff()
+        {
+            new Lights(new[,]
+                {
+                    {0, 0, 0, 0},
+                    {0, 1, 0, 1},
+                    {1, 1, 0, 0}
+                }).TurnOffBetween(Coordinate(1, 1), Coordinate(2, 3))
+                .Should().Be(new Lights(new[,]
+                {
+                    {0, 0, 0, 0},
+                    {0, 0, 0, 0},
+                    {1, 0, 0, 0}
+                }));
+        }
+
+        [Fact]
         public void Toggling()
         {
             new Lights(new[,]

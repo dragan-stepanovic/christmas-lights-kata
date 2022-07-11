@@ -108,5 +108,10 @@ namespace Kata.Tests
             stringBuilder.Remove(stringBuilder.Length - 1, 1);
             return stringBuilder.ToString();
         }
+
+        public Lights TurnOffBetween(Pair<int, int> bottomLeft, Pair<int, int> topRight)
+        {
+            return this;
+        }
     }
 }
