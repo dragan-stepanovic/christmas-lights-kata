@@ -18,14 +18,11 @@ namespace Kata.Tests
             new Lights(new[,] {{0, 0, 0}}).TurnOnBetween(Coordinate.ZeroZero, Coordinate.At(0, 2))
                 .Should().Be(new Lights(new[,] {{1, 1, 1}}));
 
-            Pair<int, int> bottomLeft3 = Coordinate.ZeroZero_ToRemove();
-            Pair<int, int> topRight3 = Coordinate.At_ToRemove(1, 1);
             new Lights(new[,]
                 {
                     {0, 0, 0},
                     {0, 1, 0}
-                }).TurnOnBetween(new Coordinate(bottomLeft3.First, bottomLeft3.Second),
-                    new Coordinate(topRight3.First, topRight3.Second))
+                }).TurnOnBetween(Coordinate.ZeroZero, Coordinate.At(1, 1))
                 .Should().Be(new Lights(new[,]
                 {
                     {1, 1, 0},
