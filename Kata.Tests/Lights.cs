@@ -27,12 +27,12 @@ namespace Kata.Tests
         private Lights SetValue(Coordinate bottomLeft, Coordinate topRight, int valueToSet)
         {
             foreach (var position in RangeBetween(bottomLeft, topRight))
-                _lights2D[position.First, position.Second] = valueToSet;
+                _lights2D[position.Row, position.Column] = valueToSet;
 
             return this;
         }
 
-        private static List<Pair<int, int>> RangeBetween(Coordinate bottomLeft, Coordinate topRight)
+        private static List<Coordinate> RangeBetween(Coordinate bottomLeft, Coordinate topRight)
         {
             var result = new List<Pair<int, int>>();
             var newResult = new List<Coordinate>();
@@ -44,7 +44,7 @@ namespace Kata.Tests
                 newResult.AddRange(columnsBetween.Select(column => Coordinate.At(row, column)));
             }
 
-            return result;
+            return newResult;
         }
 
         private static IEnumerable<int> ColumnsBetween(int leftColumn, int rightColumn)
@@ -56,10 +56,10 @@ namespace Kata.Tests
         {
             foreach (var lightPosition in RangeBetween(bottomLeft, topRight))
             {
-                if (_lights2D[lightPosition.First, lightPosition.Second] == 0)
-                    _lights2D[lightPosition.First, lightPosition.Second] = 1;
+                if (_lights2D[lightPosition.Row, lightPosition.Column] == 0)
+                    _lights2D[lightPosition.Row, lightPosition.Column] = 1;
                 else
-                    _lights2D[lightPosition.First, lightPosition.Second] = 0;
+                    _lights2D[lightPosition.Row, lightPosition.Column] = 0;
             }
 
             return this;
