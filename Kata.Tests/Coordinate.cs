@@ -6,4 +6,9 @@ static internal class Coordinate
     {
         return new Pair<int, int>(first, second);
     }
+
+    public static Pair<int, int> ZeroZero()
+    {
+        return Coordinate.At(0, 0);
+    }
 }

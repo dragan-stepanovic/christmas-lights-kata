@@ -14,11 +14,6 @@ namespace Kata.Tests
             _lights2D = lights2D;
         }
 
-        public static Pair<int, int> ZeroZero()
-        {
-            return Coordinate.At(0, 0);
-        }
-
         public Lights TurnOnBetween(Pair<int, int> bottomLeft, Pair<int, int> topRight)
         {
             return SetValue(bottomLeft, topRight, 1);
