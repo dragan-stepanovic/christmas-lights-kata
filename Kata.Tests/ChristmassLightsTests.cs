@@ -29,14 +29,11 @@ namespace Kata.Tests
                     {1, 1, 0}
                 }));
 
-            Pair<int, int> bottomLeft4 = Coordinate.ZeroZero_ToRemove();
-            Pair<int, int> topRight4 = Coordinate.At_ToRemove(1, 2);
             new Lights(new[,]
                 {
                     {0, 0, 0},
                     {0, 1, 0}
-                }).TurnOnBetween(new Coordinate(bottomLeft4.First, bottomLeft4.Second),
-                    new Coordinate(topRight4.First, topRight4.Second))
+                }).TurnOnBetween(Coordinate.ZeroZero, Coordinate.At(1, 2))
                 .Should().Be(new Lights(new[,]
                 {
                     {1, 1, 1},
