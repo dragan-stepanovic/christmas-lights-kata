@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Castle.Core;
 
 namespace Kata.Tests
 {
@@ -34,17 +33,13 @@ namespace Kata.Tests
 
         private static List<Coordinate> RangeBetween(Coordinate bottomLeft, Coordinate topRight)
         {
-            var result = new List<Pair<int, int>>();
-            var newResult = new List<Coordinate>();
+            var range = new List<Coordinate>();
 
             for (var row = bottomLeft.Row; row <= topRight.Row; row++)
-            {
-                var columnsBetween = ColumnsBetween(bottomLeft.Column, topRight.Column).ToList();
-                result.AddRange(columnsBetween.Select(column => Coordinate.At_ToRemove(row, column)));
-                newResult.AddRange(columnsBetween.Select(column => Coordinate.At(row, column)));
-            }
+                range.AddRange(ColumnsBetween(bottomLeft.Column, topRight.Column)
+                    .Select(column => Coordinate.At(row, column)));
 
-            return newResult;
+            return range;
         }
 
         private static IEnumerable<int> ColumnsBetween(int leftColumn, int rightColumn)
