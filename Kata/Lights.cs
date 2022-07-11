@@ -48,9 +48,9 @@ namespace Kata
             return this;
         }
 
-        private Light LightAt(Coordinate lightPosition)
+        private Light LightAt(Coordinate position)
         {
-            return _lights[lightPosition.Row, lightPosition.Column];
+            return _lights[position.Row, position.Column];
         }
 
         private bool Equals(Lights that)
