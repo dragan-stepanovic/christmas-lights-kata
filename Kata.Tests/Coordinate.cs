@@ -18,6 +18,11 @@ public class Coordinate
         return new Coordinate(row, column);
     }
 
+    public static Coordinate ZeroZero()
+    {
+        return At(0, 0);
+    }
+
     public static Pair<int, int> ZeroZero_ToRemove()
     {
         return At_ToRemove(0, 0);
@@ -26,10 +31,5 @@ public class Coordinate
     public static Pair<int, int> At_ToRemove(int first, int second)
     {
         return new Pair<int, int>(first, second);
-    }
-
-    public static Coordinate ZeroZero()
-    {
-        return At(0, 0);
     }
 }
