@@ -68,12 +68,14 @@ namespace Kata.Tests
         public void TurningOff()
         {
             Pair<int, int> bottomLeft = Coordinate.At_ToRemove(1, 1);
+            Pair<int, int> topRight = Coordinate.At_ToRemove(2, 3);
             new Lights(new[,]
                 {
                     {0, 0, 0, 0},
                     {0, 1, 0, 1},
                     {1, 1, 0, 0}
-                }).TurnOffBetween(Coordinate.At_ToRemove(2, 3), Coordinate.At(bottomLeft.First, bottomLeft.Second))
+                }).TurnOffBetween(Coordinate.At(bottomLeft.First, bottomLeft.Second),
+                    Coordinate.At(topRight.First, topRight.Second))
                 .Should().Be(new Lights(new[,]
                 {
                     {0, 0, 0, 0},
@@ -82,12 +84,14 @@ namespace Kata.Tests
                 }));
 
             Pair<int, int> bottomLeft1 = Coordinate.ZeroZero();
+            Pair<int, int> topRight1 = Coordinate.At_ToRemove(2, 3);
             new Lights(new[,]
                 {
                     {0, 0, 1, 0},
                     {1, 1, 0, 1},
                     {1, 1, 0, 1}
-                }).TurnOffBetween(Coordinate.At_ToRemove(2, 3), Coordinate.At(bottomLeft1.First, bottomLeft1.Second))
+                }).TurnOffBetween(Coordinate.At(bottomLeft1.First, bottomLeft1.Second),
+                    Coordinate.At(topRight1.First, topRight1.Second))
                 .Should().Be(new Lights(new[,]
                 {
                     {0, 0, 0, 0},

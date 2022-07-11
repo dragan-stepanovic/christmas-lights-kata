@@ -20,9 +20,9 @@ namespace Kata.Tests
                 new Coordinate(topRight.First, topRight.Second), 1);
         }
 
-        public Lights TurnOffBetween(Pair<int, int> topRight, Coordinate bottomLeft)
+        public Lights TurnOffBetween(Coordinate bottomLeft, Coordinate topRight)
         {
-            return SetValue(bottomLeft, Coordinate.At(topRight.First, topRight.Second), 0);
+            return SetValue(bottomLeft, topRight, 0);
         }
 
         private Lights SetValue(Coordinate bottomLeft, Coordinate topRight, int valueToSet)
