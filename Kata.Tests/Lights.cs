@@ -16,12 +16,7 @@ namespace Kata.Tests
 
         public static Pair<int, int> ZeroZero()
         {
-            return Coordinate(0, 0);
-        }
-
-        private static Pair<int, int> Coordinate(int first, int second)
-        {
-            return new Pair<int, int>(first, second);
+            return Coordinate.At(0, 0);
         }
 
         public Lights TurnOnBetween(Pair<int, int> bottomLeft, Pair<int, int> topRight)
@@ -47,7 +42,7 @@ namespace Kata.Tests
             var result = new List<Pair<int, int>>();
             for (var row = bottomLeft.First; row <= topRight.First; row++)
                 result.AddRange(Enumerable.Range(bottomLeft.Second, topRight.Second - bottomLeft.Second + 1)
-                    .Select(column => Coordinate(row, column)));
+                    .Select(column => Coordinate.At(row, column)));
 
             return result;
         }
@@ -67,7 +62,7 @@ namespace Kata.Tests
 
         private static Pair<int, int> TopRightOf(int[,] lights2D)
         {
-            return Coordinate(lights2D.GetLength(0) - 1, lights2D.GetLength(1) - 1);
+            return Coordinate.At(lights2D.GetLength(0) - 1, lights2D.GetLength(1) - 1);
         }
 
         private bool Equals(Lights that)
