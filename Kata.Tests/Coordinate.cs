@@ -30,6 +30,6 @@ public class Coordinate
 
     public static Coordinate ZeroZero()
     {
-        return Coordinate.At(0, 0);
+        return At(0, 0);
     }
 }
