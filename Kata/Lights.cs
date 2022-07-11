@@ -20,7 +20,6 @@ namespace Kata
                 from row in Enumerable.Range(0, NumberOfRows(lights))
                 from column in Enumerable.Range(0, NumberOfColumns(lights))
                 select Coordinate.At(row, column);
-
             coordinates.ToList().ForEach(c => _lights[c.Row, c.Column] = new Light(lights[c.Row, c.Column]));
         }
 
