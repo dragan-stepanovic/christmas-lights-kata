@@ -8,17 +8,20 @@ namespace Kata.Tests
         [Fact]
         public void TurningOn()
         {
-            new Lights(new[,] {{0}}).TurnOnBetween(Coordinate.ZeroZero(), Coordinate.At_ToRemove(0, 0)).Should()
+            new Lights(new[,] {{0}}).TurnOnBetween(Coordinate.ZeroZero_ToRemove(), Coordinate.At_ToRemove(0, 0))
+                .Should()
                 .Be(new Lights(new[,] {{1}}));
-            new Lights(new[,] {{0, 0}}).TurnOnBetween(Coordinate.ZeroZero(), Coordinate.At_ToRemove(0, 1)).Should()
+            new Lights(new[,] {{0, 0}}).TurnOnBetween(Coordinate.ZeroZero_ToRemove(), Coordinate.At_ToRemove(0, 1))
+                .Should()
                 .Be(new Lights(new[,] {{1, 1}}));
-            new Lights(new[,] {{0, 0, 0}}).TurnOnBetween(Coordinate.ZeroZero(), Coordinate.At_ToRemove(0, 2)).Should()
+            new Lights(new[,] {{0, 0, 0}}).TurnOnBetween(Coordinate.ZeroZero_ToRemove(), Coordinate.At_ToRemove(0, 2))
+                .Should()
                 .Be(new Lights(new[,] {{1, 1, 1}}));
             new Lights(new[,]
                 {
                     {0, 0, 0},
                     {0, 1, 0}
-                }).TurnOnBetween(Coordinate.ZeroZero(), Coordinate.At_ToRemove(1, 1))
+                }).TurnOnBetween(Coordinate.ZeroZero_ToRemove(), Coordinate.At_ToRemove(1, 1))
                 .Should().Be(new Lights(new[,]
                 {
                     {1, 1, 0},
@@ -29,7 +32,7 @@ namespace Kata.Tests
                 {
                     {0, 0, 0},
                     {0, 1, 0}
-                }).TurnOnBetween(Coordinate.ZeroZero(), Coordinate.At_ToRemove(1, 2))
+                }).TurnOnBetween(Coordinate.ZeroZero_ToRemove(), Coordinate.At_ToRemove(1, 2))
                 .Should().Be(new Lights(new[,]
                 {
                     {1, 1, 1},
@@ -41,7 +44,7 @@ namespace Kata.Tests
                     {0, 0, 0},
                     {0, 1, 0},
                     {1, 1, 0}
-                }).TurnOnBetween(Coordinate.ZeroZero(), Coordinate.At_ToRemove(2, 1))
+                }).TurnOnBetween(Coordinate.ZeroZero_ToRemove(), Coordinate.At_ToRemove(2, 1))
                 .Should().Be(new Lights(new[,]
                 {
                     {1, 1, 0},
@@ -54,7 +57,7 @@ namespace Kata.Tests
                     {0, 0, 0, 0},
                     {0, 1, 0, 1},
                     {1, 1, 0, 0}
-                }).TurnOnBetween(Coordinate.ZeroZero(), Coordinate.At_ToRemove(2, 3))
+                }).TurnOnBetween(Coordinate.ZeroZero_ToRemove(), Coordinate.At_ToRemove(2, 3))
                 .Should().Be(new Lights(new[,]
                 {
                     {1, 1, 1, 1},

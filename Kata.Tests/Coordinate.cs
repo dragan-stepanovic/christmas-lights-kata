@@ -18,7 +18,7 @@ public class Coordinate
         return new Coordinate(row, column);
     }
 
-    public static Pair<int, int> ZeroZero()
+    public static Pair<int, int> ZeroZero_ToRemove()
     {
         return At_ToRemove(0, 0);
     }
