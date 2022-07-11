@@ -26,14 +26,14 @@ namespace Kata.Tests
 
         private Lights SetValue(Pair<int, int> bottomLeft, Pair<int, int> topRight, int valueToSet)
         {
-            foreach (var position in RangeFrom(new Coordinate(bottomLeft.First, bottomLeft.Second),
+            foreach (var position in RangeBetween(new Coordinate(bottomLeft.First, bottomLeft.Second),
                          new Coordinate(topRight.First, topRight.Second)))
                 _lights2D[position.First, position.Second] = valueToSet;
 
             return this;
         }
 
-        private static List<Pair<int, int>> RangeFrom(Coordinate bottomLeft, Coordinate topRight)
+        private static List<Pair<int, int>> RangeBetween(Coordinate bottomLeft, Coordinate topRight)
         {
             var result = new List<Pair<int, int>>();
 
@@ -46,7 +46,7 @@ namespace Kata.Tests
 
         public Lights ToggleBetween(Pair<int, int> bottomLeft, Pair<int, int> topRight)
         {
-            foreach (var lightPosition in RangeFrom(new Coordinate(bottomLeft.First, bottomLeft.Second),
+            foreach (var lightPosition in RangeBetween(new Coordinate(bottomLeft.First, bottomLeft.Second),
                          new Coordinate(topRight.First, topRight.Second)))
             {
                 if (_lights2D[lightPosition.First, lightPosition.Second] == 0)
