@@ -4,27 +4,25 @@ namespace Kata
 {
     public class Lights
     {
-        private readonly int[,] _lights2D;
-        private Light[,] _newLights2D;
+        private Light[,] _lights;
 
         public Lights(int[,] lights2D)
         {
-            _lights2D = lights2D;
             CreateArrayOfLightsFrom(lights2D);
         }
 
         private void CreateArrayOfLightsFrom(int[,] lights2D)
         {
-            _newLights2D = new Light[lights2D.GetLength(0), lights2D.GetLength(1)];
+            _lights = new Light[lights2D.GetLength(0), lights2D.GetLength(1)];
             for (var row = 0; row < lights2D.GetLength(0); row++)
             for (var column = 0; column < lights2D.GetLength(1); column++)
-                _newLights2D[row, column] = new Light(lights2D[row, column]);
+                _lights[row, column] = new Light(lights2D[row, column]);
         }
 
         public Lights TurnOnBetween(Coordinate bottomLeft, Coordinate topRight)
         {
             foreach (var position in Range.Between(bottomLeft, topRight))
-                _newLights2D[position.Row, position.Column].TurnOn();
+                _lights[position.Row, position.Column].TurnOn();
 
             return this;
         }
@@ -32,7 +30,7 @@ namespace Kata
         public Lights TurnOffBetween(Coordinate bottomLeft, Coordinate topRight)
         {
             foreach (var position in Range.Between(bottomLeft, topRight))
-                _newLights2D[position.Row, position.Column].TurnOff();
+                _lights[position.Row, position.Column].TurnOff();
 
             return this;
         }
@@ -41,12 +39,12 @@ namespace Kata
         {
             foreach (var lightPosition in Range.Between(bottomLeft, topRight))
             {
-                var light = _newLights2D[lightPosition.Row, lightPosition.Column];
+                var light = _lights[lightPosition.Row, lightPosition.Column];
 
                 if (light.IsTurnedOff())
-                    _newLights2D[lightPosition.Row, lightPosition.Column].TurnOn();
+                    _lights[lightPosition.Row, lightPosition.Column].TurnOn();
                 else
-                    _newLights2D[lightPosition.Row, lightPosition.Column].TurnOff();
+                    _lights[lightPosition.Row, lightPosition.Column].TurnOff();
             }
 
             return this;
@@ -54,9 +52,9 @@ namespace Kata
 
         private bool Equals(Lights that)
         {
-            for (var i = 0; i < _newLights2D.GetLength(0); i++)
-            for (var j = 0; j < _newLights2D.GetLength(1); j++)
-                if (_newLights2D[i, j].DoesNotEqual(that._newLights2D[i, j]))
+            for (var i = 0; i < _lights.GetLength(0); i++)
+            for (var j = 0; j < _lights.GetLength(1); j++)
+                if (_lights[i, j].DoesNotEqual(that._lights[i, j]))
                     return false;
 
             return true;
@@ -72,16 +70,16 @@ namespace Kata
 
         public override int GetHashCode()
         {
-            return _newLights2D != null ? _newLights2D.GetHashCode() : 0;
+            return _lights != null ? _lights.GetHashCode() : 0;
         }
 
         public override string ToString()
         {
             var stringBuilder = new StringBuilder("");
-            for (var i = 0; i < _newLights2D.GetLength(0); i++)
+            for (var i = 0; i < _lights.GetLength(0); i++)
             {
-                for (var j = 0; j < _newLights2D.GetLength(1); j++)
-                    stringBuilder.Append(_newLights2D[i, j] + ", ");
+                for (var j = 0; j < _lights.GetLength(1); j++)
+                    stringBuilder.Append(_lights[i, j] + ", ");
 
                 stringBuilder.Remove(stringBuilder.Length - 2, 2);
                 stringBuilder.Append('\n');
