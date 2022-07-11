@@ -4,6 +4,8 @@ namespace Kata.Tests;
 
 public class Coordinate
 {
+    public static readonly Coordinate ZeroZero = new(0, 0);
+
     public Coordinate(int row, int column)
     {
         Row = row;
@@ -16,11 +18,6 @@ public class Coordinate
     public static Coordinate At(int row, int column)
     {
         return new Coordinate(row, column);
-    }
-
-    public static Coordinate ZeroZero()
-    {
-        return At(0, 0);
     }
 
     public static Pair<int, int> ZeroZero_ToRemove()

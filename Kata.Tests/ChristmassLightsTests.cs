@@ -87,7 +87,7 @@ namespace Kata.Tests
                     {0, 0, 1, 0},
                     {1, 1, 0, 1},
                     {1, 1, 0, 1}
-                }).TurnOffBetween(Coordinate.ZeroZero(), Coordinate.At(2, 3))
+                }).TurnOffBetween(Coordinate.ZeroZero, Coordinate.At(2, 3))
                 .Should().Be(new Lights(new[,]
                 {
                     {0, 0, 0, 0},
