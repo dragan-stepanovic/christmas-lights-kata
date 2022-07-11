@@ -30,10 +30,7 @@ namespace Kata
 
         public Lights TurnOffBetween(Coordinate bottomLeft, Coordinate topRight)
         {
-            foreach (var position in Range.Between(bottomLeft, topRight))
-                LightAt(position).TurnOff();
-
-            return this;
+            return DoActionBetween(bottomLeft, topRight, light => light.TurnOff());
         }
 
         public Lights ToggleBetween(Coordinate bottomLeft, Coordinate topRight)
